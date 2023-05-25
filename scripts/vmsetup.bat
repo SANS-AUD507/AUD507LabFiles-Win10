@@ -1,6 +1,7 @@
 echo Updating lab file repo
 cd c:\users\student\aud507-labs
 git pull
+cd scripts
 
 pwsh c:\users\student\aud507-labs\scripts\termLink.ps1
 c:\tools\syspin.exe "C:\Program Files\Mozilla Firefox\firefox.exe" "Pin to taskbar"
