@@ -15,9 +15,7 @@ mkdir c:\tools\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft
 mkdir c:\tools\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
 copy /y c:\tools\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
 
-echo Copying Firefox policies File
-mkdir "c:\Program Files\Mozilla Firefox\distribution"
-copy /y C:\Users\student\AUD507-Labs\scripts\policies.json "c:\Program Files\Mozilla Firefox\distribution\policies.json"
+
 echo Setting default browser to FirefoxESR
 setdefaultbrowser HKLM Firefox-308046B0AF4A39CB
 
