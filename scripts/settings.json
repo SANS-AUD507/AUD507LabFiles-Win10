@@ -1,0 +1,15 @@
+{
+    "sshfs.configs": [
+        {
+            "name": "ubuntu",
+            "host": "ubuntu",
+            "username": "student",
+            "privateKeyPath": "c:\\Users\\student\\.ssh\\ubuntukey"        }
+    ],
+    "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "update.mode": "none",
+    "extensions.autoUpdate": false,
+    "workbench.colorTheme": "Default Dark+",
+    "security.workspace.trust.enabled": false,
+    "editor.hover.enabled": false
+}
