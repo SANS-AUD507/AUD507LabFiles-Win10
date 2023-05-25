@@ -1,4 +1,4 @@
-pwsh c:\users\student\aud507-labs\scriptstermLink.ps1
+pwsh c:\users\student\aud507-labs\scripts\termLink.ps1
 c:\tools\syspin.exe "C:\Program Files\Mozilla Firefox\firefox.exe" "Pin to taskbar"
 c:\tools\syspin.exe "C:\Program Files\Microsoft VS Code\Code.exe" "Pin to taskbar"
 c:\tools\syspin.exe "c:\users\student\Desktop\WindowsTerminal.lnk" "Pin to Start"
