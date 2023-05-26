@@ -25,6 +25,6 @@ mkdir C:\Users\student\AppData\Roaming\code\user
 copy /y C:\Users\student\AUD507-Labs\config\codeSettings.json c:\users\student\appdata\roaming\code\user\settings.json
 
 
-"Copying Firefox policies File"
+echo Copying Firefox policies File
 mkdir "c:\Program Files\Mozilla Firefox\distribution"
-copy-item C:\Users\student\AUD507-Labs\scripts\policies.json "c:\Program Files\Mozilla Firefox\distribution\policies.json" -force
+copy /y C:\Users\student\AUD507-Labs\config\policies.json "c:\Program Files\Mozilla Firefox\distribution\policies.json" 
