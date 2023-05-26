@@ -13,7 +13,7 @@ c:\tools\syspin.exe "c:\users\student\Desktop\WindowsTerminal.lnk" "Pin to Taskb
 echo Copying Windows Terminal settings JSON
 mkdir c:\tools\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe
 mkdir c:\tools\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
-copy /y c:\tools\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
+copy /y C:\Users\student\AUD507-Labs\config\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
 
 
 echo Setting default browser to FirefoxESR
@@ -22,6 +22,6 @@ setdefaultbrowser HKLM Firefox-308046B0AF4A39CB
 echo Copying VS Code global settings JSON
 mkdir C:\Users\student\AppData\Roaming\code
 mkdir C:\Users\student\AppData\Roaming\code\user
-copy /y C:\Users\student\AUD507-Labs\scripts\settings.json c:\users\student\appdata\roaming\code\user\settings.json
+copy /y C:\Users\student\AUD507-Labs\config\codeSettings.json c:\users\student\appdata\roaming\code\user\settings.json
 
 
