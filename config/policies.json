@@ -38,18 +38,18 @@
                 "URL": "http://workbook/workbook",
                 "Placement": "toolbar",
                 "Favicon": "https://www.aud507.com/media/favicon.ico"
-            },
+            },            
+            {
+                "Title": "SANS Portal Dashboard",
+                "URL": "https://www.sans.org/account",
+                "Placement": "toolbar",
+                "Favicon": "https://www.aud507.com/media/favicon.ico"
+            },            
             {
                 "Title": "AUD507 Public Wiki",
                 "URL": "https://www.aud507.com",
                 "Placement": "toolbar",
                 "Favicon": "https://www.aud507.com/media/favicon.ico"
-            },
-            {
-                "Title": "Grafana",
-                "URL": "http://dashboard.5x7.local:3000",
-                "Placement": "toolbar",
-                "Favicon": "http://dashboard.5x7.local:3000/public/img/fav32.png" 
             },
             {
                 "Title": "Fleet",
