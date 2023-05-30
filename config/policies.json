@@ -67,7 +67,7 @@
                 "Title": "Nessus",
                 "URL": "https://scanner.5x7.local:8834",
                 "Placement": "toolbar",
-                "Favicon": "https://scanner.5x7.local:8834/favicon.ico"
+                "Favicon": "c:\\users\\student\\aud507-labs\\config\\nessus.png"
             }
         ]
     }
