@@ -31,4 +31,6 @@ echo SSH Setup
 copy /y C:\Users\student\AUD507-Labs\config\known_hosts c:\users\student\.ssh
 copy /y C:\Users\student\AUD507-Labs\config\almakey c:\users\student\.ssh
 copy /y C:\Users\student\AUD507-Labs\config\ubuntukey c:\users\student\.ssh
+
+echo HOSTS file
 copy /y C:\Users\student\AUD507-Labs\config\hosts c:\windows\system32\drivers\etc\hosts
