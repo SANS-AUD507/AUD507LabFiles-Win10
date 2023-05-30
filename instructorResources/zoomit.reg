@@ -37,3 +37,5 @@ Windows Registry Editor Version 5.00
 "RecordFrameRate"=dword:0000001e
 "RecordScaling"=dword:00000064
 
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+"ZoomIt"="\"C:\\Users\\student\\AppData\\Local\\Temp\\ZoomIt64.exe\""
