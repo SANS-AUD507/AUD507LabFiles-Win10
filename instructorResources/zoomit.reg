@@ -38,4 +38,4 @@ Windows Registry Editor Version 5.00
 "RecordScaling"=dword:00000064
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
-"ZoomIt"="\"C:\\Users\\student\\AppData\\Local\\Temp\\ZoomIt64.exe\""
+"ZoomIt"="\"C:\\Users\\student\\AUD507-Labs\\instructorResources\\ZoomIt.exe\""
