@@ -73,6 +73,7 @@
             },
             {
                 "commandline": "ssh -i c:\\users\\student\\.ssh\\ubuntukey student@ubuntu",
+                "closeOnExit": "always",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402888}",
                 "hidden": false,
                 "icon": "C:\\Windows\\SystemApps\\Microsoft.Windows.SecHealthUI_cw5n1h2txyewy\\Assets\\AppAndBrowser.contrast-black.ico",
@@ -81,6 +82,7 @@
             },
             {
                 "colorScheme": "AlmaBlue",
+                "closeOnExit": "always",
                 "commandline": "ssh -i c:\\users\\student\\.ssh\\almakey student@alma",
                 "guid": "{995ecd74-5d62-48d4-a391-93dc5c97ac3d}",
                 "hidden": false,
