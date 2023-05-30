@@ -14,6 +14,7 @@ echo Copying Windows Terminal settings JSON
 mkdir c:\tools\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe
 mkdir c:\tools\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
 copy /y C:\Users\student\AUD507-Labs\config\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
+copy /y C:\Users\student\AUD507-Labs\config\WTSState.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\state.json
 
 echo Setting default browser to FirefoxESR
 setdefaultbrowser HKLM Firefox-308046B0AF4A39CB
