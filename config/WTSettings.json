@@ -69,7 +69,8 @@
                 "colorScheme" : "BW",
                 "commandline": "pwsh.exe",
                 "icon": "C:\\Program Files\\PowerShell\\7\\assets\\ps_black_32x32.ico",
-                "fontSize": 16
+                "fontSize": 16,
+                "fontWeight": "bold"
             },
             {
                 "commandline": "ssh -i c:\\users\\student\\.ssh\\ubuntukey student@ubuntu",
