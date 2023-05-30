@@ -4,3 +4,10 @@ $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetPath
 $Shortcut.Save()
+
+$TargetPath = "c:\users\student\aud507-labs"
+$ShortcutFile = "c:\users\student\Desktop\AUD507-Labs.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetPath
+$Shortcut.Save()
