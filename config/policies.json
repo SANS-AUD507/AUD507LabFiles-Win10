@@ -55,19 +55,19 @@
                 "Title": "Fleet",
                 "URL": "https://fleet.5x7.local:8443/",
                 "Placement": "toolbar",
-                "Favicon":"https://fleet.5x7.local:8443/assets/favicons/favicon.ico"      
+                "Favicon":"https://fleetdm.com/favicon.ico"      
             },
             {
                 "Title": "Juice Shop",
                 "URL": "http://juiceshop.5x7.local",
                 "Placement": "toolbar",
-                "Favicon": "http://juiceshop.5x7.local/favicon.ico"
+                "Favicon": "http://juiceshop.5x7.local/assets/public/favicon_js.ico"
             },
             {
                 "Title": "Nessus",
                 "URL": "https://scanner.5x7.local:8834",
                 "Placement": "toolbar",
-                "Favicon": "c:\\users\\student\\aud507-labs\\config\\nessus.png"
+                "Favicon": "https://www.tenable.com/themes/custom/tenable/img/favicons/favicon.ico"
             }
         ]
     }
