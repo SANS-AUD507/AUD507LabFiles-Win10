@@ -4,15 +4,11 @@ git pull
 cd scripts
 
 pwsh c:\users\student\aud507-labs\scripts\termLink.ps1
-c:\tools\syspin.exe "C:\Program Files\Mozilla Firefox\firefox.exe" "Unpin from taskbar"
-c:\tools\syspin.exe "C:\Program Files\Microsoft VS Code\Code.exe" "Unpin from taskbar"
 c:\tools\syspin.exe "C:\Program Files\Mozilla Firefox\firefox.exe" "Pin to taskbar"
 c:\tools\syspin.exe "C:\Program Files\Microsoft VS Code\Code.exe" "Pin to taskbar"
 c:\tools\syspin.exe "C:\Program Files\BurpSuitePro\BurpSuitePro.exe" "Pin to Start"
 c:\tools\syspin.exe "c:\users\student\Desktop\WindowsTerminal.lnk" "Pin to Start"
-c:\tools\syspin.exe "c:\users\student\Desktop\WindowsTerminal.lnk" "Unpin from Taskbar"
 c:\tools\syspin.exe "c:\users\student\Desktop\WindowsTerminal.lnk" "Pin to Taskbar"
-c:\tools\syspin.exe "c:\users\student\AUD507-Labs" "Pin to Taskbar"
 
 echo Copying Windows Terminal settings JSON
 mkdir c:\tools\WTSettings.json C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe
