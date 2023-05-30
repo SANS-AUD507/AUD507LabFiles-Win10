@@ -1,0 +1,16 @@
+10.50.7.50 dashboard.5x7.local dashboard
+10.50.7.50 fleet.5x7.local  fleet
+10.50.7.50 ubuntu.5x7.local ubuntu
+10.50.7.31 esxi.5x7.local esxi1.5x7.local esxi2.5x7.local esxi1 esxi2 esxi
+10.50.7.40 alma.5x7.local alma   
+10.50.7.50 lablocal.5x7.local     lablocal
+10.50.7.50 workbook.5x7.local     workbook
+10.50.7.20 juiceshop.5x7.local    juiceshop
+10.50.7.21 buggybank.5x7.local    buggybank
+10.50.7.22 bwapp.5x7.local bwapp 
+10.50.7.23 wackopicko.5x7.local   wackopicko
+10.50.7.24 dvwa.5x7.local dvwa    
+10.50.7.25 nodejsscan.5x7.local   nodejsscan
+10.50.7.26 docker.5x7.local docker
+10.50.7.29 scanner.5x7.local      scanner
+10.55.7.100 507dc.5x7.local 507dc windc.5x7.local windc
