@@ -1,0 +1,110 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxHTML]
+@="Firefox HTML Document"
+"EditFlags"=dword:00000002
+"FriendlyTypeName"="Firefox HTML Document"
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxHTML\Application]
+"ApplicationIcon"="c:\\Program Files\\Mozilla Firefox\\firefox.exe,0"
+"ApplicationName"="Firefox Portable"
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxHTML\DefaultIcon]
+@="c:\\Program Files\\Mozilla Firefox\\firefox.exe,1"
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxHTML\shell]
+@="open"
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxHTML\shell\open]
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxHTML\shell\open\command]
+@="c:\\Program Files\\Mozilla Firefox\\firefox.exe -url \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxHTML\shell\open\ddeexec]
+@=""
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxPDF]
+@="Firefox PDF Document"
+"EditFlags"=dword:00000002
+"FriendlyTypeName"="Firefox PDF Document"
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxPDF\DefaultIcon]
+@="c:\\Program Files\\Mozilla Firefox\\firefox.exe,5"
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxPDF\shell]
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxPDF\shell\open]
+@="open"
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxPDF\shell\open\command]
+@="c:\\Program Files\\Mozilla Firefox\\firefox.exe -url \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxURL]
+@="Firefox URL"
+"EditFlags"=dword:00000002
+"FriendlyTypeName"="Firefox URL"
+"URL Protocol"=""
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxURL\DefaultIcon]
+@="c:\\Program Files\\Mozilla Firefox\\firefox.exe,1"
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxURL\shell]
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxURL\shell\open]
+@="open"
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxURL\shell\open\command]
+@="c:\\Program Files\\Mozilla Firefox\\firefox.exe -url \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\FirefoxURL\shell\open\ddeexec]
+@=""
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable]
+@="Firefox Portable"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\Capabilities]
+"ApplicationDescription"="Firefox delivers safe, easy web browsing. A familiar user interface, enhanced security features including protection from online identity theft, and integrated search let you get the most out of the web."
+"ApplicationIcon"="c:\\Program Files\\Mozilla Firefox\\firefox.exe,0"
+"ApplicationName"="Firefox Portable"
+"StartMenu"="Firefox Portable"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\Capabilities\FileAssociations]
+".pdf"="FirefoxPDF"
+".avif"="FirefoxHTML"
+".htm"="FirefoxHTML"
+".html"="FirefoxHTML"
+".shtml"="FirefoxHTML"
+".svg"="FirefoxHTML"
+".webp"="FirefoxHTML"
+".xht"="FirefoxHTML"
+".xhtml"="FirefoxHTML"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\Capabilities\URLAssociations]
+"http"="FirefoxHTML"
+"https"="FirefoxHTML"
+"mailto"="FirefoxHTML"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\DefaultIcon]
+@="c:\\Program Files\\Mozilla Firefox\\firefox.exe,0"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\shell]
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\shell\open]
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\shell\open\command]
+@="c:\\Program Files\\Mozilla Firefox\\firefox.exe"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\shell\properties]
+@="Firefox &Options"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\shell\properties\command]
+@="c:\\Program Files\\Mozilla Firefox\\firefox.exe -preferences"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\shell\safemode]
+@="Firefox &Safe Mode"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\Firefox Portable\shell\safemode\command]
+@="c:\\Program Files\\Mozilla Firefox\\firefox.exe -safe-mode"
+
+[HKEY_CURRENT_USER\Software\RegisteredApplications]
+"Firefox Portable"="Software\\Clients\\StartMenuInternet\\Firefox Portable\\Capabilities"
