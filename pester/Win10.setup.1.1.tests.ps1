@@ -13,7 +13,7 @@ BeforeDiscovery {
 
 }
 
-Describe 'Lab Setup tests for 507Win10 VM' {
+Describe 'Lab 1.1 Setup tests for 507Win10 VM' {
     
   #Check basic network setup to ensure local and internet connectivity
   Context 'Network connectivity' {
