@@ -11,3 +11,11 @@ $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetPath
 $Shortcut.Save()
+
+$targetPath = 'C:\tools\launchBurp.cmd'
+$ShortcutFile = "c:\users\student\Desktop\BurpProxy.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetPath
+$Shortcut.IconLocation = 'C:\tools\burpsuite\burp.ico'
+$Shortcut.Save()
