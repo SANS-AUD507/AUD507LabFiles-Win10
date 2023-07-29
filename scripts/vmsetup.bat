@@ -35,3 +35,5 @@ copy /y C:\Users\student\AUD507-Labs\config\ubuntukey c:\users\student\.ssh
 
 echo HOSTS file
 copy /y C:\Users\student\AUD507-Labs\config\hosts c:\windows\system32\drivers\etc\hosts
+
+pause
