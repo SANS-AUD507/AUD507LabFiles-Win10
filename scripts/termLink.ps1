@@ -12,7 +12,7 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetPath
 $Shortcut.Save()
 
-$targetPath = 'C:\tools\launchBurp.cmd'
+$targetPath = 'c:\users\student\aud507-labs\scripts\launchBurp.cmd'
 $ShortcutFile = "c:\users\student\Desktop\BurpProxy.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
