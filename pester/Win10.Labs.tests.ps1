@@ -1,4 +1,4 @@
-#Requires RunAsAdministrator
+#Requires -RunAsAdministrator
 # Invoke this test on 507Win10 with these commands:
 <#
 $config=New-PesterConfiguration
