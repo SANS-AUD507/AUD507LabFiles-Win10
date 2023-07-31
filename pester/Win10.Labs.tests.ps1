@@ -452,19 +452,19 @@ Describe '507 Labs'{
 
   Context 'Lab 4.4' {
     It 'Part 4 - 4 buckets have server side encryption enabled' {
-      $res = ((Get-S3Bucket | Get-S3BucketEncryption).ServerSideEncryptionRules | 
+      $res = ((Get-S3Bucket | Where-Object BucketName -like '*aud507*' | Get-S3BucketEncryption).ServerSideEncryptionRules | 
         Where-Object ServerSideEncryptionByDefault -ne $null)
       $res.Count | Should -Be 4
     }
 
     It 'Part 4 - 4 buckets have versioning turned off' {
-      $res = (Get-S3Bucket | Get-S3BucketVersioning | Where-Object Status -eq 'Off')
+      $res = (Get-S3Bucket | Where-Object BucketName -like '*aud507*' | Get-S3BucketVersioning | Where-Object Status -eq 'Off')
       $res.Count | Should -Be 4
     }
 
     
     It 'Part 4 - 4 buckets have MFA Delete turned off' {
-      $res = (Get-S3Bucket | Get-S3BucketVersioning | Where-Object EnableMfaDelete -eq $false)
+      $res = (Get-S3Bucket | Where-Object BucketName -like '*aud507*' | Get-S3BucketVersioning | Where-Object EnableMfaDelete -eq $false)
       $res.Count | Should -Be 4
     }
   }
