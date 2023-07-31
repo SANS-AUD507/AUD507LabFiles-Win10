@@ -1,5 +1,5 @@
 #Requires -RunAsAdministrator
-# Invoke this test on 507Win10 with these commands:
+# Invoke this test on 507Win10 with these commands in an ADMINISTRATOR PowerShell:
 <#
 $config=New-PesterConfiguration
 $config.Output.Verbosity='detailed'
@@ -143,7 +143,7 @@ Describe '507 Labs'{
     }
   }
 
-  Context 'Lab 1.4 - AWS CLI/PoSh' {
+  Context 'Lab 1.4 - AWS CLI/PoSh' -Skip:$skipAWS {
     It 'Part 2 - aws ec2 with jq returns tags' {
       $instanceProperties = (aws ec2 describe-instances |
         jq '[.Reservations[].Instances[0] | { "InstanceId": .InstanceId, "Instancetype": .InstanceType, "Tags":.Tags  }]' |
@@ -168,7 +168,7 @@ Describe '507 Labs'{
     }
   }
 
-  Context 'Lab 1.4 - Azure' {
+  Context 'Lab 1.4 - Azure' -Skip:$skipAzure {
     BeforeAll{
       #ensure the resource graph extension and module are installed
       az extension add --name resource-graph
