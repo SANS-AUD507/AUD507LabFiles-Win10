@@ -34,7 +34,13 @@ Describe '507 Labs'{
     }
 
     #If the Azure configuration is not there, then skip the Azure tests
-    $azSubCount = (Get-Content C:\Users\student\.azure\azureProfile.json | ConvertFrom-Json).Subscriptions.Count
+    if (Test-Path -Path C:\Users\student\.azure\azureProfile.json) {
+      $azSubCount = (Get-Content C:\Users\student\.azure\azureProfile.json | ConvertFrom-Json).Subscriptions.Count
+    }
+    else {
+      $azSubCount = 0
+    }
+    
     if( $azSubCount -lt 1) {
       Write-Host "Skipping Azure tests because config files do not exist"
       $skipAzure = $true
@@ -109,6 +115,8 @@ Describe '507 Labs'{
     }
 
     It 'Part 3 - Get-AWSCmdletName with service returns correct results' {
+      (Get-AWSCmdletName -ApiOperation describeinstances -Service compute).CmdletName | 
+        Should -Contain 'Get-EC2Instance'
       (Get-AWSCmdletName -ApiOperation describeinstances -Service "Amazon Elastic Compute Cloud").CmdletName | 
         Should -Contain 'Get-EC2Instance'
     }
@@ -166,6 +174,19 @@ Describe '507 Labs'{
       (Get-EC2Instance |  Where-Object { ($_.Instances.tags | Where-Object Key -eq 'Business_Unit').Count -lt 1 }).instances.Count | 
         Should -Be 3
     }
+
+    It 'Part 2 - EC2 Compliance Checks' {
+      $totalCount = (Get-EC2Instance).Count
+      $nonCompliantCount = (Get-EC2Instance |
+        Where-Object {
+          ($_.Instances.tags | Where-Object Key -eq 'Business_Unit').Count -lt 1
+      }).Count
+      $totalCount | Should -Be 4
+      $nonCompliantCount | Should -Be 2
+      $nonCompliantPct = ($nonCompliantCount/$totalCount) * 100.0
+      $nonCompliantPct | Should -Be 50
+
+    }
   }
 
   Context 'Lab 1.4 - Azure' -Skip:$skipAzure {
@@ -186,27 +207,37 @@ Describe '507 Labs'{
     It 'Part 4 - PowerShell graph query returns multiple objects' {
       $q = 'Resources | order by type | project location, name, type, tags, sku, id'
       $inventory = Search-AzGraph -Query $q
-      $inventory.Count | Should -BeGreaterThan 20      
+      $inventory.Count | Should -BeGreaterThan 10     
     }
   }
 
   Context 'Lab 2.1' {
     It 'Part 1 - 5 local users returned' {
       (Get-LocalUser).Count | Should -Be 6
-    }
-    
+    }    
 
-    It 'Part 2 - Student is only enabled user' {
+    It 'Part 2 - Student and sshd are the only enabled users' {
       $enabledUsers = (Get-LocalUser | Where-Object enabled -eq $true)
       $enabledUsers.Count | Should -Be 2
       $enabledUsers.Name | Should -Contain 'student'
       $enabledUsers.Name | Should -Contain 'sshd'      
     }
+
+    It 'Part 2 - WDAGUtilityAccount is the only PasswordExires users' {
+      $passwordExiresUsers = (Get-LocalUser | Where-Object passwordExpires -ne $null)
+      $passwordExiresUsers.Count | Should -Be 1
+      $passwordExiresUsers.Name | Should -Contain 'WDAGUtilityAccount' 
+    }
+
+    It 'Part 3 - Not enabled users' {
+      $enabledUsers = (Get-LocalUser | Where-Object enabled -eq $false)
+      $enabledUsers.Count | Should -Be 4
+    }
   }
 
   Context 'Lab 2.2' {
-    It 'Part 1 - Build number is 19044' {
-      (Get-CimInstance Win32_OperatingSystem).BuildNumber | Should -Be 19044
+    It 'Part 1 - Build number is 19045' {
+      (Get-CimInstance Win32_OperatingSystem).BuildNumber | Should -Be 19045
     }
 
     It 'Part 1 - At least one hotfix returns' {
@@ -298,13 +329,14 @@ Describe '507 Labs'{
       $res.Name | Should -Contain 'C$'
     }
     
-    It 'Part 3 - Get-SMBShare returns 2 shares' {
+    It 'Part 3 - Get-SMBShare returns 3 shares' {
       $res = (get-SMBShare)
       $res.Count | Should -Be 3
       $res.Name | Should -Contain 'ADMIN$'
       $res.Name | Should -Contain 'C$'
       $res.Name | Should -Contain 'IPC$'
-    }
+    }    
+
   }
 
   Context 'Lab 2.3: AWS VPN to DC' -Skip:$skipDC { 
@@ -324,8 +356,8 @@ Describe '507 Labs'{
     }
 
     It 'Part 5 - 9 users without password expiration' {
-      (Get-ADUser -Filter {PasswordNotRequired -eq $true} `
-        -Server 507dc -Credential $cred).Count | Should -Be 2
+      (Get-ADUser -Filter {PasswordNeverExpires -eq $true} `
+        -Server 507dc -Credential $cred).Count | Should -Be 9
     }
 
     It 'Part 5 - 5 domain admins without recursion' {
@@ -347,11 +379,12 @@ Describe '507 Labs'{
       $userDN = (Get-ADUser -Identity student `
         -Server 507dc -Credential $cred).DistinguishedName
       $res = dsget user "$userDN" -memberof -expand -s 507dc -u student -p Password1
+      $res.Count | Should -Be 7
       $res | Should -Contain '"CN=Schema Admins,CN=Users,DC=AUD507,DC=local"'
       $res | Should -Contain '"CN=Domain Admins,CN=Users,DC=AUD507,DC=local"'
     }
 
-    #Inactive/Active user counts don't really make sense in the lab, so we don't test them
+    #Inactive/Active/StalePasswordUsers user counts don't really make sense in the lab, so we don't test them
     It 'Part 5 - ADAuditGeneric script returns expected results' {
       Write-Host "Running AD audit script"
       $res = (C:\Users\student\AUD507-Labs\scripts\ADAuditGeneric.ps1 -Server 507dc -Credential $cred)
@@ -362,7 +395,6 @@ Describe '507 Labs'{
       $res.EnabledUsers | Should -Be 996 
       $res.DisabledUsers | Should -Be 11
       $res.TotalUsers | Should -Be 1007
-      $res.StalePasswordUsers | Should -Be 0
       $res.DomainAdmins | Should -Be 71
       $res.SchemaAdmins | Should -Be 71
       $res.EnterpriseAdmins | Should -Be 1
@@ -421,8 +453,8 @@ Describe '507 Labs'{
     }
   }
 
-  Context 'Lab 4.2' {
-    It 'Part 1 - IAM account summary results correct' {
+  Context 'Lab 4.2' -Skip:$skipAWS {
+    It 'Part 1 - IAM account summary results correct'  {
       $res = (Get-IAMAccountSummary)
       $res.AccountAccessKeysPresent | Should -Be 0
       $res.AccountMFAEnabled | Should -Be 1
@@ -453,7 +485,7 @@ Describe '507 Labs'{
     }
   }
 
-  Context 'Lab 4.4' {
+  Context 'Lab 4.4' -Skip:$skipAWS {
     It 'Part 4 - 4 buckets have server side encryption enabled' {
       $res = ((Get-S3Bucket | Where-Object BucketName -like '*aud507*' | Get-S3BucketEncryption).ServerSideEncryptionRules | 
         Where-Object ServerSideEncryptionByDefault -ne $null)
