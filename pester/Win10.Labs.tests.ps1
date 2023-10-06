@@ -192,13 +192,15 @@ Describe '507 Labs'{
 
   Context 'Lab 2.1' {
     It 'Part 1 - 5 local users returned' {
-      (Get-LocalUser).Count | Should -Be 5
+      (Get-LocalUser).Count | Should -Be 6
     }
+    
 
     It 'Part 2 - Student is only enabled user' {
       $enabledUsers = (Get-LocalUser | Where-Object enabled -eq $true)
-      $enabledUsers.Count | Should -Be 1
+      $enabledUsers.Count | Should -Be 2
       $enabledUsers.Name | Should -Contain 'student'
+      $enabledUsers.Name | Should -Contain 'sshd'      
     }
   }
 
