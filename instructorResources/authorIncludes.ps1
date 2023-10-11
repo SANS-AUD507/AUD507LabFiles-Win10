@@ -17,3 +17,6 @@ function loc { ("```````nSet-Location " + (Get-Location).Path) + "`n``````"| cli
 <#
 function prompt { "PS $($executionContext.SessionState.Path.CurrentLocation)$('>' * ($nestedPromptLevel + 1)) ";}
 #>
+
+# Tice can't type....
+Set-Alias -Name clera -Value clear
