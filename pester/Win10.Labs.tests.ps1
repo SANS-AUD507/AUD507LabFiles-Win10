@@ -370,6 +370,18 @@ Describe '507 Labs'{
     }
   }
 
+  Context 'Lab2.4-NessusSavedScan' {
+    BeforeAll {
+      $scan = [system.xml.xmldocument](Get-Content c:\users\student\AUD507-Labs\scans\Win10demo.nessus)
+      $reportItems = $scan.NessusClientData_v2.Report.ReportHost.ReportItem
+    }
+
+    It 'Part 99 - Demo scan was authenticated' {
+      ($reportItems | Where-Object pluginID -eq '19506' | Select-Object plugin_output) |
+        Should -Match 'Credentialed checks : yes'
+    }
+  }
+
   Context 'Lab4.1-VMWare' -Skip:$skipEsxi {
     BeforeAll {
       Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false -Confirm:$false
