@@ -410,9 +410,53 @@ Describe '507 Labs'{
       $reportItems = $scan.NessusClientData_v2.Report.ReportHost.ReportItem
     }
 
+    # TODO: Scan file should exist
+
+    #TODO: Catch all the plugins we call out in the lab
+    It 'Part 99 - Plugin output contains pluginIDs 19506 and 38153' {
+      $reportItems.PluginID | Should -Contain '19506'
+      $reportItems.PluginID | Should -Contain '38153'
+    }
+  
     It 'Part 99 - Demo scan was authenticated' {
       ($reportItems | Where-Object pluginID -eq '19506' | Select-Object plugin_output) |
         Should -Match 'Credentialed checks : yes'
+    }
+
+    It 'part99 - Demo scan has at least one missing patch' {
+      $patches = (($reportItems | Where-Object pluginID -eq '38153').plugin_output -split '\n' | Select-String '^ - ')
+      $patches.Count | Should -BeGreaterOrEqual 1
+    }
+
+    # TODO: plugin 66334
+  }
+
+  Context 'Nessus CIS L1 Scan' {
+    #TODO: Test for the benchmark compliance scan go here...
+  }
+
+  #TODO: Build a scan with Ubuntu results!
+  Context 'Lab3.2: Ubuntu scan results' {
+    BeforeAll {
+      $scan = [system.xml.xmldocument](Get-Content C:\users\student\AUD507-Labs\scans\LinuxDemo.nessus)
+      $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -eq '10.50.7.20').ReportItem
+    }
+
+    It 'Part 4 - Alma has at least one missing patch' {
+      $patchCount = ($reportItems | Where-Object pluginName -Like 'Ubuntu*').Count
+      $patchCount | Should -BeGreaterOrEqual 1
+    }
+  }
+
+  Context 'Lab3.2: Alma scan results' {
+    BeforeAll {
+      $scan = [system.xml.xmldocument](Get-Content C:\users\student\AUD507-Labs\scans\LinuxDemo.nessus)
+      $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -eq '10.50.7.40').ReportItem
+    }
+
+    It 'Part 4 - Alma has at least one missing patch' {
+      $patchCount = ($reportItems | Where-Object pluginName -Like 'AlmaLinux*').Count
+      $patchCount | Should -BeGreaterOrEqual 1
     }
   }
 
