@@ -19,3 +19,7 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetPath
 $Shortcut.IconLocation = 'C:\tools\burpsuite\burp.ico'
 $Shortcut.Save()
+
+# Pin Aud507-Labs Folder to Quick Access
+$shortcut = New-Object -com shell.application
+$shortcut.NameSpace("C:\Users\student\AUD507-Labs").Self.InvokeVerb("pintohome")
