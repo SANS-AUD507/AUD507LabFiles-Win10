@@ -435,14 +435,13 @@ Describe '507 Labs'{
     #TODO: Test for the benchmark compliance scan go here...
   }
 
-  #TODO: Build a scan with Ubuntu results!
   Context 'Lab3.2: Ubuntu scan results' {
     BeforeAll {
       $scan = [system.xml.xmldocument](Get-Content C:\users\student\AUD507-Labs\scans\LinuxDemo.nessus)
       $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -eq '10.50.7.20').ReportItem
     }
 
-    It 'Part 4 - Alma has at least one missing patch' {
+    It 'Part 4 - Ubuntu has at least one missing patch' {
       $patchCount = ($reportItems | Where-Object pluginName -Like 'Ubuntu*').Count
       $patchCount | Should -BeGreaterOrEqual 1
     }
