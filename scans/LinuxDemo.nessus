@@ -5653,7 +5653,7 @@
 </PluginItem>
 </IndividualPluginSelection>
 </Policy>
-<Report name="Linux basic scan" xmlns:cm="http://www.nessus.org/cm">
+<Report name="Demo: Linux credentialed scan" xmlns:cm="http://www.nessus.org/cm">
 <ReportHost name="10.50.7.40"><HostProperties>
 <tag name="HOST_END_TIMESTAMP">1690331093</tag>
 <tag name="HOST_END">Wed Jul 26 00:24:53 2023</tag>
