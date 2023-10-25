@@ -68,6 +68,11 @@
             {
                 "colorScheme": "BW",
                 "commandline": "pwsh.exe",
+                "font": 
+                {
+                    "size": 16.0,
+                    "weight": "bold"
+                },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402999}",
                 "hidden": false,
                 "icon": "C:\\Program Files\\PowerShell\\7\\assets\\ps_black_32x32.ico",
