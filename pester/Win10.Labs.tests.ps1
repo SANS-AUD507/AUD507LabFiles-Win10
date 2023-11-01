@@ -3,7 +3,7 @@
 <#
 $config=New-PesterConfiguration
 $config.Output.Verbosity='detailed'
-$config.Run.Path='.\Win10.Labs.tests.ps1'
+$config.Run.Path='C:\Users\student\AUD507-Labs\pester\Win10.Labs.tests.ps1'
 Invoke-Pester -Configuration $config
 #>
 
@@ -438,7 +438,7 @@ Describe '507 Labs'{
   Context 'Lab3.2: Ubuntu scan results' {
     BeforeAll {
       $scan = [system.xml.xmldocument](Get-Content C:\users\student\AUD507-Labs\scans\LinuxDemo.nessus)
-      $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -eq '10.50.7.20').ReportItem
+      $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -eq '10.50.7.21').ReportItem
     }
 
     It 'Part 4 - Ubuntu has at least one missing patch' {
