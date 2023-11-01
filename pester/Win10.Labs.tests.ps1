@@ -649,7 +649,23 @@ Describe '507 Labs'{
     }
 
     It 'Part 3 - Password for Jim works' {
+      #Ensure the password list file is present
+      Test-Path -Type Leaf -Path C:\Users\student\AUD507-Labs\injection\passwords.txt |
+        Should -BeTrue
+      #Test that Jim's password is there
+      $passwords = Get-Content C:\Users\student\AUD507-Labs\injection\passwords.txt
+      $passwords | Should -Contain  'ncc-1701'
 
+      #Test that you can login as Jim
+      $uri='http://juiceshop.5x7.local/rest/user/login'
+      $body='{"email":"jim@juice-sh.op","password":"ncc-1701"}'
+      $res = Invoke-WebRequest -Method Post -Body $body -Uri $uri -ContentType 'application/json'
+
+      $res.StatusCode | Should -BeExactly 200
+      ($res.Content | ConvertFrom-Json).authentication.token.Length |
+        Should -BeGreaterOrEqual 1
+      ($res.Content | ConvertFrom-Json).authentication.umail | 
+        Should -BeExactly 'jim@juice-sh.op'
     }
   }
 }
