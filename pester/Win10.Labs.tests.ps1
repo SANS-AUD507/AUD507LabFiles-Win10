@@ -435,13 +435,15 @@ Describe '507 Labs'{
   }
 
   Context 'Lab 3.1: Alma system info' {
-    function run-sshCommand {
-      param (
-        $Command = 'hostname'
-      )
-      ssh -i C:\Users\student\.ssh\almakey student@alma "$Command"
+    BeforeAll {
+      function run-sshCommand {
+        param (
+          $Command = 'hostname'
+        )
+        ssh -i C:\Users\student\.ssh\almakey student@alma "$Command"
+      }
     }
-
+    
     It 'Part 2 - Alma lsb_release distribution info is correct' {
       (run-sshCommand -Command "lsb_release -i | awk -F: '{print $2}'") |
         Should -BeLike '*AlmaLinux'
