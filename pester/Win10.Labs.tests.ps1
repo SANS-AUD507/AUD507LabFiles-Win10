@@ -558,7 +558,16 @@ Describe '507 Labs'{
       $res.Count | Should -Be 4
     }
   }
-
+ 
+  Context 'Lab 5.1' {
+    It 'Customer feedback < 1 is allowed' {
+      $body='{"captchaId":0,"captcha":"20","comment":"Pester test","rating":0}'
+      $uri = 'http://juiceshop.5x7.local/api/Feedbacks/'
+      $res = Invoke-WebRequest -Method Post -Body $body -uri $uri -ContentType 'application/json'
+      $res.StatusCode | Should -BeExactly 201
+      ($res.Content | ConvertFrom-Json).data.rating | Should -BeExactly 0
+    }
+  }
   Context 'Lab 5.2' {
     It 'Part 1 - Juiceshop shows self-signed cert' {
       $sslyzeRes = (C:\tools\sslyze\sslyze.exe --certinfo juiceshop.5x7.local:443)
