@@ -442,7 +442,7 @@ Describe '507 Labs'{
       ssh -i C:\Users\student\.ssh\almakey student@alma "$Command"
     }
 
-    It 'Part 1 - lsb_release distribution is correct' {
+    It 'Part 2 - Alma lsb_release distribution info is correct' {
       (run-sshCommand -Command "lsb_release -i | awk -F: '{print $2}'") |
         Should -BeLike '*AlmaLinux'
       (run-sshCommand -Command "lsb_release -d | awk -F: '{print $2}'") |
@@ -451,6 +451,16 @@ Describe '507 Labs'{
         Should -BeLike '*8.6'
       (run-sshCommand -Command "lsb_release -c | awk -F: '{print $2}'") |
         Should -BeLike '*SkyTiger'
+    }
+
+    It 'Part 2 - Alma shows >200 missing patches' {
+      $patchCount = (run-sshCommand -Command "sudo yum check-update | wc -l")
+      $patchCount | Should -BeGreaterThan 200 
+    }
+
+    It 'Part 2 - Alma shows 21 SUID binaries' {
+      $res = run-sshCommand -Command "sudo find / -type f -perm -4000 2>/dev/null"
+      $res.Count | Should -BeExactly 21
     }
   }
 
