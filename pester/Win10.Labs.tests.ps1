@@ -568,6 +568,7 @@ Describe '507 Labs'{
       ($res.Content | ConvertFrom-Json).data.rating | Should -BeExactly 0
     }
   }
+
   Context 'Lab 5.2' {
     It 'Part 1 - Juiceshop shows self-signed cert' {
       $sslyzeRes = (C:\tools\sslyze\sslyze.exe --certinfo juiceshop.5x7.local:443)
@@ -607,6 +608,48 @@ Describe '507 Labs'{
     It 'Part 1 - TLS1.3 enabled' {
       $sslyzeRes = (C:\tools\sslyze\sslyze.exe --tlsv1_3 juiceshop.5x7.local:443)
       ($sslyzeRes -like '*The server accepted the following 3*').Count | Should -Be 1
+    }
+  }
+
+  Context 'Lab5.3'{
+    It 'Part 1 - SQL injection returns all rows' {
+      # '));
+      $uri = 'http://juiceshop.5x7.local/rest/products/search?q=%27%29%29%3B'
+      $res = Invoke-WebRequest -uri $uri
+      ($res.Content | ConvertFrom-Json).data.Count |
+        Should -BeExactly 44
+    }
+
+    It 'Part 2 - Valid usernames return password questions' {
+      $validNames = @(
+        'amy',
+        'john',
+        'emma',
+        'stan',
+        'jim',
+        'morty'
+      )
+      #Check that the namesLower file exists
+      Test-Path -Type Leaf -Path C:\Users\student\AUD507-Labs\injection\namesLower.txt |
+        Should -BeTrue
+      #Read the names file
+      $nameFile = Get-Content C:\Users\student\AUD507-Labs\injection\namesLower.txt
+      
+      foreach( $name in $validNames){
+        #Check that each name in the in file
+        $nameFile | Should -Contain $name
+
+        #Check that each name returns a question with a valid ID
+        $username = $name + "@juice-sh.op"
+        $uri = "http://juiceshop.5x7.local/rest/user/security-question?email=$username"
+        $res = Invoke-RestMethod -uri $uri
+        $res.question.id | Should -BeGreaterOrEqual 0
+        $res.question.question.Length | Should -BeGreaterOrEqual 1
+      }
+    }
+
+    It 'Part 3 - Password for Jim works' {
+
     }
   }
 }
