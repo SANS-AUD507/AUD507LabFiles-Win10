@@ -592,7 +592,10 @@ Describe '507 Labs'{
  
   Context 'Lab 5.1' {
     It 'Customer feedback < 1 is allowed' {
-      $body='{"captchaId":0,"captcha":"20","comment":"Pester test","rating":0}'
+      #Get a working captcha from the API
+      $captcha=Invoke-RestMethod -uri http://juiceshop.5x7.local/rest/captcha
+
+      $body="{`"captchaId`":$($captcha.captchaId),`"captcha`":`"$($captcha.answer)`",`"comment`":`"Pester test`",`"rating`":0}"
       $uri = 'http://juiceshop.5x7.local/api/Feedbacks/'
       $res = Invoke-WebRequest -Method Post -Body $body -uri $uri -ContentType 'application/json'
       $res.StatusCode | Should -BeExactly 201
