@@ -130,7 +130,7 @@ Describe '507 Labs'{
   }
 
   Context 'Lab 1.3 - Azure' -Skip:$skipAzure {
-    It 'Part 6 - Get-AZVM returns results'{
+    It 'Part 4/6 - Get-AZVM returns results'{
       (Get-AzVM).Count | Should -BeGreaterOrEqual 3
     }
 
@@ -211,7 +211,7 @@ Describe '507 Labs'{
   }
 
   Context 'Lab 2.1' {
-    It 'Part 1 - 5 local users returned' {
+    It 'Part 1 - 6 local users returned' {
       (Get-LocalUser).Count | Should -Be 6
     }    
 
