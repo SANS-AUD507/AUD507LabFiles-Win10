@@ -181,11 +181,10 @@ Describe '507 Labs'{
         Where-Object {
           ($_.Instances.tags | Where-Object Key -eq 'Business_Unit').Count -lt 1
       }).Count
-      $totalCount | Should -Be 4
-      $nonCompliantCount | Should -Be 2
+      $totalCount | Should -Be 5
+      $nonCompliantCount | Should -Be 3
       $nonCompliantPct = ($nonCompliantCount/$totalCount) * 100.0
-      $nonCompliantPct | Should -Be 50
-
+      $nonCompliantPct | Should -Be 60
     }
   }
 
