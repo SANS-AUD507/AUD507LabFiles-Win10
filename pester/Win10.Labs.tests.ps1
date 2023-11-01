@@ -434,6 +434,26 @@ Describe '507 Labs'{
     #TODO: Test for the benchmark compliance scan go here...
   }
 
+  Context 'Lab 3.1: Alma system info' {
+    function run-sshCommand {
+      param (
+        $Command = 'hostname'
+      )
+      ssh -i C:\Users\student\.ssh\almakey student@alma "$Command"
+    }
+
+    It 'Part 1 - lsb_release distribution is correct' {
+      (run-sshCommand -Command "lsb_release -i | awk -F: '{print $2}'") |
+        Should -BeLike '*AlmaLinux'
+      (run-sshCommand -Command "lsb_release -d | awk -F: '{print $2}'") |
+        Should -BeLike '*8.6 (Sky Tiger)'
+      (run-sshCommand -Command "lsb_release -r | awk -F: '{print $2}'") |
+        Should -BeLike '*8.6'
+      (run-sshCommand -Command "lsb_release -c | awk -F: '{print $2}'") |
+        Should -BeLike '*SkyTiger'
+    }
+  }
+
   Context 'Lab3.2: Ubuntu scan results' {
     BeforeAll {
       $scan = [system.xml.xmldocument](Get-Content C:\users\student\AUD507-Labs\scans\LinuxDemo.nessus)
