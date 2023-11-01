@@ -608,6 +608,11 @@ Describe '507 Labs'{
       $sslyzeRes = (C:\tools\sslyze\sslyze.exe --tlsv1_3 juiceshop.5x7.local:443)
       ($sslyzeRes -like '*The server accepted the following 3*').Count | Should -Be 1
     }
+
+    It 'Part 5 - JuiceShop source code ZIP file exists' {
+      Test-Path -Type Leaf -Path C:\Users\student\AUD507-Labs\SAST\juice-shop.zip |
+        Should -BeTrue
+    }
   }
 
   Context 'Lab5.3' {
