@@ -5,6 +5,17 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetPath
 $Shortcut.Save()
 
+$TargetPath = "shell:AppsFolder\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App"
+$ShortcutFile = "c:\users\student\Desktop\WT-Admin.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetPath
+$Shortcut.Save()
+#Set shortcut to run as admin by flipping the right bit
+$bytes = [System.IO.File]::ReadAllBytes("c:\users\student\Desktop\WT-Admin.lnk")
+$bytes[0x15] = $bytes[0x15] -bor 0x20 #set byte 21 (0x15) bit 6 (0x20) ON
+[System.IO.File]::WriteAllBytes("c:\users\student\Desktop\WT-Admin.lnk", $bytes)
+
 $TargetPath = "c:\users\student\aud507-labs"
 $ShortcutFile = "c:\users\student\Desktop\AUD507-Labs.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
