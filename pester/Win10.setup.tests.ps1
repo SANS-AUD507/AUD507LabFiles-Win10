@@ -3,7 +3,7 @@
 Set-Location c:\users\student\Aud507-Labs\pester
 $config=New-PesterConfiguration
 $config.Output.Verbosity='detailed'
-$config.Run.Path='.\Win10.Setup.1.1.tests.ps1', '.\Win10.Setup.1.3.tests.ps1'
+$config.Run.Path='.\Win10.Setup.tests.ps1', '.\Win10.Setup.1.3.tests.ps1'
 Invoke-Pester -Configuration $config
 #>
 
