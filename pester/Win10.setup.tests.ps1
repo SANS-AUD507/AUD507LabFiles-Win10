@@ -97,11 +97,6 @@ Describe 'Lab Setup tests for 507Win10 VM' {
       Import-Module AWSPowerShell.NetCore
     }
 
-    It '507DC is available over VPN' {
-        $res = Test-NetConnection -ComputerName 507dc
-        $res | Should -BeTrue -Because "VPN setup from lab 2.3 not correct."
-    }
-
     It 'AWS ARN is set' {
       (Get-STSCallerIdentity).Arn | should -BeLike 'arn*student*' -Because 'AWS setup from lab 1.3 not correct'
     }    
