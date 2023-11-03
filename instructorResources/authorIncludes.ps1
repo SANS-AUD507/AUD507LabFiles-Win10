@@ -20,3 +20,6 @@ function prompt { "PS $($executionContext.SessionState.Path.CurrentLocation)$('>
 
 # Tice can't type....
 Set-Alias -Name clera -Value clear
+
+function su { ssh -i C:\Users\student\.ssh\ubuntukey student@ubuntu }
+function sa { ssh -i C:\Users\student\.ssh\almakey student@alma }
