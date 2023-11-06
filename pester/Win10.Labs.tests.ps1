@@ -77,10 +77,7 @@ Describe '507 Labs'{
       Write-Host "Skipping alma tests because host is unreachable"
       $skipAlma = $true
     }
-    else {
-      ssh-keyscan.exe alma >> C:\users\student\.ssh\known_hosts
-    }
-
+    
     #Check if the DC is available
     if( -not (Test-NetConnection -InformationLevel Quiet -ComputerName 507dc.5x7.local) ){
       $skipDC = $true
@@ -434,7 +431,7 @@ Describe '507 Labs'{
     #TODO: Test for the benchmark compliance scan go here...
   }
 
-  Context 'Lab 3.1: Alma system info' {
+  Context 'Lab 3.1: Alma system info' -Skip:$skipAlma {
     BeforeAll {
       function run-sshCommand {
         param (
@@ -442,6 +439,8 @@ Describe '507 Labs'{
         )
         ssh -i C:\Users\student\.ssh\almakey student@alma "$Command"
       }
+        ssh-keyscan.exe alma >> C:\users\student\.ssh\known_hosts
+
     }
     
     It 'Part 2 - Alma lsb_release distribution info is correct' {
