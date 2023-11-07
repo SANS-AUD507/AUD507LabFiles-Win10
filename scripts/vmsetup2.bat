@@ -11,8 +11,8 @@ pwsh c:\users\student\aud507-labs\scripts\termLink.ps1
 c:\tools\syspin.exe "C:\Program Files\Mozilla Firefox\firefox.exe" "Pin to taskbar"
 c:\tools\syspin.exe "C:\Program Files\Microsoft VS Code\Code.exe" "Pin to taskbar"
 c:\tools\syspin.exe "C:\Program Files\BurpSuitePro\BurpSuitePro.exe" "Pin to Start"
-c:\tools\syspin.exe "c:\users\student\Desktop\WindowsTerminal.lnk" "Pin to Start"
-c:\tools\syspin.exe "c:\users\student\Desktop\WindowsTerminal.lnk" "Pin to Taskbar"
+c:\tools\syspin.exe "c:\users\student\Desktop\Windows Terminal.lnk" "Pin to Start"
+c:\tools\syspin.exe "c:\users\student\Desktop\Windows Terminal.lnk" "Pin to Taskbar"
 
 echo Setting default browser to FirefoxESR
 setdefaultbrowser HKLM Firefox-308046B0AF4A39CB

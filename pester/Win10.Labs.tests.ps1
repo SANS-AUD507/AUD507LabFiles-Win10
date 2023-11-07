@@ -440,7 +440,6 @@ Describe '507 Labs'{
         ssh -i C:\Users\student\.ssh\almakey student@alma "$Command"
       }
         ssh-keyscan.exe alma >> C:\users\student\.ssh\known_hosts
-
     }
     
     It 'Part 2 - Alma lsb_release distribution info is correct' {
