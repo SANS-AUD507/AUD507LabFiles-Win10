@@ -1,6 +1,12 @@
+#Secrets in plain text in the script here. Normally these would come from
+#a secrets vault
+$user = "student@5x7.local"
+$pass = "student1234!"
+$server = "https://fleet.5x7.local:8443"
+
 #Get an auth token for the Fleet API
-$body='{"email":"student@5x7.local","password":"student1234!"}'
-$uri = 'https://fleet.5x7.local:8443/api/v1/fleet/login'
+$body='{"email":"$user","password":"$pass"}'
+$uri = "$server/api/v1/fleet/login"
 
 $token = (Invoke-RestMethod -Body $body -Uri $uri `
   -ContentType 'application/json' -Method Post `
@@ -17,7 +23,7 @@ $polDescription = "Find Windows machines with build == 19046"
 $polResolution = "Schedule host for OS upgrade with change authorization board"
 
 $body="{`"query`":`"$polQuery`",`"name`":`"$polName`",`"description`":`"$polDescription`",`"resolution`":`"$polResolution`"}"
-$uri = 'https://fleet.5x7.local:8443/api/v1/fleet/global/policies'
+$uri = "$server/api/v1/fleet/global/policies"
 
 Invoke-RestMethod -Body $body -Uri $uri `
   -ContentType 'application/json' -Method Post `
