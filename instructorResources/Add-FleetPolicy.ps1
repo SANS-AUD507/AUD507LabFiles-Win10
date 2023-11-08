@@ -5,7 +5,7 @@ $pass = "student1234!"
 $server = "https://fleet.5x7.local:8443"
 
 #Get an auth token for the Fleet API
-$body='{"email":"$user","password":"$pass"}'
+$body="{`"email`":`"$user`",`"password`":`"$pass`"}"
 $uri = "$server/api/v1/fleet/login"
 
 $token = (Invoke-RestMethod -Body $body -Uri $uri `
