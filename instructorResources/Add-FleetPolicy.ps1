@@ -32,6 +32,6 @@ Invoke-RestMethod -Body $body -Uri $uri `
 "List of current policies:"
 "-------------------------"
 
-Invoke-RestMethod -SkipCertificateCheck `
-  -uri 'https://fleet.5x7.local:8443/api/v1/fleet/global/policies' `
-  -Authentication Bearer -Token $ssToken
+(Invoke-RestMethod -SkipCertificateCheck `
+  -uri $uri `
+  -Authentication Bearer -Token $ssToken).policies | Format-List *
