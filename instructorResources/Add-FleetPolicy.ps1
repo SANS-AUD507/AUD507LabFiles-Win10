@@ -42,11 +42,3 @@ $uri = "$server/api/v1/fleet/global/policies"
 Invoke-RestMethod -Body $body -Uri $uri `
   -ContentType 'application/json' -Method Post `
   -SkipCertificateCheck -Authentication Bearer -Token $ssToken
-
-
-"List of current policies:"
-"-------------------------"
-
-(Invoke-RestMethod -SkipCertificateCheck `
-  -uri $uri `
-  -Authentication Bearer -Token $ssToken).policies | Format-List *
