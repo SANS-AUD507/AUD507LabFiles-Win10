@@ -14,6 +14,7 @@ $token = (Invoke-RestMethod -Body $body -Uri $uri `
 
 "Token acquired: $token"
 $ssToken = ConvertTo-SecureString -String $token -AsPlainText -Force
+$uri = "$server/api/v1/fleet/global/policies"
 
 "List of current policies:"
 "-------------------------"
