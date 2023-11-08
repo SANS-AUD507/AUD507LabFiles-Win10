@@ -15,7 +15,7 @@ $token = (Invoke-RestMethod -Body $body -Uri $uri `
 "Token acquired: $token"
 $ssToken = ConvertTo-SecureString -String $token -AsPlainText -Force
 
-#Build up the API call to create the windows build number policy
+#Build up and run the API call to create the windows build number policy
 #from the workbook
 $polQuery = "select name, version, build, install_date from os_version where build in ('19046');"
 $polName = "Windows build number (API created)"
@@ -28,6 +28,21 @@ $uri = "$server/api/v1/fleet/global/policies"
 Invoke-RestMethod -Body $body -Uri $uri `
   -ContentType 'application/json' -Method Post `
   -SkipCertificateCheck -Authentication Bearer -Token $ssToken
+
+
+#Build up and run the API call to create an OSQuery version policy
+$polQuery = "SELECT version FROM osquery_info where version like '5.8.%';"
+$polName = "Osquery version number (API created)"
+$polDescription = "Find all machines with osquery build == 5.8.*"
+$polResolution = "Schedule host for osquery upgrade with system engineering team"
+
+$body="{`"query`":`"$polQuery`",`"name`":`"$polName`",`"description`":`"$polDescription`",`"resolution`":`"$polResolution`"}"
+$uri = "$server/api/v1/fleet/global/policies"
+
+Invoke-RestMethod -Body $body -Uri $uri `
+  -ContentType 'application/json' -Method Post `
+  -SkipCertificateCheck -Authentication Bearer -Token $ssToken
+
 
 "List of current policies:"
 "-------------------------"
