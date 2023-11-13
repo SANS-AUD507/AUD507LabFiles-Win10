@@ -50,3 +50,20 @@ $uri = "$server/api/v1/fleet/global/policies"
 Invoke-RestMethod -Body $body -Uri $uri `
   -ContentType 'application/json' -Method Post `
   -SkipCertificateCheck -Authentication Bearer -Token $ssToken
+
+#Queries
+
+#Windows Software
+$q = 'select name, version, install_date from programs;'
+$uri = "$server/api/v1/fleet/queries"
+$body=@"
+{
+  `"query`":`"$q`",
+  `"name`":`"Windows software`",
+  `"platform`":`"windows`"
+}
+"@
+
+Invoke-RestMethod -Body $body -Uri $uri `
+  -ContentType 'application/json' -Method Post `
+  -SkipCertificateCheck -Authentication Bearer -Token $ssToken
