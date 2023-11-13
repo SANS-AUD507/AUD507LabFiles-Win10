@@ -59,7 +59,7 @@ $uri = "$server/api/v1/fleet/queries"
 $body=@"
 {
   `"query`":`"$q`",
-  `"name`":`"Windows software`",
+  `"name`":`"Windows software (API created)`",
   `"platform`":`"windows`"
 }
 "@
@@ -74,7 +74,7 @@ $uri = "$server/api/v1/fleet/queries"
 $body=@"
 {
   `"query`":`"$q`",
-  `"name`":`"Host OS Inventory`"
+  `"name`":`"Host OS Inventory (API created)`"
 }
 "@
 
