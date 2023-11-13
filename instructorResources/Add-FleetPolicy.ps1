@@ -21,14 +21,22 @@ $polQuery = "select name, version, build, install_date from os_version where bui
 $polName = "Windows build number (API created)"
 $polDescription = "Find Windows machines with build == 19046"
 $polResolution = "Schedule host for OS upgrade with change authorization board"
+$polPlatform = "windows"
 
-$body="{`"query`":`"$polQuery`",`"name`":`"$polName`",`"description`":`"$polDescription`",`"resolution`":`"$polResolution`"}"
+$body=@"
+{
+  `"query`":`"$polQuery`",
+  `"name`":`"$polName`",
+  `"description`":`"$polDescription`",
+  `"resolution`":`"$polResolution`",
+  `"platform`":`"$polPlatform`"
+}
+"@
 $uri = "$server/api/v1/fleet/global/policies"
 
 Invoke-RestMethod -Body $body -Uri $uri `
   -ContentType 'application/json' -Method Post `
   -SkipCertificateCheck -Authentication Bearer -Token $ssToken
-
 
 #Build up and run the API call to create an OSQuery version policy
 $polQuery = "SELECT version FROM osquery_info where version like '5.8.%';"
