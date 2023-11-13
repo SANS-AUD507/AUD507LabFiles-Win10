@@ -17,9 +17,9 @@ $ssToken = ConvertTo-SecureString -String $token -AsPlainText -Force
 
 #Build up and run the API call to create the windows build number policy
 #from the workbook
-$polQuery = "select name, version, build, install_date from os_version where build in ('19046');"
+$polQuery = "select name, version, build, install_date from os_version where build in ('19998','19999');"
 $polName = "Windows build number (API created)"
-$polDescription = "Find Windows machines with build == 19046"
+$polDescription = "Find Windows machines with build == (19998 OR 19999)"
 $polResolution = "Schedule host for OS upgrade with change authorization board"
 $polPlatform = "windows"
 
