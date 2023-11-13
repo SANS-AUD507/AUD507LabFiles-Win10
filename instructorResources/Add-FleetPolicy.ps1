@@ -67,3 +67,17 @@ $body=@"
 Invoke-RestMethod -Body $body -Uri $uri `
   -ContentType 'application/json' -Method Post `
   -SkipCertificateCheck -Authentication Bearer -Token $ssToken
+
+#All OS versions
+$q = 'SELECT name,version FROM os_version;'
+$uri = "$server/api/v1/fleet/queries"
+$body=@"
+{
+  `"query`":`"$q`",
+  `"name`":`"Host OS Inventory`"
+}
+"@
+
+Invoke-RestMethod -Body $body -Uri $uri `
+  -ContentType 'application/json' -Method Post `
+  -SkipCertificateCheck -Authentication Bearer -Token $ssToken
