@@ -37,5 +37,9 @@ $shortcut.NameSpace("C:\Users\student\AUD507-Labs").Self.InvokeVerb("pintohome")
 
 # Disable notifications
 New-Item -Path "HKCU:\Software\Policies\Microsoft\Windows" -Name "Explorer" -Force -ErrorAction SilentlyContinue
-New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter" -PropertyType "DWord" -Value 1 -ErrorAction SilentlyContinue
-New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled" -PropertyType "DWord" -Value 0 -ErrorAction SilentlyContinue
+New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter" -PropertyType "DWord" -Value 1 -Force -ErrorAction SilentlyContinue
+Get-ChildItem HKCU:\SOFTWARE\Policies\Microsoft\Windows\
+New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled" -PropertyType "DWord" -Value 0 -Force -ErrorAction SilentlyContinue
+Get-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications
+
+pause
