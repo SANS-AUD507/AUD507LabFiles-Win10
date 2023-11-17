@@ -41,5 +41,3 @@ New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Nam
 Get-ChildItem HKCU:\SOFTWARE\Policies\Microsoft\Windows\
 New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled" -PropertyType "DWord" -Value 0 -Force -ErrorAction SilentlyContinue
 Get-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications
-
-pause
