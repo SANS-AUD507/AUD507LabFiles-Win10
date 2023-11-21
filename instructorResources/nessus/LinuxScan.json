@@ -113,7 +113,7 @@
   "discovery_mode":"Port scan (common ports)",
   "emails":"",
   "filter_type":"and",
-  "filters":[],"launch_now":false,"enabled":false,"name":"Linux basic scan",
+  "filters":[],"launch_now":true,"enabled":false,"name":"Linux basic scan",
   "description":"Credentialed scan of Linux hosts\n",
   "folder_id":3,"scanner_id":"1",
   "text_targets":"10.50.7.21,10.50.7.40\n",
