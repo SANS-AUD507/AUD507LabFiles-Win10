@@ -119,8 +119,8 @@
     "discovery_mode":"Port scan (common ports)",
     "emails":"",
     "filter_type":"and",
-    "filters":[],"launch_now":true,"enabled":false,"name":"Credentialed scan of Windows 10 VM",
-    "description":"Windows 10 Credentialed",
+    "filters":[],"launch_now":true,"enabled":false,"name":"Windows 10 Credentialed",
+    "description":"Credentialed scan of Windows 10 VM",
     "folder_id":3,"scanner_id":"1",
     "text_targets":"10.50.7.101",
     "file_targets":""
