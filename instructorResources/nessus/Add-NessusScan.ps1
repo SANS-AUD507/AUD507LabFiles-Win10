@@ -1,3 +1,7 @@
+<#
+TODO: Get API token from nessus6.js ala Posh_nessus hack
+TODO: Get list of template uuids to get the Basic San one
+#>
 [CmdletBinding()]
 param (
     [string]$fileName = ".\windowsScan.json"
@@ -15,8 +19,12 @@ $res = invoke-RestMethod -SkipCertificateCheck -Method Post `
   -uri $uri -body $body
 "Token obtained: $($res.token)"
 
+$js = (Invoke-WebRequest -SkipCertificateCheck -uri $baseUri/nessus6.js).rawContent
+$m = ($js -split ";" ) -match "return`"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+$apiToken = ($m -replace '.*return"', '') -replace '".*', ''
+
 $headers = @{
-  'X-Api-Token' = 'fbfe05d0-7f52-4b95-a617-560e3cb3b07b'
+  'X-Api-Token' = "$apiToken"
   'X-Cookie' = "token=$($res.token)"
 }
 $headers
