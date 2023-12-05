@@ -57,6 +57,11 @@ Describe 'Lab Setup tests for 507Win10 VM' {
         $res | Should -BeTrue -Because 'Ensure that second network adapter is set to Host-only'
     }
 
+    It 'dns.google resolves' {
+      (Resolve-DnsName -Name dns.google).Count | 
+        Should -BeGreaterOrEqual 1 -Because 'Ensure that first network adapter is set to NAT'
+    }
+
     It 'Ping Google - NAT' {
         $res = Test-NetConnection -ComputerName dns.google
         $res | Should -BeTrue -Because 'Ensure that first network adapter is set to NAT'
@@ -66,6 +71,25 @@ Describe 'Lab Setup tests for 507Win10 VM' {
   Context 'Local system checks' {
     It 'Drive free space > 10GB' {
         (Get-PSDrive -name c).Free | Should -BeGreaterThan 10000000000 -Because 'VM disk is low on space'
+    }
+  }
+
+  Context 'Configuration files' {
+    It 'VS Code settings exist' {
+      Test-Path -PathType Leaf -Path 'c:\users\student\appdata\roaming\code\user\settings.json' |
+        Should -BeTrue -Because 'Ensure that you have run the VMSetup script on the desktop'
+    }
+
+    It 'Terminal settings exist' {
+      Test-Path -PathType Leaf `
+        -Path 'C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json' |
+        Should -BeTrue -Because 'Ensure that you have run the VMSetup script on the desktop'
+    }
+
+    It 'Firefox settings exist' {
+      Test-Path -PathType Leaf `
+        -Path 'c:\Program Files\Mozilla Firefox\distribution\policies.json' |
+        Should -BeTrue -Because 'Ensure that you have run the VMSetup script on the desktop'
     }
   }
 
@@ -98,22 +122,22 @@ Describe 'Lab Setup tests for 507Win10 VM' {
     }
 
     It 'AWS ARN is set' {
-      (Get-STSCallerIdentity).Arn | should -BeLike 'arn*student*' -Because 'AWS setup from lab 1.3 not correct'
+      (Get-STSCallerIdentity).Arn | should -BeLike 'arn*student*' -Because 'AWS setup from lab 1.1 not correct'
     }    
   }
 
   Context 'Cloud services - Azure' -Skip:$skipAzure {
 
     It 'AWS config is set to us-east-2 region' {
-      'C:\users\student\.aws\config' | should -FileContentMatch 'region = us-east-2' -Because 'AWS setup from lab 1.3 not correct'
+      'C:\users\student\.aws\config' | should -FileContentMatch 'region = us-east-2' -Because 'AWS setup from lab 1.1 not correct'
     }
 
     It 'AWS config is set to json output' {
-      'C:\users\student\.aws\config' | should -FileContentMatch 'output = json' -Because 'AWS setup from lab 1.3 not correct'
+      'C:\users\student\.aws\config' | should -FileContentMatch 'output = json' -Because 'AWS setup from lab 1.1 not correct'
     }
 
     It 'Azure account is setup' {
-      (az account show | ConvertFrom-Json).user.name | Should -BeLike 'student@*' -Because 'Azure setup from lab 1.3 not correct'
+      (az account show | ConvertFrom-Json).user.name | Should -BeLike 'student@*' -Because 'Azure setup from lab 1.1 not correct'
     }
   }
 }
