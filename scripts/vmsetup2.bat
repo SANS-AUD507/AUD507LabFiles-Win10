@@ -10,7 +10,6 @@ copy /y C:\Users\student\AUD507-Labs\config\WTState.json C:\Users\student\AppDat
 pwsh c:\users\student\aud507-labs\scripts\termLink.ps1
 c:\tools\syspin.exe "C:\Program Files\Mozilla Firefox\firefox.exe" "Pin to taskbar"
 c:\tools\syspin.exe "C:\Program Files\Microsoft VS Code\Code.exe" "Pin to taskbar"
-c:\tools\syspin.exe "C:\Program Files\BurpSuitePro\BurpSuitePro.exe" "Pin to Start"
 c:\tools\syspin.exe "c:\users\student\Desktop\Windows Terminal.lnk" "Pin to Start"
 c:\tools\syspin.exe "c:\users\student\Desktop\Windows Terminal.lnk" "Pin to Taskbar"
 

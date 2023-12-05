@@ -86,6 +86,12 @@ Describe 'Lab Setup tests for 507Win10 VM' {
         Should -BeTrue -Because 'Ensure that you have run the VMSetup script on the desktop'
     }
 
+    It 'Terminal state exist' {
+      Test-Path -PathType Leaf `
+        -Path 'C:\Users\student\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\state.json' |
+        Should -BeTrue -Because 'Ensure that you have run the VMSetup script on the desktop'
+    }
+
     It 'Firefox settings exist' {
       Test-Path -PathType Leaf `
         -Path 'c:\Program Files\Mozilla Firefox\distribution\policies.json' |
