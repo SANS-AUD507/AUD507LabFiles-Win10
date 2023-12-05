@@ -124,10 +124,7 @@ Describe 'Lab Setup tests for 507Win10 VM' {
     It 'AWS ARN is set' {
       (Get-STSCallerIdentity).Arn | should -BeLike 'arn*student*' -Because 'AWS setup from lab 1.1 not correct'
     }    
-  }
-
-  Context 'Cloud services - Azure' -Skip:$skipAzure {
-
+    
     It 'AWS config is set to us-east-2 region' {
       'C:\users\student\.aws\config' | should -FileContentMatch 'region = us-east-2' -Because 'AWS setup from lab 1.1 not correct'
     }
@@ -136,8 +133,19 @@ Describe 'Lab Setup tests for 507Win10 VM' {
       'C:\users\student\.aws\config' | should -FileContentMatch 'output = json' -Because 'AWS setup from lab 1.1 not correct'
     }
 
-    It 'Azure account is setup' {
-      (az account show | ConvertFrom-Json).user.name | Should -BeLike 'student@*' -Because 'Azure setup from lab 1.1 not correct'
+  }
+
+  Context 'Cloud services - Azure' -Skip:$skipAzure {
+
+    It 'Az CLI account is setup' {
+      (az ad signed-in-user show | ConvertFrom-Json).student@sansdevrange5df7e6a2b34c.onmicrosoft.com | 
+        Should -BeLike 'student@*' `
+        -Because 'Azure setup from lab 1.1 not correct'
+    }
+
+    It 'Az PowerShell module tenant is correct' {
+      (Get-AzTenant).Name | should -BeLike 'sans*' `
+        -Because 'Azure setup from lab 1.1 not correct'       
     }
   }
 }
