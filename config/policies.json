@@ -11,6 +11,7 @@
         "DisableFirefoxStudies": true,
         "DisplayBookmarksToolbar": true,
         "DontCheckDefaultBrowser": true,
+        "ExtensionUpdate": false,
         "NoDefaultBookmarks": true,
         "NewTabPage": false,
         "OverrideFirstRunPage": "",
