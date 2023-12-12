@@ -12,6 +12,17 @@
         "DisplayBookmarksToolbar": true,
         "DontCheckDefaultBrowser": true,
         "ExtensionUpdate": false,
+        "ExtensionSettings": {
+            "foxyproxy@eric.h.jung": {
+                "updates_disabled": true
+            },
+            "@retire.js": {
+                "updates_disabled": true
+            },
+            "wappalyzer@crunchlabz.com": {
+                "updates_disabled": true
+            }
+        },
         "NoDefaultBookmarks": true,
         "NewTabPage": false,
         "OverrideFirstRunPage": "",
