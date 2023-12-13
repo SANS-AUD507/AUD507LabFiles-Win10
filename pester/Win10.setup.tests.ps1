@@ -135,7 +135,7 @@ Describe 'Lab Setup tests for 507Win10 VM' {
     It 'Retire.js version' {
       $ver = (osqueryi "select version from firefox_addons where identifier='@retire.js';" --json 2>$null | 
         ConvertFrom-Json).version
-      $ver | Should -BeExactly '1.9.4'
+      $ver | Should -BeExactly '1.7.8'
     }
 
     It 'Wappalyzer' {
