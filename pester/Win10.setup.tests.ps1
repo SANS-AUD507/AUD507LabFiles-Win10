@@ -99,6 +99,27 @@ Describe 'Lab Setup tests for 507Win10 VM' {
     }
   }
 
+  Context 'Firefox Policies' {
+    BeforeAll {
+      $policies = (Get-Content 'c:\Program Files\Mozilla Firefox\distribution\policies.json' | ConvertFrom-Json).policies
+    }
+
+    It 'Retire.js updates disabled' {
+      $policies.ExtensionSettings."@retire.js".updates_disabled |
+        Should -BeTrue -Because 'Ensure the policies.json file for Firefox is correct'
+    }
+
+    It 'FoxyProxy updates disabled' {
+      $policies.ExtensionSettings."foxyproxy@eric.h.jung".updates_disabled |
+        Should -BeTrue -Because 'Ensure the policies.json file for Firefox is correct'
+    }
+
+    It 'Wappalyzer updates disabled' {
+      $policies.ExtensionSettings."wappalyzer@crunchlabz.com".updates_disabled |
+        Should -BeTrue -Because 'Ensure the policies.json file for Firefox is correct'
+    }
+
+  }
   #The firefox plugins won't show up in osquery until the application has been run once, and
   #the polices.json file processed.
   Context 'Firefox plugins' {
@@ -111,14 +132,32 @@ Describe 'Lab Setup tests for 507Win10 VM' {
           -Because "Firefox must have been launched once to load addons. Launch Firefox and re-run the tests."
     }
 
+    It 'Retire.js version' {
+      $ver = (osqueryi "select version from firefox_addons where identifier='@retire.js';" --json 2>$null | 
+        ConvertFrom-Json).version
+      $ver | Should -BeExactly '1.9.4'
+    }
+
     It 'Wappalyzer' {
         $plugins.identifier | Should -Contain 'wappalyzer@crunchlabz.com' `
           -Because "Firefox must have been launched once to load addons. Launch Firefox and re-run the tests."
     }
 
+    It 'Wappalyzer version' {
+      $ver = (osqueryi "select version from firefox_addons where identifier='wappalyzer@crunchlabz.com';" --json 2>$null | 
+        ConvertFrom-Json).version
+      $ver | Should -BeExactly '6.10.67'
+    }
+
     It 'FoxyProxy' {
         $plugins.identifier | Should -Contain 'foxyproxy@eric.h.jung' `
           -Because "Firefox must have been launched once to load addons. Launch Firefox and re-run the tests."
+    }
+
+    It 'FoxyProxy version' {
+      $ver = (osqueryi "select version from firefox_addons where identifier='foxyproxy@eric.h.jung';" --json 2>$null | 
+        ConvertFrom-Json).version
+      $ver | Should -BeExactly '7.5.1'
     }
   }
   
