@@ -7,7 +7,7 @@ $config.Run.Path='C:\Users\student\AUD507-Labs\pester\Win10.Labs.tests.ps1'
 Invoke-Pester -Configuration $config
 #>
 
-Describe '507 Labs'{
+Describe '507 Labs' {
   BeforeDiscovery {
 
     # Get rid of the known hosts file
@@ -16,7 +16,7 @@ Describe '507 Labs'{
     $PSDefaultParameterValues['Test-NetConnection:InformationLevel'] = 'Quiet'
 
     #If the AWS config files are not there, then skip the AWS tests
-    if( -not ( (Test-Path -Type Leaf -Path C:\users\student\.aws\credentials) -or (Test-Path -Type Leaf -Path C:\users\student\.aws\config) ) ) {
+    if ( -not ( (Test-Path -Type Leaf -Path C:\users\student\.aws\credentials) -or (Test-Path -Type Leaf -Path C:\users\student\.aws\config) ) ) {
       Write-Host "Skipping AWS tests because config files do not exist"
       $skipAWS = $true
     }
@@ -27,7 +27,7 @@ Describe '507 Labs'{
 
       #Skip the Cloud Services context if there are no good AWS credentials
       $userARN = (Get-STSCallerIdentity).Arn
-      if( $userARN -notlike '*student*'){
+      if ( $userARN -notlike '*student*') {
         Write-Host "Skipping AWS tests because Get-STSCallerIdentity did not return valid ARN"
         $skipAWS = $true
       }
@@ -41,7 +41,7 @@ Describe '507 Labs'{
       $azSubCount = 0
     }
     
-    if( $azSubCount -lt 1) {
+    if ( $azSubCount -lt 1) {
       Write-Host "Skipping Azure tests because config files do not exist"
       $skipAzure = $true
     } 
@@ -54,29 +54,27 @@ Describe '507 Labs'{
       Import-Module Az.Compute
       Write-Host 'Import complete'
 
-      if((Get-AzTenant).Name -notlike '*sans*'){
+      if ((Get-AzTenant).Name -notlike '*sans*') {
         Write-Host "Skipping Azure tests because tenant is not correct"
         $skipAzure = $true
       }
     }
 
     #Check if alma is reachable
-    if( -not (Test-NetConnection -InformationLevel Quiet -ComputerName alma.5x7.local) ){
+    if ( -not (Test-NetConnection -InformationLevel Quiet -ComputerName alma.5x7.local) ) {
       Write-Host "Skipping alma tests because host is unreachable"
       $skipAlma = $true
     }
     
     #Check if the DC is available
-    if( -not (Test-NetConnection -InformationLevel Quiet -ComputerName 507dc.5x7.local) ){
+    if ( -not (Test-NetConnection -InformationLevel Quiet -ComputerName 507dc.5x7.local) ) {
       $skipDC = $true
     }
 
     #Check if the web server is available
-    if( -not (Test-NetConnection -ComputerName 10.50.7.23 -Port 80 -InformationLevel Quiet) ){
+    if ( -not (Test-NetConnection -ComputerName 10.50.7.23 -Port 80 -InformationLevel Quiet) ) {
       $skipWeb = $true
     }
-
-
   }
 
   Context 'Lab 1.3 - AWS' -Skip:$skipAWS {
@@ -115,23 +113,23 @@ Describe '507 Labs'{
   }
 
   Context 'Lab 1.3 - Azure' -Skip:$skipAzure {
-    It 'Part 4/6 - Get-AZVM returns results'{
+    It 'Part 4/6 - Get-AZVM returns results' {
       (Get-AzVM).Count | Should -BeGreaterOrEqual 3
     }
 
     It 'Part 6 - jq processes az vm output' {
       $azvm = (az vm list)
       $prop = (($azvm | jq '[ .[] | { vmname: .name, os: .storageProfile.osDisk.osType, vmsize: .hardwareProfile.vmSize, tags: .tags }]' | 
-        ConvertFrom-Json) | Get-Member -Type Properties).Name
-        $prop | Should -Contain 'os'
-        $prop | Should -Contain 'tags'
-        $prop | Should -Contain 'vmname'
-        $prop | Should -Contain 'vmsize'
-      }
+            ConvertFrom-Json) | Get-Member -Type Properties).Name
+      $prop | Should -Contain 'os'
+      $prop | Should -Contain 'tags'
+      $prop | Should -Contain 'vmname'
+      $prop | Should -Contain 'vmsize'
+    }
 
     It 'Part 7 - Powershell converts JSON correctly' {
       $azvm = (az vm list)
-      (($azvm | ConvertFrom-Json) | Where-Object Name -like '*aud507*').Count | 
+      (($azvm | ConvertFrom-Json) | Where-Object Name -Like '*aud507*').Count | 
         Should -BeGreaterOrEqual 3
     }
   }
@@ -139,15 +137,15 @@ Describe '507 Labs'{
   Context 'Lab 1.4 - AWS CLI/PoSh' -Skip:$skipAWS {
     It 'Part 2 - aws ec2 with jq returns tags' {
       $instanceProperties = (aws ec2 describe-instances |
-        jq '[.Reservations[].Instances[0] | { "InstanceId": .InstanceId, "Instancetype": .InstanceType, "Tags":.Tags  }]' |
-        ConvertFrom-Json | Get-Member -type Properties).Name
-        $instanceProperties | Should -Contain 'InstanceId'
-        $instanceProperties | Should -Contain 'Instancetype'
-        $instanceProperties | Should -Contain 'Tags'
+          jq '[.Reservations[].Instances[0] | { "InstanceId": .InstanceId, "Instancetype": .InstanceType, "Tags":.Tags  }]' |
+          ConvertFrom-Json | Get-Member -type Properties).Name
+      $instanceProperties | Should -Contain 'InstanceId'
+      $instanceProperties | Should -Contain 'Instancetype'
+      $instanceProperties | Should -Contain 'Tags'
     }
     
-    It 'Part 2 - AWS PowerShell module contains >5,000 of Get* commands'{
-      (Get-Command -Module AWSPowerShell.NetCore -name Get-* | Measure-Object).Count | 
+    It 'Part 2 - AWS PowerShell module contains >5,000 of Get* commands' {
+      (Get-Command -Module AWSPowerShell.NetCore -Name Get-* | Measure-Object).Count | 
         Should -BeGreaterThan 5000
     }
 
@@ -156,25 +154,25 @@ Describe '507 Labs'{
     }
 
     It 'Part 2 - 3 EC2 instances are missing tags' {
-      (Get-EC2Instance |  Where-Object { ($_.Instances.tags | Where-Object Key -eq 'Business_Unit').Count -lt 1 }).instances.Count | 
+      (Get-EC2Instance | Where-Object { ($_.Instances.tags | Where-Object Key -EQ 'Business_Unit').Count -lt 1 }).instances.Count | 
         Should -Be 3
     }
 
     It 'Part 2 - EC2 Compliance Checks' {
       $totalCount = (Get-EC2Instance).Count
       $nonCompliantCount = (Get-EC2Instance |
-        Where-Object {
-          ($_.Instances.tags | Where-Object Key -eq 'Business_Unit').Count -lt 1
-      }).Count
+          Where-Object {
+          ($_.Instances.tags | Where-Object Key -EQ 'Business_Unit').Count -lt 1
+          }).Count
       $totalCount | Should -Be 5
       $nonCompliantCount | Should -Be 3
-      $nonCompliantPct = ($nonCompliantCount/$totalCount) * 100.0
+      $nonCompliantPct = ($nonCompliantCount / $totalCount) * 100.0
       $nonCompliantPct | Should -Be 60
     }
   }
 
   Context 'Lab 1.4 - Azure' -Skip:$skipAzure {
-    BeforeAll{
+    BeforeAll {
       #ensure the resource graph extension and module are installed
       az extension add --name resource-graph
       Import-Module Az.ResourceGraph
@@ -201,20 +199,20 @@ Describe '507 Labs'{
     }    
 
     It 'Part 2 - Student and sshd are the only enabled users' {
-      $enabledUsers = (Get-LocalUser | Where-Object enabled -eq $true)
+      $enabledUsers = (Get-LocalUser | Where-Object enabled -EQ $true)
       $enabledUsers.Count | Should -Be 2
       $enabledUsers.Name | Should -Contain 'student'
       $enabledUsers.Name | Should -Contain 'sshd'      
     }
 
     It 'Part 2 - WDAGUtilityAccount is the only PasswordExires users' {
-      $passwordExiresUsers = (Get-LocalUser | Where-Object passwordExpires -ne $null)
+      $passwordExiresUsers = (Get-LocalUser | Where-Object passwordExpires -NE $null)
       $passwordExiresUsers.Count | Should -Be 1
       $passwordExiresUsers.Name | Should -Contain 'WDAGUtilityAccount' 
     }
 
     It 'Part 3 - Not enabled users' {
-      $enabledUsers = (Get-LocalUser | Where-Object enabled -eq $false)
+      $enabledUsers = (Get-LocalUser | Where-Object enabled -EQ $false)
       $enabledUsers.Count | Should -Be 4
     }
   }
@@ -233,23 +231,23 @@ Describe '507 Labs'{
       $res.LimitBlankPasswordUse | Should -Be 1
       $res.NoLMHash | Should -Be 1
       $res.restrictanonymous | Should -Be 0    
-      (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" |  Select-Object).EnableLUA | 
+      (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" | Select-Object).EnableLUA | 
         Should -Be 1      
     }
 
-    It 'Part 3 - Firefox not in the Win32_Product list'{
+    It 'Part 3 - Firefox not in the Win32_Product list' {
       $res = (Get-CimInstance Win32_Product | Select-Object Name, Version )
-      ($res | Where-Object Name -like '*mozilla*').Count | Should -Be 0
+      ($res | Where-Object Name -Like '*mozilla*').Count | Should -Be 0
     }
 
-    It 'Part 3 - InstalledSoftware script output includes Firefox'{
+    It 'Part 3 - InstalledSoftware script output includes Firefox' {
       $res = C:\users\student\AUD507-Labs\scripts\InstalledSoftware.ps1
-      ($res | Where-Object Displayname -like '*mozilla*').Count | Should -BeGreaterOrEqual 1
+      ($res | Where-Object Displayname -Like '*mozilla*').Count | Should -BeGreaterOrEqual 1
 
     }
 
     It 'Part 5 - OSQuery returns Firefox' {
-      $res = osqueryi.exe "select name, version, install_date from programs;" --json | ConvertFrom-Json | Where-Object Name -like '*mozilla*'
+      $res = osqueryi.exe "select name, version, install_date from programs;" --json | ConvertFrom-Json | Where-Object Name -Like '*mozilla*'
       $res.Count | Should -BeGreaterOrEqual 1
     }
 
@@ -314,7 +312,7 @@ Describe '507 Labs'{
     }
     
     It 'Part 3 - Get-SMBShare returns 3 shares' {
-      $res = (get-SMBShare)
+      $res = (Get-SmbShare)
       $res.Count | Should -Be 3
       $res.Name | Should -Contain 'ADMIN$'
       $res.Name | Should -Contain 'C$'
@@ -335,12 +333,12 @@ Describe '507 Labs'{
     }
 
     It 'Part 5 - 2 users without password required' {
-      (Get-ADUser -Filter {PasswordNotRequired -eq $true} `
+      (Get-ADUser -Filter { PasswordNotRequired -eq $true } `
         -Server 507dc -Credential $cred).Count | Should -Be 2
     }
 
     It 'Part 5 - 9 users without password expiration' {
-      (Get-ADUser -Filter {PasswordNeverExpires -eq $true} `
+      (Get-ADUser -Filter { PasswordNeverExpires -eq $true } `
         -Server 507dc -Credential $cred).Count | Should -Be 9
     }
 
@@ -351,7 +349,7 @@ Describe '507 Labs'{
 
     It 'Part 5 - 71 domain admins with recursion' {
       (Get-ADGroupMember -Identity "Domain Admins" `
-      -Server 507dc -Credential $cred -Recursive).Count | Should -Be 71
+        -Server 507dc -Credential $cred -Recursive).Count | Should -Be 71
     }
 
     It 'Part 5 - Student is a domain admin' {
@@ -361,7 +359,7 @@ Describe '507 Labs'{
 
     It 'Part 5 - DSGet shows student in Schema Admins' {
       $userDN = (Get-ADUser -Identity student `
-        -Server 507dc -Credential $cred).DistinguishedName
+          -Server 507dc -Credential $cred).DistinguishedName
       $res = dsget user "$userDN" -memberof -expand -s 507dc -u student -p Password1
       $res.Count | Should -Be 7
       $res | Should -Contain '"CN=Schema Admins,CN=Users,DC=AUD507,DC=local"'
@@ -403,12 +401,12 @@ Describe '507 Labs'{
     }
   
     It 'Part 99 - Demo scan was authenticated' {
-      ($reportItems | Where-Object pluginID -eq '19506' | Select-Object plugin_output) |
+      ($reportItems | Where-Object pluginID -EQ '19506' | Select-Object plugin_output) |
         Should -Match 'Credentialed checks : yes'
     }
 
     It 'part99 - Demo scan has at least one missing patch' {
-      $patches = (($reportItems | Where-Object pluginID -eq '38153').plugin_output -split '\n' | Select-String '^ - ')
+      $patches = (($reportItems | Where-Object pluginID -EQ '38153').plugin_output -split '\n' | Select-String '^ - ')
       $patches.Count | Should -BeGreaterOrEqual 1
     }
 
@@ -440,6 +438,7 @@ Describe '507 Labs'{
       (run-sshCommand -Command "lsb_release -c | awk -F: '{print $2}'") |
         Should -BeLike '*SkyTiger'
     }
+   
 
     It 'Part 2 - Alma shows >200 missing patches' {
       $patchCount = (run-sshCommand -Command "sudo yum check-update | wc -l")
@@ -455,7 +454,7 @@ Describe '507 Labs'{
   Context 'Lab3.4: Ubuntu scan results' {
     BeforeAll {
       $scan = [system.xml.xmldocument](Get-Content C:\users\student\AUD507-Labs\scans\LinuxDemo.nessus)
-      $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -eq '10.50.7.21').ReportItem
+      $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -EQ '10.50.7.21').ReportItem
     }
 
     It 'Part 4 - Ubuntu has at least one missing patch' {
@@ -467,7 +466,7 @@ Describe '507 Labs'{
   Context 'Lab3.4: Alma scan results' {
     BeforeAll {
       $scan = [system.xml.xmldocument](Get-Content C:\users\student\AUD507-Labs\scans\LinuxDemo.nessus)
-      $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -eq '10.50.7.40').ReportItem
+      $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -EQ '10.50.7.40').ReportItem
     }
 
     It 'Part 4 - Alma has at least one missing patch' {
@@ -477,7 +476,7 @@ Describe '507 Labs'{
   }
 
   Context 'Lab 4.2' -Skip:$skipAWS {
-    It 'Part 1 - IAM account summary results correct'  {
+    It 'Part 1 - IAM account summary results correct' {
       $res = (Get-IAMAccountSummary)
       $res.AccountAccessKeysPresent | Should -Be 0
       $res.AccountMFAEnabled | Should -Be 1
@@ -489,20 +488,20 @@ Describe '507 Labs'{
     }
 
     It 'Part 1 - GLee has 2 keys' {
-      $userName  = (Get-IAMUserList | Where-Object UserName -like 'GLee*').UserName
+      $userName = (Get-IAMUserList | Where-Object UserName -Like 'GLee*').UserName
       $keyCount = (Get-IAMAccessKey -UserName $userName).Count
       $keyCount | Should -Be 2
     }
 
     It 'Part 1 - JAllen has AWSSupportAccess policy attached' {
-      $userName = (Get-IAMUserList | Where-Object username -like 'JAllen*').UserName
+      $userName = (Get-IAMUserList | Where-Object username -Like 'JAllen*').UserName
       $res = (Get-IAMAttachedUserPolicies -UserName $userName)
       $res.Count | Should -Be 1
       $res[0].PolicyName | Should -Be 'AWSSupportAccess'
     }
 
     It 'Part 1 - Walexander has inline policy' {
-      $userName = (Get-IAMUserList | Where-Object username -like 'Walexander*').UserName
+      $userName = (Get-IAMUserList | Where-Object username -Like 'Walexander*').UserName
       $res = (Get-IAMUserPolicies -UserName $userName)
       $res.Count | Should -Be 1
     }
@@ -510,19 +509,19 @@ Describe '507 Labs'{
 
   Context 'Lab 4.4' -Skip:$skipAWS {
     It 'Part 4 - 4 buckets have server side encryption enabled' {
-      $res = ((Get-S3Bucket | Where-Object BucketName -like '*aud507*' | Get-S3BucketEncryption).ServerSideEncryptionRules | 
-        Where-Object ServerSideEncryptionByDefault -ne $null)
+      $res = ((Get-S3Bucket | Where-Object BucketName -Like '*aud507*' | Get-S3BucketEncryption).ServerSideEncryptionRules | 
+          Where-Object ServerSideEncryptionByDefault -NE $null)
       $res.Count | Should -Be 4
     }
 
     It 'Part 4 - 4 buckets have versioning turned off' {
-      $res = (Get-S3Bucket | Where-Object BucketName -like '*aud507*' | Get-S3BucketVersioning | Where-Object Status -eq 'Off')
+      $res = (Get-S3Bucket | Where-Object BucketName -Like '*aud507*' | Get-S3BucketVersioning | Where-Object Status -EQ 'Off')
       $res.Count | Should -Be 4
     }
 
     
     It 'Part 4 - 4 buckets have MFA Delete turned off' {
-      $res = (Get-S3Bucket | Where-Object BucketName -like '*aud507*' | Get-S3BucketVersioning | Where-Object EnableMfaDelete -eq $false)
+      $res = (Get-S3Bucket | Where-Object BucketName -Like '*aud507*' | Get-S3BucketVersioning | Where-Object EnableMfaDelete -EQ $false)
       $res.Count | Should -Be 4
     }
   }
@@ -530,11 +529,11 @@ Describe '507 Labs'{
   Context 'Lab 5.1' {
     It 'Customer feedback < 1 is allowed' {
       #Get a working captcha from the API
-      $captcha=Invoke-RestMethod -uri http://juiceshop.5x7.local/rest/captcha
+      $captcha = Invoke-RestMethod -Uri http://juiceshop.5x7.local/rest/captcha
 
-      $body="{`"captchaId`":$($captcha.captchaId),`"captcha`":`"$($captcha.answer)`",`"comment`":`"Pester test`",`"rating`":0}"
+      $body = "{`"captchaId`":$($captcha.captchaId),`"captcha`":`"$($captcha.answer)`",`"comment`":`"Pester test`",`"rating`":0}"
       $uri = 'http://juiceshop.5x7.local/api/Feedbacks/'
-      $res = Invoke-WebRequest -Method Post -Body $body -uri $uri -ContentType 'application/json'
+      $res = Invoke-WebRequest -Method Post -Body $body -Uri $uri -ContentType 'application/json'
       $res.StatusCode | Should -BeExactly 201
       ($res.Content | ConvertFrom-Json).data.rating | Should -BeExactly 0
     }
@@ -591,7 +590,7 @@ Describe '507 Labs'{
     It 'Part 1 - SQL injection returns all rows' {
       # '));
       $uri = 'http://juiceshop.5x7.local/rest/products/search?q=%27%29%29%3B'
-      $res = Invoke-WebRequest -uri $uri
+      $res = Invoke-WebRequest -Uri $uri
       ($res.Content | ConvertFrom-Json).data.Count |
         Should -BeExactly 44
     }
@@ -611,14 +610,14 @@ Describe '507 Labs'{
       #Read the names file
       $nameFile = Get-Content C:\Users\student\AUD507-Labs\injection\namesLower.txt
       
-      foreach( $name in $validNames){
+      foreach ( $name in $validNames) {
         #Check that each name in the in file
         $nameFile | Should -Contain $name
 
         #Check that each name returns a question with a valid ID
         $username = $name + "@juice-sh.op"
         $uri = "http://juiceshop.5x7.local/rest/user/security-question?email=$username"
-        $res = Invoke-RestMethod -uri $uri
+        $res = Invoke-RestMethod -Uri $uri
         $res.question.id | Should -BeGreaterOrEqual 0
         $res.question.question.Length | Should -BeGreaterOrEqual 1
       }
@@ -633,8 +632,8 @@ Describe '507 Labs'{
       $passwords | Should -Contain  'ncc-1701'
 
       #Test that you can login as Jim
-      $uri='http://juiceshop.5x7.local/rest/user/login'
-      $body='{"email":"jim@juice-sh.op","password":"ncc-1701"}'
+      $uri = 'http://juiceshop.5x7.local/rest/user/login'
+      $body = '{"email":"jim@juice-sh.op","password":"ncc-1701"}'
       $res = Invoke-WebRequest -Method Post -Body $body -Uri $uri -ContentType 'application/json'
 
       $res.StatusCode | Should -BeExactly 200
@@ -649,8 +648,8 @@ Describe '507 Labs'{
     #Skip part 1 since it uses DOM
 
     It 'Part 2 - Amy login with SQL injection works' {
-      $uri='http://juiceshop.5x7.local/rest/user/login'
-      $body='{"email":"amy@juice-sh.op'';--","password":"PESTER-DOESNT-MATTER"}'
+      $uri = 'http://juiceshop.5x7.local/rest/user/login'
+      $body = '{"email":"amy@juice-sh.op'';--","password":"PESTER-DOESNT-MATTER"}'
       $res = Invoke-WebRequest -Method Post -Body $body -Uri $uri -ContentType 'application/json'
 
       $res.StatusCode | Should -BeExactly 200
@@ -663,7 +662,7 @@ Describe '507 Labs'{
     It 'Part 3 - SQL Injection returns all data' {
       # invalid')) or 1=1--
       $uri = 'http://juiceshop.5x7.local/rest/products/search?q=invalid%27%29%29%20or%201%3D1--'
-      $res = Invoke-WebRequest -uri $uri
+      $res = Invoke-WebRequest -Uri $uri
 
       $res.StatusCode | Should -BeExactly 200
       ($res.Content | ConvertFrom-Json).data.Count |
