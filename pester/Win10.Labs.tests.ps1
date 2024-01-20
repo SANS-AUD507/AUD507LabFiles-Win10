@@ -60,18 +60,6 @@ Describe '507 Labs'{
       }
     }
 
-    #Check if esxi server is reachable
-    if( -not (Test-NetConnection -InformationLevel Quiet -ComputerName esxi.5x7.local) ){
-      Write-Host "Skipping ESXi tests because host is unreachable"
-      $skipEsxi = $true
-    }
-    else {
-      Write-Host 'Importing PowerCLI - may be slow!'
-      Import-Module VMware.PowerCLI
-      Write-Host 'Import complete'
-    }
-    
-
     #Check if alma is reachable
     if( -not (Test-NetConnection -InformationLevel Quiet -ComputerName alma.5x7.local) ){
       Write-Host "Skipping alma tests because host is unreachable"
@@ -485,55 +473,6 @@ Describe '507 Labs'{
     It 'Part 4 - Alma has at least one missing patch' {
       $patchCount = ($reportItems | Where-Object pluginName -Like 'AlmaLinux*').Count
       $patchCount | Should -BeGreaterOrEqual 1
-    }
-  }
-
-  Context 'Lab4.1-VMWare' -Skip:$skipEsxi {
-    BeforeAll {
-      Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false -Confirm:$false
-      Set-PowerCLIConfiguration -Scope User -DefaultVIServerMode Single -Confirm:$false
-      Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false
-
-      $User = "student"
-      $PWord = ConvertTo-SecureString -String "Password1!" -AsPlainText -Force
-      $vmwareCred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $PWord
-
-      Connect-VIServer -Server esxi1 -Credential $vmwareCred
-    }
-
-    #Set back to defaults
-    AfterAll {
-      Set-PowerCLIConfiguration -Scope User -DefaultVIServerMode Multiple -Confirm:$false
-      Set-PowerCLIConfiguration -InvalidCertificateAction Fail -Confirm:$false
-    }
-
-    It 'Part 2 - Get-VM returns 2 VMs' {
-      (Get-VM).Count | Should -Be 2
-    }
-
-    It 'Part 2 - DNS server settings are correct' {
-      $dnsservers = ((Get-VMHost).ExtensionData.Config.Network.DNSConfig |  
-        Select-Object -ExpandProperty address)
-      $dnsservers | Should -Contain '8.8.8.8'
-      $dnsservers | Should -Not -Contain '8.8.4.4'
-    }
-
-    It 'Part 2 - NTP Server is correct' {
-      $ntpServer = (Get-VMHost -Server esxi1 | Get-VMHostNtpServer)
-      $ntpServer | Should -Be 'pool.ntp.org'
-    }
-
-    It 'Part 2 - NTP service state is correct' {
-      $ntpState = (Get-VMHost | Get-VMHostService | Where-Object {$_.key -eq "ntpd"} |
-        Select-Object VMHost, Label, Key, Policy, Running, Required)
-        $ntpState.Policy | Should -Be 'off'
-        $ntpState.Running | Should -Be $false
-        $ntpState.Required | Should -Be $false
-    }
-
-    It 'Part 2 - Datastore version is > 6' {
-      $ds = (Get-VMHost -Server esxi1 | Get-Datastore)
-      $ds.FileSystemVersion | Should -BeGreaterOrEqual 6
     }
   }
 
