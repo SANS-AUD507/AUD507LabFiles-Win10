@@ -401,11 +401,13 @@ Describe '507 Labs'{
   }
 
   Context 'Lab2.4-NessusSavedScan' {
-    BeforeAll {
-      $credScan = [system.xml.xmldocument](Get-Content c:\users\student\AUD507-Labs\scans\Win10CIS_L1Demo.nessus)
-      $cisScan = [system.xml.xmldocument](Get-Content c:\users\student\AUD507-Labs\scans\Win10demo.nessus)
-      $credReportItems = $credScan.NessusClientData_v2.Report.ReportHost.ReportItem
+    BeforeAll {      
+      $cisScan = [system.xml.xmldocument](Get-Content c:\users\student\AUD507-Labs\scans\Win10CIS_L1Demo.nessus)
+      $credScan = [system.xml.xmldocument](Get-Content c:\users\student\AUD507-Labs\scans\Win10demo.nessus)
+      
       $cisReportItems = $cisScan.NessusClientData_v2.Report.ReportHost.ReportItem
+      $credReportItems = $credScan.NessusClientData_v2.Report.ReportHost.ReportItem
+      
     }
 
     It 'Nessus CIS Compliance Scan File Exists' {
