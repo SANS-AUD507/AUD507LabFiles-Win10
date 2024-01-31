@@ -402,34 +402,44 @@ Describe '507 Labs'{
 
   Context 'Lab2.4-NessusSavedScan' {
     BeforeAll {
-      $scan = [system.xml.xmldocument](Get-Content c:\users\student\AUD507-Labs\scans\Win10demo.nessus)
-      $reportItems = $scan.NessusClientData_v2.Report.ReportHost.ReportItem
+      $credScan = [system.xml.xmldocument](Get-Content c:\users\student\AUD507-Labs\scans\Win10CIS_L1Demo.nessus)
+      $cisScan = [system.xml.xmldocument](Get-Content c:\users\student\AUD507-Labs\scans\Win10demo.nessus)
+      $credReportItems = $credScan.NessusClientData_v2.Report.ReportHost.ReportItem
+      $cisReportItems = $cisScan.NessusClientData_v2.Report.ReportHost.ReportItem
     }
 
-    # TODO: Scan file should exist
+    It 'Nessus CIS Compliance Scan File Exists' {
+      (Test-Path -Type Leaf -Path C:\Users\student\AUD507-Labs\scans\Win10CIS_L1Demo.nessus) | Should -BeTrue
+    }
 
-    #TODO: Catch all the plugins we call out in the lab
-    It 'Part 99 - Plugin output contains pluginIDs 19506 and 38153' {
-      $reportItems.PluginID | Should -Contain '19506'
-      $reportItems.PluginID | Should -Contain '38153'
+    It 'Nessus Credentialed Scan File Exists' {
+      (Test-Path -Type Leaf -Path C:\Users\student\AUD507-Labs\scans\Win10demo.nessus) | Should -BeTrue
+    }
+
+    It 'Part 4 - Compliance result values are correct' {
+      ($cisReportItems | Group-Object "compliance-result" | Where-Object Name -eq 'FAILED').Count | Should -BeExactly 290
+      ($cisReportItems | Group-Object "compliance-result" | Where-Object Name -eq 'PASSED').Count | Should -BeExactly 89
+      ($cisReportItems | Group-Object "compliance" | Where-Object Name -eq true).Count | Should -BeExactly 379
+    }
+
+    It 'Part 5 - Plugin output contains pluginIDs 19506, 38153 and 66334' {
+      $credReportItems.PluginID | Should -Contain '19506'
+      $credReportItems.PluginID | Should -Contain '38153'
+      $credReportItems.PluginID | Should -Contain '66334'
     }
   
-    It 'Part 99 - Demo scan was authenticated' {
-      ($reportItems | Where-Object pluginID -eq '19506' | Select-Object plugin_output) |
+    It 'Part 5 - Demo scan was authenticated' {
+      ($credReportItems | Where-Object pluginID -eq '19506' | Select-Object plugin_output) |
         Should -Match 'Credentialed checks : yes'
     }
 
-    It 'part99 - Demo scan has at least one missing patch' {
-      $patches = (($reportItems | Where-Object pluginID -eq '38153').plugin_output -split '\n' | Select-String '^ - ')
+    It 'Part 5 - Demo scan has at least one missing patch' {
+      $patches = (($credReportItems | Where-Object pluginID -eq '38153').plugin_output -split '\n' | Select-String '^ - ')
       $patches.Count | Should -BeGreaterOrEqual 1
     }
-
-    # TODO: plugin 66334
   }
 
-  Context 'Nessus CIS L1 Scan' {
-    #TODO: Test for the benchmark compliance scan go here...
-  }
+  
 
   Context 'Lab 3.1: Alma system info' -Skip:$skipAlma {
     BeforeAll {
