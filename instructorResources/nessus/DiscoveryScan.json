@@ -1,0 +1,2227 @@
+{
+  "name": "Host Discovery",
+  "plugins": {
+    "10335": "enabled",
+    "11219": "enabled",
+    "10180": "enabled"
+  },
+  "plugin_preferences": [
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "Citrix NITRO API Settings",
+      "plugin_id": 154869,
+      "value": "yes"
+    },
+    {
+      "name": "Test the local Nessus host",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "yes"
+    },
+    {
+      "name": "Region us-gov-east-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "disable_dns_resolution",
+      "plugin_name": "Malicious Process Detection",
+      "plugin_id": 59275,
+      "value": "no"
+    },
+    {
+      "name": "Login form fields :",
+      "plugin_name": "HTTP login page",
+      "plugin_id": 11149,
+      "value": "user=%USER%&pass=%PASS%"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "Patch Management: WSUS Server Settings",
+      "plugin_id": 57031,
+      "value": "no"
+    },
+    {
+      "name": "Mutate: 4 Enumerate user names via cgiwrap (/cgi-bin/cgiwrap/~user type requests)",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Invert test (disconnected if regex matches)",
+      "plugin_name": "HTTP login page",
+      "plugin_id": 11149,
+      "value": "no"
+    },
+    {
+      "name": "Additional Sybase ASE auth type (4) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "RSA;Plain Text"
+    },
+    {
+      "name": "Additional VMware vCenter port (5) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "443"
+    },
+    {
+      "name": "Check for PCI-DSS compliance",
+      "plugin_name": "PCI DSS compliance",
+      "plugin_id": 33929,
+      "value": "no"
+    },
+    {
+      "name": "SNMPv3 authentication algorithm (5) :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "MD5;SHA1;SHA-224;SHA-256;SHA-384;SHA-512"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "MobileIron API Settings",
+      "plugin_id": 72904,
+      "value": "yes"
+    },
+    {
+      "name": "Client version :",
+      "plugin_name": "SSH settings",
+      "plugin_id": 14273,
+      "value": "OpenSSH_5.0"
+    },
+    {
+      "name": "Additional DB Type (2) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "Oracle;SQL Server;MySQL;DB2;Informix/DRDA;PostgreSQL;Sybase ASE"
+    },
+    {
+      "name": "Auto Discover Managed ESXi Hosts :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "no"
+    },
+    {
+      "name": "Additional Auto Discover Managed Virtual Machines :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "no"
+    },
+    {
+      "name": "Region ca-central-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "FTP password (sent in clear) :",
+      "plugin_name": "Login configurations",
+      "plugin_id": 10870,
+      "value": "*"
+    },
+    {
+      "name": "Only run network port scanners if local port enumeration failed",
+      "plugin_name": "Port scanners settings",
+      "plugin_id": 33812,
+      "value": "yes"
+    },
+    {
+      "name": "Tuning: 3 Information Disclosure",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Delay (in days, between 0 and 7) :",
+      "plugin_name": "Antivirus Software Check",
+      "plugin_id": 16193,
+      "value": "0"
+    },
+    {
+      "name": "OVAL Result Type #5 :",
+      "plugin_name": "SCAP Linux Compliance Checks",
+      "plugin_id": 66757,
+      "value": "Full results w/ system characteristics;Full results w/o system characteristics;Thin results"
+    },
+    {
+      "name": "Satellite 6 Port :",
+      "plugin_name": "Patch Management: Red Hat Satellite 6 Settings",
+      "plugin_id": 84232,
+      "value": "443"
+    },
+    {
+      "name": "Region eu-central-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Port :",
+      "plugin_name": "Citrix NITRO API Settings",
+      "plugin_id": 154869,
+      "value": "443"
+    },
+    {
+      "name": "Interpret ICMP unreach from gateway",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "no"
+    },
+    {
+      "name": "Region us-gov-west-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Abort web application tests if login fails",
+      "plugin_name": "HTTP login page",
+      "plugin_id": 11149,
+      "value": "no"
+    },
+    {
+      "name": "SCAP Version #1 :",
+      "plugin_name": "SCAP Windows Compliance Checks",
+      "plugin_id": 66756,
+      "value": "1.2;1.1;1.0"
+    },
+    {
+      "name": "Additional SQL Server auth type (4) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "Windows;SQL"
+    },
+    {
+      "name": "SQL Server auth type:",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "Windows;SQL"
+    },
+    {
+      "name": "Additional Verify SSL Certificate (4) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "no"
+    },
+    {
+      "name": "Do a TCP ping",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "yes"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "OpenShift Settings",
+      "plugin_id": 161407,
+      "value": "yes"
+    },
+    {
+      "name": "Request information about the domain",
+      "plugin_name": "SMB Scope",
+      "plugin_id": 10917,
+      "value": "yes"
+    },
+    {
+      "name": "Hong Kong (HKG) :",
+      "plugin_name": "Rackspace Settings",
+      "plugin_id": 79355,
+      "value": "yes"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "Workspace ONE API Settings",
+      "plugin_id": 174452,
+      "value": "yes"
+    },
+    {
+      "name": "Oracle service type :",
+      "plugin_name": "Oracle Settings",
+      "plugin_id": 22076,
+      "value": "SID;SERVICE_NAME"
+    },
+    {
+      "name": "Tuning: 6 Denial of Service",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Additional DB Type (1) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "Oracle;SQL Server;MySQL;DB2;Informix/DRDA;PostgreSQL;Sybase ASE"
+    },
+    {
+      "name": "Identify certificates that expire within x days",
+      "plugin_name": "SSL Certificate Expiry",
+      "plugin_id": 15901,
+      "value": "60"
+    },
+    {
+      "name": "Exit as soon as an account is found",
+      "plugin_name": "Hydra (NASL wrappers options)",
+      "plugin_id": 15868,
+      "value": "no"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "Nutanix Settings",
+      "plugin_id": 160184,
+      "value": "yes"
+    },
+    {
+      "name": "Additional Oracle auth type (4) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "NORMAL;SYSOPER;SYSDBA"
+    },
+    {
+      "name": "Kerberos KDC Port :",
+      "plugin_name": "Kerberos configuration",
+      "plugin_id": 17351,
+      "value": "88"
+    },
+    {
+      "name": "SCAP Version #3 :",
+      "plugin_name": "SCAP Linux Compliance Checks",
+      "plugin_id": 66757,
+      "value": "1.2;1.1;1.0"
+    },
+    {
+      "name": "Check open TCP ports found by local port enumerators",
+      "plugin_name": "Port scanners settings",
+      "plugin_id": 33812,
+      "value": "no"
+    },
+    {
+      "name": "Additional Ignore SSL Certificate (5) :",
+      "plugin_name": "VMware SOAP API Settings",
+      "plugin_id": 57395,
+      "value": "no"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "Palo Alto Networks PAN-OS Settings",
+      "plugin_id": 64286,
+      "value": "no"
+    },
+    {
+      "name": "Enable CGI scanning",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "no"
+    },
+    {
+      "name": "Maximum run time (min) :",
+      "plugin_name": "Web Application Tests Settings",
+      "plugin_id": 39471,
+      "value": "60"
+    },
+    {
+      "name": "SNMPv3 authentication algorithm (1) :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "MD5;SHA1;SHA-224;SHA-256;SHA-384;SHA-512"
+    },
+    {
+      "name": "Thorough tests (slow)",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "no"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "RHEV Settings",
+      "plugin_id": 77089,
+      "value": "no"
+    },
+    {
+      "name": "Additional Verify SSL Certificate (3) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "no"
+    },
+    {
+      "name": "Excluded items regex :",
+      "plugin_name": "Web mirroring",
+      "plugin_id": 10662,
+      "value": "/server_privileges\\.php|logout"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "yes"
+    },
+    {
+      "name": "SNMPv3 privacy algorithm (1) :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "AES;AES192;AES192C;AES256;AES256C;DES"
+    },
+    {
+      "name": "Kerberos KDC Transport :",
+      "plugin_name": "Kerberos configuration",
+      "plugin_id": 17351,
+      "value": "tcp"
+    },
+    {
+      "name": "Additional Database service type (1) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "SID;SERVICE_NAME"
+    },
+    {
+      "name": "Region us-west-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Maximum depth :",
+      "plugin_name": "Web mirroring",
+      "plugin_id": 10662,
+      "value": "6"
+    },
+    {
+      "name": "Port :",
+      "plugin_name": "OpenShift Settings",
+      "plugin_id": 161407,
+      "value": "6443"
+    },
+    {
+      "name": "Additional SQL Server auth type (2) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "Windows;SQL"
+    },
+    {
+      "name": "Sybase ASE auth type:",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "RSA;Plain Text"
+    },
+    {
+      "name": "Ignore SSL Certificate :",
+      "plugin_name": "VMware SOAP API Settings",
+      "plugin_id": 57395,
+      "value": "no"
+    },
+    {
+      "name": "Region ap-northeast-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Tuning: a Authentication Bypass",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Tuning: 1 Interesting File / Seen in logs",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "SSL (disabled in safe_checks)",
+      "plugin_name": "amap (NASL wrapper)",
+      "plugin_id": 14663,
+      "value": "yes"
+    },
+    {
+      "name": "Additional Database service type (3) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "SID;SERVICE_NAME"
+    },
+    {
+      "name": "Time to wait (in minutes) for the systems to boot:",
+      "plugin_name": "Wake-on-LAN",
+      "plugin_id": 52616,
+      "value": "5"
+    },
+    {
+      "name": "Region eu-west-3 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "OVAL Result Type #2 :",
+      "plugin_name": "SCAP Windows Compliance Checks",
+      "plugin_id": 66756,
+      "value": "Full results w/ system characteristics;Full results w/o system characteristics;Thin results"
+    },
+    {
+      "name": "Log live hosts in the report",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "yes"
+    },
+    {
+      "name": "Try to perform patch level checks over rexec",
+      "plugin_name": "Cleartext protocols settings",
+      "plugin_id": 21744,
+      "value": "no"
+    },
+    {
+      "name": "Never send SMB credentials in clear text",
+      "plugin_name": "Login configurations",
+      "plugin_id": 10870,
+      "value": "yes"
+    },
+    {
+      "name": "Tuning: b Software Identification",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Additional SSL (1) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "yes"
+    },
+    {
+      "name": "Authentication Method :",
+      "plugin_name": "Rackspace Settings",
+      "plugin_id": 79355,
+      "value": "API-Key;Password"
+    },
+    {
+      "name": "Additional Ignore SSL Certificate (1) :",
+      "plugin_name": "VMware SOAP API Settings",
+      "plugin_id": 57395,
+      "value": "no"
+    },
+    {
+      "name": "Auto Discover Managed Nutanix Hosts :",
+      "plugin_name": "Nutanix Settings",
+      "plugin_id": 160184,
+      "value": "yes"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "Patch Management: IBM Tivoli Endpoint Manager Server Settings",
+      "plugin_id": 62558,
+      "value": "no"
+    },
+    {
+      "name": "Port :",
+      "plugin_name": "MongoDB Settings",
+      "plugin_id": 76512,
+      "value": "27017"
+    },
+    {
+      "name": "Display: 2 Show cookies received",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Tuning: 2 Misconfiguration / Default File",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Sydney (SYD) :",
+      "plugin_name": "Rackspace Settings",
+      "plugin_id": 79355,
+      "value": "yes"
+    },
+    {
+      "name": "Region eu-west-2 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Follow dynamic pages :",
+      "plugin_name": "Web mirroring",
+      "plugin_id": 10662,
+      "value": "no"
+    },
+    {
+      "name": "To address :",
+      "plugin_name": "SMTP settings",
+      "plugin_id": 11038,
+      "value": "postmaster@[AUTO_REPLACED_IP]"
+    },
+    {
+      "name": "HCL BigFix SSL :",
+      "plugin_name": "Patch Management: HCL BigFix Server Settings",
+      "plugin_id": 160247,
+      "value": "no"
+    },
+    {
+      "name": "Tuning: 0 File Upload",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Satellite 6 Verify Certificate :",
+      "plugin_name": "Patch Management: Red Hat Satellite 6 Settings",
+      "plugin_id": 84232,
+      "value": "yes"
+    },
+    {
+      "name": "Additional Ignore SSL Certificate (4) :",
+      "plugin_name": "VMware SOAP API Settings",
+      "plugin_id": 57395,
+      "value": "no"
+    },
+    {
+      "name": "Blackberry UEM Verify SSL Certificate :",
+      "plugin_name": "Blackberry UEM Settings",
+      "plugin_id": 124860,
+      "value": "no"
+    },
+    {
+      "name": "Try login as password",
+      "plugin_name": "Hydra (NASL wrappers options)",
+      "plugin_id": 15868,
+      "value": "yes"
+    },
+    {
+      "name": "VMware vCenter port :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "443"
+    },
+    {
+      "name": "Satellite 6 Use SSL :",
+      "plugin_name": "Patch Management: Red Hat Satellite 6 Settings",
+      "plugin_id": 84232,
+      "value": "yes"
+    },
+    {
+      "name": "Tuning: c Remote Source Inclusion",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Enable Nikto",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Palo Alto Port :",
+      "plugin_name": "Palo Alto Networks PAN-OS Settings",
+      "plugin_id": 64286,
+      "value": "443"
+    },
+    {
+      "name": "Start page :",
+      "plugin_name": "Web mirroring",
+      "plugin_id": 10662,
+      "value": "/"
+    },
+    {
+      "name": "Dallas-Fort Worth (DFW) :",
+      "plugin_name": "Rackspace Settings",
+      "plugin_id": 79355,
+      "value": "yes"
+    },
+    {
+      "name": "Login form method :",
+      "plugin_name": "HTTP login page",
+      "plugin_id": 11149,
+      "value": "POST;GET"
+    },
+    {
+      "name": "SNMPv3 privacy algorithm (5) :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "AES;AES192;AES192C;AES256;AES256C;DES"
+    },
+    {
+      "name": "Only use Kerberos authentication for SMB",
+      "plugin_name": "Login configurations",
+      "plugin_id": 10870,
+      "value": "no"
+    },
+    {
+      "name": "UDP port :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "161"
+    },
+    {
+      "name": "Do an ARP ping",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "yes"
+    },
+    {
+      "name": "Verify SSL certificate :",
+      "plugin_name": "Workspace ONE API Settings",
+      "plugin_id": 174452,
+      "value": "no"
+    },
+    {
+      "name": "Additional Ignore SSL Certificate (3) :",
+      "plugin_name": "VMware SOAP API Settings",
+      "plugin_id": 57395,
+      "value": "no"
+    },
+    {
+      "name": "SNMPv3 authentication algorithm (2) :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "MD5;SHA1;SHA-224;SHA-256;SHA-384;SHA-512"
+    },
+    {
+      "name": "SNMPv3 authentication algorithm (3) :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "MD5;SHA1;SHA-224;SHA-256;SHA-384;SHA-512"
+    },
+    {
+      "name": "SCAP Version #4 :",
+      "plugin_name": "SCAP Windows Compliance Checks",
+      "plugin_id": 66756,
+      "value": "1.2;1.1;1.0"
+    },
+    {
+      "name": "Enable web applications tests",
+      "plugin_name": "Web Application Tests Settings",
+      "plugin_id": 39471,
+      "value": "no"
+    },
+    {
+      "name": "Auto Discover Managed Virtual Machines :",
+      "plugin_name": "Nutanix Settings",
+      "plugin_id": 160184,
+      "value": "yes"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "Apple Profile Manager API Settings",
+      "plugin_id": 60032,
+      "value": "no"
+    },
+    {
+      "name": "Region ap-southeast-2 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Mutate: 1 Test all files with all root directories",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Additional VMware vCenter port (1) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "443"
+    },
+    {
+      "name": "Region eu-south-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "K1000 Database Port :",
+      "plugin_name": "Patch Management: Dell KACE K1000 Settings",
+      "plugin_id": 76866,
+      "value": "3306"
+    },
+    {
+      "name": "Display the superseded patches in the report",
+      "plugin_name": "Patch Report",
+      "plugin_id": 66334,
+      "value": "yes"
+    },
+    {
+      "name": "Elevate privileges with :",
+      "plugin_name": "SSH settings",
+      "plugin_id": 14273,
+      "value": "Nothing;sudo;su;su+sudo;dzdo;pbrun;Cisco 'enable'"
+    },
+    {
+      "name": "Escalation account :",
+      "plugin_name": "SSH settings",
+      "plugin_id": 14273,
+      "value": "root"
+    },
+    {
+      "name": "enable_malware_scanning",
+      "plugin_name": "Malicious Process Detection",
+      "plugin_id": 59275,
+      "value": "no"
+    },
+    {
+      "name": "SCAP Version #2 :",
+      "plugin_name": "SCAP Linux Compliance Checks",
+      "plugin_id": 66757,
+      "value": "1.2;1.1;1.0"
+    },
+    {
+      "name": "Additional SSL (5) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "yes"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "Good MDM Settings",
+      "plugin_id": 66963,
+      "value": "yes"
+    },
+    {
+      "name": "Region ap-east-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "London (LON) :",
+      "plugin_name": "Rackspace Settings",
+      "plugin_id": 79355,
+      "value": "yes"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "Palo Alto Networks PAN-OS Settings",
+      "plugin_id": 64286,
+      "value": "yes"
+    },
+    {
+      "name": "Preferred SSH port :",
+      "plugin_name": "SSH settings",
+      "plugin_id": 14273,
+      "value": "22"
+    },
+    {
+      "name": "Tuning: 9 SQL Injection",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Blackberry UEM SSL :",
+      "plugin_name": "Blackberry UEM Settings",
+      "plugin_id": 124860,
+      "value": "yes"
+    },
+    {
+      "name": "HCL BigFix Verify SSL Certificate :",
+      "plugin_name": "Patch Management: HCL BigFix Server Settings",
+      "plugin_id": 160247,
+      "value": "no"
+    },
+    {
+      "name": "Scan Novell Netware hosts",
+      "plugin_name": "Do not scan fragile devices",
+      "plugin_id": 22481,
+      "value": "no"
+    },
+    {
+      "name": "Additional DB Type (4) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "Oracle;SQL Server;MySQL;DB2;Informix/DRDA;PostgreSQL;Sybase ASE"
+    },
+    {
+      "name": "Mutate: 2 Guess for password file names",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "SCAP Version #1 :",
+      "plugin_name": "SCAP Linux Compliance Checks",
+      "plugin_id": 66757,
+      "value": "1.2;1.1;1.0"
+    },
+    {
+      "name": "Tuning: 7 Remote File Retrieval - Server Wide",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Region sa-east-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Region ap-northeast-3 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Tuning: 5 Remote File Retrieval - Inside Web Root",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Test embedded web servers",
+      "plugin_name": "Web Application Tests Settings",
+      "plugin_id": 39471,
+      "value": "no"
+    },
+    {
+      "name": "Verify SSL certificates :",
+      "plugin_name": "Patch Management: Red Hat Satellite Server Settings",
+      "plugin_id": 84238,
+      "value": "no"
+    },
+    {
+      "name": "Display: 1 Show redirects",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Nutanix port :",
+      "plugin_name": "Nutanix Settings",
+      "plugin_id": 160184,
+      "value": "9440"
+    },
+    {
+      "name": "Additional Database service type (2) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "SID;SERVICE_NAME"
+    },
+    {
+      "name": "Stop at first flaw",
+      "plugin_name": "Web Application Tests Settings",
+      "plugin_id": 39471,
+      "value": "per CGI;per port (quicker);per parameter (slow);look for all flaws (slower)"
+    },
+    {
+      "name": "TCP ping destination port(s) :",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "built-in"
+    },
+    {
+      "name": "Test default accounts (slow)",
+      "plugin_name": "Oracle Settings",
+      "plugin_id": 22076,
+      "value": "no"
+    },
+    {
+      "name": "DB Type :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "Oracle;SQL Server;MySQL;DB2;Informix/DRDA;PostgreSQL;Sybase ASE"
+    },
+    {
+      "name": "SCAP Version #3 :",
+      "plugin_name": "SCAP Windows Compliance Checks",
+      "plugin_id": 66756,
+      "value": "1.2;1.1;1.0"
+    },
+    {
+      "name": "Third party domain :",
+      "plugin_name": "SMTP settings",
+      "plugin_id": 11038,
+      "value": "example.edu"
+    },
+    {
+      "name": "Additional VMware vCenter port (4) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "443"
+    },
+    {
+      "name": "Only use NTLMv2",
+      "plugin_name": "Login configurations",
+      "plugin_id": 10870,
+      "value": "no"
+    },
+    {
+      "name": "SCAP Version #5 :",
+      "plugin_name": "SCAP Windows Compliance Checks",
+      "plugin_id": 66756,
+      "value": "1.2;1.1;1.0"
+    },
+    {
+      "name": "Try to perform patch level checks over rsh",
+      "plugin_name": "Cleartext protocols settings",
+      "plugin_id": 21744,
+      "value": "no"
+    },
+    {
+      "name": "Community name :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "public"
+    },
+    {
+      "name": "FTP writeable directory :",
+      "plugin_name": "Login configurations",
+      "plugin_id": 10870,
+      "value": "/incoming"
+    },
+    {
+      "name": "Port :",
+      "plugin_name": "OpenStack Settings",
+      "plugin_id": 86348,
+      "value": "443"
+    },
+    {
+      "name": "SNMPv3 privacy algorithm (2) :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "AES;AES192;AES192C;AES256;AES256C;DES"
+    },
+    {
+      "name": "Apple Profile Manager port :",
+      "plugin_name": "Apple Profile Manager API Settings",
+      "plugin_id": 60032,
+      "value": "443"
+    },
+    {
+      "name": "Network type",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "Mixed (use RFC 1918);Private LAN;Public WAN (Internet)"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "Microsoft Azure Settings",
+      "plugin_id": 79358,
+      "value": "no"
+    },
+    {
+      "name": "RPC (disabled in safe_checks)",
+      "plugin_name": "amap (NASL wrapper)",
+      "plugin_id": 14663,
+      "value": "yes"
+    },
+    {
+      "name": "Region us-west-2 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "SNMPv3 privacy algorithm (4) :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "AES;AES192;AES192C;AES256;AES256C;DES"
+    },
+    {
+      "name": "Do not log in with user accounts not specified in the policy",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "yes"
+    },
+    {
+      "name": "Enumerate all SSL ciphers",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "yes"
+    },
+    {
+      "name": "Tenant Name for Authentication :",
+      "plugin_name": "OpenStack Settings",
+      "plugin_id": 86348,
+      "value": "admin"
+    },
+    {
+      "name": "Enable administrative shares during the scan",
+      "plugin_name": "SMB Registry : Start the Registry Service during the scan",
+      "plugin_id": 35703,
+      "value": "no"
+    },
+    {
+      "name": "Enable experimental scripts",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "no"
+    },
+    {
+      "name": "Device Update Timeout (Minutes) :",
+      "plugin_name": "Apple Profile Manager API Settings",
+      "plugin_id": 60032,
+      "value": "5"
+    },
+    {
+      "name": "Additional Sybase ASE auth type (3) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "RSA;Plain Text"
+    },
+    {
+      "name": "OVAL Result Type #5 :",
+      "plugin_name": "SCAP Windows Compliance Checks",
+      "plugin_id": 66756,
+      "value": "Full results w/ system characteristics;Full results w/o system characteristics;Thin results"
+    },
+    {
+      "name": "Additional DB Type (3) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "Oracle;SQL Server;MySQL;DB2;Informix/DRDA;PostgreSQL;Sybase ASE"
+    },
+    {
+      "name": "Additional Auto Discover Managed ESXi Hosts :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "no"
+    },
+    {
+      "name": "Region me-south-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Additional SQL Server auth type (3) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "Windows;SQL"
+    },
+    {
+      "name": "Auto Discover Managed Virtual Machines :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "no"
+    },
+    {
+      "name": "Number of retries (ICMP) :",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "2"
+    },
+    {
+      "name": "Region af-south-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Match regex on HTTP headers",
+      "plugin_name": "HTTP login page",
+      "plugin_id": 11149,
+      "value": "no"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "F5 Settings",
+      "plugin_id": 95387,
+      "value": "yes"
+    },
+    {
+      "name": "Additional SSL (3) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "yes"
+    },
+    {
+      "name": "Additional SSL (2) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "yes"
+    },
+    {
+      "name": "HTTP User-Agent",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)"
+    },
+    {
+      "name": "Database service type :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "SID;SERVICE_NAME"
+    },
+    {
+      "name": "OVAL Result Type #1 :",
+      "plugin_name": "SCAP Windows Compliance Checks",
+      "plugin_id": 66756,
+      "value": "Full results w/ system characteristics;Full results w/o system characteristics;Thin results"
+    },
+    {
+      "name": "Add accounts found by other plugins to login file",
+      "plugin_name": "Hydra (NASL wrappers options)",
+      "plugin_id": 15868,
+      "value": "yes"
+    },
+    {
+      "name": "Follow 30x redirections (# of levels) :",
+      "plugin_name": "HTTP login page",
+      "plugin_id": 11149,
+      "value": "2"
+    },
+    {
+      "name": "Scan CGI directories",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "User supplied;All;None"
+    },
+    {
+      "name": "Automated login page search",
+      "plugin_name": "HTTP login page",
+      "plugin_id": 11149,
+      "value": "no"
+    },
+    {
+      "name": "Quicker",
+      "plugin_name": "amap (NASL wrapper)",
+      "plugin_id": 14663,
+      "value": "no"
+    },
+    {
+      "name": "Try empty passwords",
+      "plugin_name": "Hydra (NASL wrappers options)",
+      "plugin_id": 15868,
+      "value": "yes"
+    },
+    {
+      "name": "Enable Plugin List Report",
+      "plugin_name": "Nessus Launched Plugin List",
+      "plugin_id": 112154,
+      "value": "no"
+    },
+    {
+      "name": "Region eu-north-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Collect Identity Data from Active Directory",
+      "plugin_name": "LDAP Active Directory - Identity Data Enumeration",
+      "plugin_id": 165066,
+      "value": "no"
+    },
+    {
+      "name": "Force Device Updates :",
+      "plugin_name": "Apple Profile Manager API Settings",
+      "plugin_id": 60032,
+      "value": "yes"
+    },
+    {
+      "name": "Red Hat Satellite port(s) :",
+      "plugin_name": "Patch Management: Red Hat Satellite Server Settings",
+      "plugin_id": 84238,
+      "value": "443"
+    },
+    {
+      "name": "Symantec Altiris Database Name :",
+      "plugin_name": "Patch Management: Symantec Altiris Settings",
+      "plugin_id": 78013,
+      "value": "Symantec_CMDB"
+    },
+    {
+      "name": "Additional Sybase ASE auth type (1) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "RSA;Plain Text"
+    },
+    {
+      "name": "Additional Database service type (4) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "SID;SERVICE_NAME"
+    },
+    {
+      "name": "Region us-east-2 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Disable if server never replies 404",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "yes"
+    },
+    {
+      "name": "SMB password type :",
+      "plugin_name": "Login configurations",
+      "plugin_id": 10870,
+      "value": "Password;LM Hash;NTLM Hash"
+    },
+    {
+      "name": "Try all HTTP methods",
+      "plugin_name": "Web Application Tests Settings",
+      "plugin_id": 39471,
+      "value": "no"
+    },
+    {
+      "name": "SNMPv3 authentication algorithm :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "MD5;SHA1;SHA-224;SHA-256;SHA-384;SHA-512"
+    },
+    {
+      "name": "Symantec Altiris Use Windows Credentials :",
+      "plugin_name": "Patch Management: Symantec Altiris Settings",
+      "plugin_id": 78013,
+      "value": "no"
+    },
+    {
+      "name": "Additional SQL Server auth type (1) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "Windows;SQL"
+    },
+    {
+      "name": "Additional VMware vCenter port (3) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "443"
+    },
+    {
+      "name": "Combinations of arguments values",
+      "plugin_name": "Web Application Tests Settings",
+      "plugin_id": 39471,
+      "value": "one value;some pairs;all pairs (slower but efficient);some combinations;all combinations (extremely slow)"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "Apple Profile Manager API Settings",
+      "plugin_id": 60032,
+      "value": "yes"
+    },
+    {
+      "name": "SCAP Version #5 :",
+      "plugin_name": "SCAP Linux Compliance Checks",
+      "plugin_id": 66757,
+      "value": "1.2;1.1;1.0"
+    },
+    {
+      "name": "FTP account :",
+      "plugin_name": "Login configurations",
+      "plugin_id": 10870,
+      "value": "anonymous"
+    },
+    {
+      "name": "Tuning: 8 Command Execution / Remote Shell",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "OVAL Result Type #4 :",
+      "plugin_name": "SCAP Linux Compliance Checks",
+      "plugin_id": 66757,
+      "value": "Full results w/ system characteristics;Full results w/o system characteristics;Thin results"
+    },
+    {
+      "name": "Region cn-north-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Case insensitive regex",
+      "plugin_name": "HTTP login page",
+      "plugin_id": 11149,
+      "value": "no"
+    },
+    {
+      "name": "Display: 3 Show all 200/OK responses",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "URL for Remote File Inclusion :",
+      "plugin_name": "Web Application Tests Settings",
+      "plugin_id": 39471,
+      "value": "http://rfi.nessus.org/rfi.txt"
+    },
+    {
+      "name": "Fast network discovery",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "yes"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "Good MDM Settings",
+      "plugin_id": 66963,
+      "value": "no"
+    },
+    {
+      "name": "SNMPv3 authentication algorithm (4) :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "MD5;SHA1;SHA-224;SHA-256;SHA-384;SHA-512"
+    },
+    {
+      "name": "Port :",
+      "plugin_name": "RHEV Settings",
+      "plugin_id": 77089,
+      "value": "443"
+    },
+    {
+      "name": "Verify SSL certificate :",
+      "plugin_name": "AirWatch API Settings",
+      "plugin_id": 76460,
+      "value": "no"
+    },
+    {
+      "name": "Region ap-southeast-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "Nutanix Settings",
+      "plugin_id": 160184,
+      "value": "no"
+    },
+    {
+      "name": "Additional SSL (4) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "yes"
+    },
+    {
+      "name": "SNMPv3 privacy algorithm (3) :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "AES;AES192;AES192C;AES256;AES256C;DES"
+    },
+    {
+      "name": "SSH user name :",
+      "plugin_name": "SSH settings",
+      "plugin_id": 14273,
+      "value": "root"
+    },
+    {
+      "name": "Additional Sybase ASE auth type (2) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "RSA;Plain Text"
+    },
+    {
+      "name": "Login page :",
+      "plugin_name": "HTTP login page",
+      "plugin_id": 11149,
+      "value": "/"
+    },
+    {
+      "name": "OVAL Result Type #3 :",
+      "plugin_name": "SCAP Windows Compliance Checks",
+      "plugin_id": 66756,
+      "value": "Full results w/ system characteristics;Full results w/o system characteristics;Thin results"
+    },
+    {
+      "name": "Port :",
+      "plugin_name": "F5 Settings",
+      "plugin_id": 95387,
+      "value": "443"
+    },
+    {
+      "name": "SNMPv3 privacy algorithm :",
+      "plugin_name": "SNMP settings",
+      "plugin_id": 19762,
+      "value": "AES;AES192;AES192C;AES256;AES256C;DES"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "yes"
+    },
+    {
+      "name": "Number of pages to mirror :",
+      "plugin_name": "Web mirroring",
+      "plugin_id": 10662,
+      "value": "1000"
+    },
+    {
+      "name": "Additional Oracle auth type (2) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "NORMAL;SYSOPER;SYSDBA"
+    },
+    {
+      "name": "Firewall detection :",
+      "plugin_name": "Nessus SYN scanner",
+      "plugin_id": 11219,
+      "value": "Automatic (normal)"
+    },
+    {
+      "name": "Tuning: 4 Injection (XSS/Script/HTML)",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Symantec Altiris Database Port :",
+      "plugin_name": "Patch Management: Symantec Altiris Settings",
+      "plugin_id": 78013,
+      "value": "5690"
+    },
+    {
+      "name": "OVAL Result Type #4 :",
+      "plugin_name": "SCAP Windows Compliance Checks",
+      "plugin_id": 66756,
+      "value": "Full results w/ system characteristics;Full results w/o system characteristics;Thin results"
+    },
+    {
+      "name": "K1000 Organization Database Name :",
+      "plugin_name": "Patch Management: Dell KACE K1000 Settings",
+      "plugin_id": 76866,
+      "value": "ORG1"
+    },
+    {
+      "name": "Chicago (ORD) :",
+      "plugin_name": "Rackspace Settings",
+      "plugin_id": 79355,
+      "value": "yes"
+    },
+    {
+      "name": "Report paranoia",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "Normal;Avoid false alarms;Paranoid (more false alarms)"
+    },
+    {
+      "name": "Number of parallel tasks :",
+      "plugin_name": "Hydra (NASL wrappers options)",
+      "plugin_id": 15868,
+      "value": "16"
+    },
+    {
+      "name": "Additional VMware vCenter port (2) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "443"
+    },
+    {
+      "name": "Additional Ignore SSL Certificate (2) :",
+      "plugin_name": "VMware SOAP API Settings",
+      "plugin_id": 57395,
+      "value": "no"
+    },
+    {
+      "name": "Interpret passwords as NTLM hashes",
+      "plugin_name": "Hydra: SMB",
+      "plugin_id": 15884,
+      "value": "no"
+    },
+    {
+      "name": "Additional Verify SSL Certificate (5) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "no"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "Splunk API Settings",
+      "plugin_id": 166551,
+      "value": "yes"
+    },
+    {
+      "name": "Region us-east-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Region eu-west-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "SCAP Version #4 :",
+      "plugin_name": "SCAP Linux Compliance Checks",
+      "plugin_id": 66757,
+      "value": "1.2;1.1;1.0"
+    },
+    {
+      "name": "Additional Oracle auth type (1) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "NORMAL;SYSOPER;SYSDBA"
+    },
+    {
+      "name": "Tuning: x Reverse Tuning Options (i.e., include all except specified)",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "OpenStack Settings",
+      "plugin_id": 86348,
+      "value": "yes"
+    },
+    {
+      "name": "K1000 Database Username :",
+      "plugin_name": "Patch Management: Dell KACE K1000 Settings",
+      "plugin_id": 76866,
+      "value": "R1"
+    },
+    {
+      "name": "Make the dead hosts appear in the report",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "no"
+    },
+    {
+      "name": "Do an applicative UDP ping (DNS,RPC...)",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "no"
+    },
+    {
+      "name": "Probe services on every port",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "yes"
+    },
+    {
+      "name": "Region ap-south-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Additional Verify SSL Certificate (1) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "no"
+    },
+    {
+      "name": "Northern Virginia (IAD) :",
+      "plugin_name": "Rackspace Settings",
+      "plugin_id": 79355,
+      "value": "yes"
+    },
+    {
+      "name": "Firewall detection :",
+      "plugin_name": "Nessus TCP scanner",
+      "plugin_id": 10335,
+      "value": "Automatic (normal)"
+    },
+    {
+      "name": "Enable CRL checking (connects to Internet)",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "no"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "Patch Management: IBM Tivoli Endpoint Manager Server Settings",
+      "plugin_id": 62558,
+      "value": "no"
+    },
+    {
+      "name": "Max results :",
+      "plugin_name": "LDAP 'Domain Admins' Group Membership Enumeration",
+      "plugin_id": 58038,
+      "value": "1000"
+    },
+    {
+      "name": "Do an ICMP ping",
+      "plugin_name": "Ping the remote host",
+      "plugin_id": 10180,
+      "value": "yes"
+    },
+    {
+      "name": "UDP scan (disabled in safe_checks)",
+      "plugin_name": "amap (NASL wrapper)",
+      "plugin_id": 14663,
+      "value": "no"
+    },
+    {
+      "name": "OVAL Result Type #1 :",
+      "plugin_name": "SCAP Linux Compliance Checks",
+      "plugin_id": 66757,
+      "value": "Full results w/ system characteristics;Full results w/o system characteristics;Thin results"
+    },
+    {
+      "name": "Mutate: 3 Enumerate user names via Apache (/~user type requests)",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "OVAL Result Type #2 :",
+      "plugin_name": "SCAP Linux Compliance Checks",
+      "plugin_id": 66757,
+      "value": "Full results w/ system characteristics;Full results w/o system characteristics;Thin results"
+    },
+    {
+      "name": "From address :",
+      "plugin_name": "SMTP settings",
+      "plugin_id": 11038,
+      "value": "nobody@example.edu"
+    },
+    {
+      "name": "Collect Identity Data from Active Directory",
+      "plugin_name": "LDAP Active Directory - crossRef Enumeration",
+      "plugin_id": 176549,
+      "value": "no"
+    },
+    {
+      "name": "Mode",
+      "plugin_name": "amap (NASL wrapper)",
+      "plugin_id": 14663,
+      "value": "Map applications;Just grab banners;Port scan only"
+    },
+    {
+      "name": "SCAP Version #2 :",
+      "plugin_name": "SCAP Windows Compliance Checks",
+      "plugin_id": 66756,
+      "value": "1.2;1.1;1.0"
+    },
+    {
+      "name": "Port :",
+      "plugin_name": "Splunk API Settings",
+      "plugin_id": 166551,
+      "value": "8089"
+    },
+    {
+      "name": "HTTP Parameter Pollution",
+      "plugin_name": "Web Application Tests Settings",
+      "plugin_id": 39471,
+      "value": "no"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "yes"
+    },
+    {
+      "name": "Timeout (in seconds) :",
+      "plugin_name": "Hydra (NASL wrappers options)",
+      "plugin_id": 15868,
+      "value": "30"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "Splunk API Settings",
+      "plugin_id": 166551,
+      "value": "yes"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "F5 Settings",
+      "plugin_id": 95387,
+      "value": "yes"
+    },
+    {
+      "name": "Oracle auth type:",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "NORMAL;SYSOPER;SYSDBA"
+    },
+    {
+      "name": "Scan Network Printers",
+      "plugin_name": "Do not scan fragile devices",
+      "plugin_id": 22481,
+      "value": "no"
+    },
+    {
+      "name": "Region cn-northwest-1 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Enable plugin debugging",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "no"
+    },
+    {
+      "name": "Additional Oracle auth type (3) :",
+      "plugin_name": "Database settings",
+      "plugin_id": 33815,
+      "value": "NORMAL;SYSOPER;SYSDBA"
+    },
+    {
+      "name": "Display: 4 Show URLs which require authentication",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Always enable Hydra (slow)",
+      "plugin_name": "Hydra (NASL wrappers options)",
+      "plugin_id": 15868,
+      "value": "no"
+    },
+    {
+      "name": "OVAL Result Type #3 :",
+      "plugin_name": "SCAP Linux Compliance Checks",
+      "plugin_id": 66757,
+      "value": "Full results w/ system characteristics;Full results w/o system characteristics;Thin results"
+    },
+    {
+      "name": "Verify SSL certificate :",
+      "plugin_name": "MobileIron API Settings",
+      "plugin_id": 72904,
+      "value": "no"
+    },
+    {
+      "name": "Test SSL based services",
+      "plugin_name": "Service Detection",
+      "plugin_id": 22964,
+      "value": "All ports"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "Patch Management: WSUS Server Settings",
+      "plugin_id": 57031,
+      "value": "no"
+    },
+    {
+      "name": "Region ap-northeast-2 :",
+      "plugin_name": "Amazon Web Services Settings",
+      "plugin_id": 73490,
+      "value": "no"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "OpenStack Settings",
+      "plugin_id": 86348,
+      "value": "yes"
+    },
+    {
+      "name": "Additional Verify SSL Certificate (2) :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "no"
+    },
+    {
+      "name": "Display: V Verbose Output",
+      "plugin_name": "Nikto (NASL wrapper)",
+      "plugin_id": 14260,
+      "value": "no"
+    },
+    {
+      "name": "Scan Operational Technology devices",
+      "plugin_name": "Do not scan fragile devices",
+      "plugin_id": 22481,
+      "value": "no"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "OpenShift Settings",
+      "plugin_id": 161407,
+      "value": "yes"
+    },
+    {
+      "name": "Verify SSL Certificate :",
+      "plugin_name": "VMware vCenter SOAP API Settings",
+      "plugin_id": 63060,
+      "value": "no"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "Citrix NITRO API Settings",
+      "plugin_id": 154869,
+      "value": "yes"
+    },
+    {
+      "name": "Report verbosity",
+      "plugin_name": "Global variable settings",
+      "plugin_id": 12288,
+      "value": "Normal;Quiet;Verbose"
+    },
+    {
+      "name": "SSL :",
+      "plugin_name": "AirWatch API Settings",
+      "plugin_id": 76460,
+      "value": "yes"
+    },
+    {
+      "name": "Try to perform patch level checks over telnet",
+      "plugin_name": "Cleartext protocols settings",
+      "plugin_id": 21744,
+      "value": "no"
+    },
+    {
+      "name": "Start the registry service during the scan",
+      "plugin_name": "SMB Registry : Start the Registry Service during the scan",
+      "plugin_id": 35703,
+      "value": "no"
+    }
+  ],
+  "wizard_uuid": "bbd4f805-3966-d464-b2d1-0079eb89d69708c3a05ec2812bcf",
+  "plugin_families": {
+    "Backdoors": "disabled",
+    "Rocky Linux Local Security Checks": "disabled",
+    "SMTP problems": "disabled",
+    "Ubuntu Local Security Checks": "disabled",
+    "Gentoo Local Security Checks": "disabled",
+    "Oracle Linux Local Security Checks": "disabled",
+    "RPC": "disabled",
+    "Brute force attacks": "disabled",
+    "Gain a shell remotely": "disabled",
+    "DNS": "disabled",
+    "Mandriva Local Security Checks": "disabled",
+    "Service detection": "disabled",
+    "Junos Local Security Checks": "disabled",
+    "FTP": "disabled",
+    "Misc.": "disabled",
+    "Slackware Local Security Checks": "disabled",
+    "Default Unix Accounts": "disabled",
+    "AIX Local Security Checks": "disabled",
+    "SNMP": "disabled",
+    "OracleVM Local Security Checks": "disabled",
+    "CGI abuses": "disabled",
+    "Settings": "disabled",
+    "CISCO": "disabled",
+    "Firewalls": "disabled",
+    "Tenable.ot": "disabled",
+    "Debian Local Security Checks": "disabled",
+    "Databases": "disabled",
+    "Fedora Local Security Checks": "disabled",
+    "Huawei Local Security Checks": "disabled",
+    "Netware": "disabled",
+    "VMware ESX Local Security Checks": "disabled",
+    "Peer-To-Peer File Sharing": "disabled",
+    "Virtuozzo Local Security Checks": "disabled",
+    "Windows : User management": "disabled",
+    "CentOS Local Security Checks": "disabled",
+    "MarinerOS Local Security Checks": "disabled",
+    "NewStart CGSL Local Security Checks": "disabled",
+    "General": "mixed",
+    "Policy Compliance": "disabled",
+    "Amazon Linux Local Security Checks": "disabled",
+    "Solaris Local Security Checks": "disabled",
+    "Denial of Service": "disabled",
+    "F5 Networks Local Security Checks": "disabled",
+    "SuSE Local Security Checks": "disabled",
+    "Palo Alto Local Security Checks": "disabled",
+    "Windows : Microsoft Bulletins": "disabled",
+    "Port scanners": "mixed",
+    "Alma Linux Local Security Checks": "disabled",
+    "Red Hat Local Security Checks": "disabled",
+    "PhotonOS Local Security Checks": "disabled",
+    "HP-UX Local Security Checks": "disabled",
+    "Mobile Devices": "disabled",
+    "CGI abuses : XSS": "disabled",
+    "FreeBSD Local Security Checks": "disabled",
+    "Windows": "disabled",
+    "MacOS X Local Security Checks": "disabled",
+    "Scientific Linux Local Security Checks": "disabled",
+    "Web Servers": "disabled",
+    "SCADA": "disabled"
+  },
+  "preferences": [
+    {
+      "key": "disable_api",
+      "value": "no"
+    },
+    {
+      "key": "slice_network_addresses",
+      "value": "no"
+    },
+    {
+      "key": "scan_vulnerability_groups_mixed",
+      "value": "yes"
+    },
+    {
+      "key": "network_scanners.tcp",
+      "value": "yes"
+    },
+    {
+      "key": "severity_basis",
+      "value": "cvss_v3"
+    },
+    {
+      "key": "silent_dependencies",
+      "value": "yes"
+    },
+    {
+      "key": "TARGET",
+      "value": "10.50.7.10-10.50.7.110"
+    },
+    {
+      "key": "visibility",
+      "value": "private"
+    },
+    {
+      "key": "track_unique_agents",
+      "value": "yes"
+    },
+    {
+      "key": "compliance_generate_description",
+      "value": "no"
+    },
+    {
+      "key": "report_cleanup_threshold_days",
+      "value": "30"
+    },
+    {
+      "key": "logfile_max_size",
+      "value": "512"
+    },
+    {
+      "key": "discovery_mode",
+      "value": "custom"
+    },
+    {
+      "key": "engine.min",
+      "value": "8"
+    },
+    {
+      "key": "scan.license_max_ips",
+      "value": "16"
+    },
+    {
+      "key": "dumpfile_rot",
+      "value": "size"
+    },
+    {
+      "key": "disable_guides",
+      "value": "no"
+    },
+    {
+      "key": "listen_address",
+      "value": "10.50.7.29"
+    },
+    {
+      "key": "bw_prevent_plugin_updates",
+      "value": "yes"
+    },
+    {
+      "key": "logfile_rotation_time",
+      "value": "1"
+    },
+    {
+      "key": "whoami",
+      "value": "student"
+    },
+    {
+      "key": "portscan.ping",
+      "value": "yes"
+    },
+    {
+      "key": "checks_read_timeout",
+      "value": "5"
+    },
+    {
+      "key": "report_task_id",
+      "value": "2785d240-5bc6-fc65-a1f9-2caa32768a70f16a8822850597f9"
+    },
+    {
+      "key": "ssl_mode",
+      "value": "tls_1_2"
+    },
+    {
+      "key": "logfile_max_files",
+      "value": "100"
+    },
+    {
+      "key": "max_checks",
+      "value": "5"
+    },
+    {
+      "key": "unscanned_closed",
+      "value": "no"
+    },
+    {
+      "key": "non_simult_ports",
+      "value": "139, 445, 3389"
+    },
+    {
+      "key": "port_range",
+      "value": "default"
+    },
+    {
+      "key": "engine.max_hosts",
+      "value": "16"
+    },
+    {
+      "key": "scan.unlimited",
+      "value": "yes"
+    },
+    {
+      "key": "report_crashes",
+      "value": "yes"
+    },
+    {
+      "key": "bw_permanent_blackout_window",
+      "value": "no"
+    },
+    {
+      "key": "dumpfile_max_size",
+      "value": "512"
+    },
+    {
+      "key": "plugins_timeout",
+      "value": "320"
+    },
+    {
+      "key": "cgi_path",
+      "value": "/cgi-bin:/scripts"
+    },
+    {
+      "key": "listen_port",
+      "value": "1241"
+    },
+    {
+      "key": "network_scanners.udp",
+      "value": "no"
+    },
+    {
+      "key": "scan_history_expiration_days",
+      "value": "0"
+    },
+    {
+      "key": "bw_prevent_core_updates",
+      "value": "yes"
+    },
+    {
+      "key": "engine.max",
+      "value": "32"
+    },
+    {
+      "key": "logfile_rot",
+      "value": "size"
+    },
+    {
+      "key": "auto_enable_dependencies",
+      "value": "yes"
+    },
+    {
+      "key": "max_hosts",
+      "value": "256"
+    },
+    {
+      "key": "bw_prevent_agent_scans",
+      "value": "yes"
+    },
+    {
+      "key": "plugin_upload",
+      "value": "yes"
+    },
+    {
+      "key": "dumpfile_rotation_time",
+      "value": "1"
+    },
+    {
+      "key": "scan_name",
+      "value": "AUD507 Discovery Scan  "
+    },
+    {
+      "key": "auto_update",
+      "value": "yes"
+    },
+    {
+      "key": "optimize_test",
+      "value": "yes"
+    },
+    {
+      "key": "send_telemetry",
+      "value": "yes"
+    },
+    {
+      "key": "scan_description",
+      "value": "First discovery scan for class\n"
+    },
+    {
+      "key": "stop_scan_on_disconnect",
+      "value": "no"
+    },
+    {
+      "key": "allow_post_scan_editing",
+      "value": "yes"
+    },
+    {
+      "key": "network_scanners.syn",
+      "value": "yes"
+    },
+    {
+      "key": "xmlrpc_listen_port",
+      "value": "8834"
+    },
+    {
+      "key": "engine.max_checks",
+      "value": "64"
+    },
+    {
+      "key": "reduce_connections_on_congestion",
+      "value": "no"
+    },
+    {
+      "key": "scan.enable_utf8_output",
+      "value": "no"
+    },
+    {
+      "key": "scan_vulnerability_groups",
+      "value": "yes"
+    },
+    {
+      "key": "plugin_set",
+      "value": "10335;11219;10180;"
+    },
+    {
+      "key": "dumpfile_max_files",
+      "value": "100"
+    },
+    {
+      "key": "log_whole_attack",
+      "value": "no"
+    },
+    {
+      "key": "reverse_lookup",
+      "value": "no"
+    },
+    {
+      "key": "feed_type",
+      "value": "HomeFeed"
+    },
+    {
+      "key": "safe_checks",
+      "value": "yes"
+    },
+    {
+      "key": "severity_processed",
+      "value": "202404091047"
+    },
+    {
+      "key": "scan_end_timestamp",
+      "value": "1712756778"
+    },
+    {
+      "key": "scan_start_timestamp",
+      "value": "1712755620"
+    },
+    {
+      "key": "hostCredsSuccessCount",
+      "value": "0"
+    },
+    {
+      "key": "hostCredsFailedCount",
+      "value": "10"
+    },
+    {
+      "key": "hostCredsWithoutCount",
+      "value": "0"
+    },
+    {
+      "key": "loaded_plugin_set",
+      "value": "202404091047"
+    }
+  ],
+  "internal_policy_name": "Host Discovery",
+  "description": "First discovery scan for class\n",
+  "policyId": 127
+}
