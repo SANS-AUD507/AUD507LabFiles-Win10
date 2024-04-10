@@ -224,7 +224,7 @@
 <value>no</value>
 </preference>
 <preference><name>scan_name</name>
-<value>ESXi CIS Benchmark Demo</value>
+<value>Demo: ESXi CIS Benchmark</value>
 </preference>
 <preference><name>reduce_connections_on_congestion</name>
 <value>no</value>

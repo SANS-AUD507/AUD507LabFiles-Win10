@@ -194,7 +194,7 @@
 <value>64</value>
 </preference>
 <preference><name>scan_name</name>
-<value>Demo Alma CIS audit</value>
+<value>Demo: Alma CIS audit</value>
 </preference>
 <preference><name>logfile_max_size</name>
 <value>512</value>
