@@ -1,7 +1,3 @@
-<#
-TODO: Get API token from nessus6.js ala Posh_nessus hack
-TODO: Get list of template uuids to get the Basic San one
-#>
 [CmdletBinding()]
 param (
   [string]$fileName = ".\windowsScan.json",
