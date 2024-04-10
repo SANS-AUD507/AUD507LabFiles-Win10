@@ -68,6 +68,8 @@ foreach ( $file in (Get-ChildItem $filePath)) {
     -Headers $headers -Body $body 
 }
 
+"`n-----------------------------------"
+"Cleaning up file upload directory on Ubuntu:"
 run-sshCommand -Command "sudo ls -l /opt/nessus/var/nessus/users/student/files/"
 run-sshCommand -Command "sudo find /opt/nessus/var/nessus/users/student/files/ -type f | xargs sudo rm"
 run-sshCommand -Command "sudo ls -l /opt/nessus/var/nessus/users/student/files/"
