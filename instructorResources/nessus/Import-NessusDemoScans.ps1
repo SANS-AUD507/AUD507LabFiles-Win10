@@ -69,7 +69,10 @@ foreach ( $file in (Get-ChildItem $filePath)) {
 }
 
 "`n-----------------------------------"
-"Cleaning up file upload directory on Ubuntu:"
+"Cleaning up file upload directory on Ubuntu"
+"Uploaded Files"
 run-sshCommand -Command "sudo ls -l /opt/nessus/var/nessus/users/student/files/"
+"Removing files"
 run-sshCommand -Command "sudo find /opt/nessus/var/nessus/users/student/files/ -type f | xargs sudo rm"
+"Directory contents after delete:"
 run-sshCommand -Command "sudo ls -l /opt/nessus/var/nessus/users/student/files/"
