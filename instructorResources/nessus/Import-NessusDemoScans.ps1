@@ -3,8 +3,14 @@ param (
   [string]$filePath = "C:\Users\student\AUD507-Labs\scans"
 )
 
-#Get an auth token for the local scanner
+function run-sshCommand {
+  param (
+    $Command = 'hostname'
+  )
+  ssh -i C:\Users\student\.ssh\ubuntukey student@ubuntu "$Command"
+}
 
+#Get an auth token for the local scanner
 $body = @{
   'username' = 'student'
   'password' = 'student'
@@ -61,3 +67,6 @@ foreach ( $file in (Get-ChildItem $filePath)) {
     -Headers $headers -Body $body 
 }
 
+run-sshCommand -Command "sudo ls -l /opt/nessus/var/nessus/users/student/files/"
+run-sshCommand -Command "sudo find /opt/nessus/var/nessus/users/student/files/ -type f | xargs sudo rm"
+run-sshCommand -Command "sudo ls -l /opt/nessus/var/nessus/users/student/files/"
