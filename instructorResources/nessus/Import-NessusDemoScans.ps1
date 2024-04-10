@@ -41,6 +41,7 @@ $headers
 #Import everything in the source folder
 foreach ( $file in (Get-ChildItem $filePath)) {
   $filename = $file.fullname
+  "`n-----------------------------------"
   "Processing: $filename"
   $form = @{
     Filedata = Get-Item -Path $filename
