@@ -7892,7 +7892,7 @@
 </PluginItem>
 </IndividualPluginSelection>
 </Policy>
-<Report name="ESXi CIS Benchmark Demo" xmlns:cm="http://www.nessus.org/cm">
+<Report name="Demo: ESXi CIS Benchmark" xmlns:cm="http://www.nessus.org/cm">
 <ReportHost name="10.50.7.31"><HostProperties>
 <tag name="HOST_END_TIMESTAMP">1699651255</tag>
 <tag name="HOST_END">Fri Nov 10 21:20:55 2023</tag>

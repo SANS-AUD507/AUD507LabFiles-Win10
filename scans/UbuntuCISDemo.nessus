@@ -7935,7 +7935,7 @@
 </PluginItem>
 </IndividualPluginSelection>
 </Policy>
-<Report name="Demo Ubuntu CIS audit" xmlns:cm="http://www.nessus.org/cm">
+<Report name="Demo: Ubuntu CIS audit" xmlns:cm="http://www.nessus.org/cm">
 <ReportHost name="10.50.7.21"><HostProperties>
 <tag name="HOST_END_TIMESTAMP">1697464345</tag>
 <tag name="HOST_END">Mon Oct 16 13:52:25 2023</tag>

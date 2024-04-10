@@ -7935,7 +7935,7 @@
 </PluginItem>
 </IndividualPluginSelection>
 </Policy>
-<Report name="Demo Alma CIS audit" xmlns:cm="http://www.nessus.org/cm">
+<Report name="Demo: Alma CIS audit" xmlns:cm="http://www.nessus.org/cm">
 <ReportHost name="10.50.7.40"><HostProperties>
 <tag name="HOST_END_TIMESTAMP">1697463829</tag>
 <tag name="HOST_END">Mon Oct 16 13:43:49 2023</tag>
