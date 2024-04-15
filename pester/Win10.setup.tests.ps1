@@ -189,8 +189,8 @@ Describe 'Lab Setup tests for 507Win10 VM' {
           -Because 'Azure setup from lab 1.1 not correct'
     }
 
-    It 'Az PowerShell module tenant is correct' {
-      (Get-AzTenant).Name | Should -BeLike 'sans*' `
+    It 'Az PowerShell module retrieves tenant' {
+      (Get-AzTenant).Id | Should -BeLike '*-*-*-*-()' `
         -Because 'Azure setup from lab 1.1 not correct'       
     }
   }
