@@ -2,166 +2,15 @@
 Set-Alias -Name t -Value Start-Timer
 
 #HashTable of characters for the clock
-#Letters was probably a stupid name, since there aren't any...
-$letters = @{}
-
-$letters[' '] = @(
-  "  ",
-  "  ",
-  "  ",
-  "  ",
-  "  ",
-  "  ",
-  "  "
-)
-
-$letters['A'] = @(
-  " ### ",
-  "#   #",
-  "#   #",
-  "#   #",
-  "#####",
-  "#   #",
-  "#   #"
-)
-
-$letters['M'] = @(
-  " # # ",
-  "# # #",
-  "# # #",
-  "#   #",
-  "#   #",
-  "#   #",
-  "#   #"
-)
-
-$letters['P'] = @(
-  "###### ",
-  "#     #",
-  "#     #",
-  "###### ",
-  "#      ",
-  "#      ",
-  "#      "
-)
-
-$letters['0'] = @(
-  "#####",
-  "#   #",
-  "#   #",
-  "#   #",
-  "#   #",
-  "#   #",
-  "#####"
-)
-
-$letters['1'] = @(
-  "###  ",
-  "  #  ",
-  "  #  ",
-  "  #  ",
-  "  #  ",
-  "  #  ",
-  "#####"
-)
-
-$letters['2'] = @(
-  "#####",
-  "    #",
-  "    #",
-  "#####",
-  "#    ",
-  "#    ",
-  "#####"
-)
-
-$letters['3'] = @(
-  "#####",
-  "    #",
-  "    #",
-  "#####",
-  "    #",
-  "    #",
-  "#####"
-)
-
-$letters['4'] = @(
-  "#   #",
-  "#   #",
-  "#   #",
-  "#####",
-  "    #",
-  "    #",
-  "    #"
-)
-
-$letters['5'] = @(
-  "#####",
-  "#    ",
-  "#    ",
-  "#####",
-  "    #",
-  "    #",
-  "#####"
-)
-
-$letters['6'] = @(
-  "#####",
-  "#    ",
-  "#    ",
-  "#####",
-  "#   #",
-  "#   #",
-  "#####"
-)
-
-$letters['7'] = @(
-  "#####",
-  "    #",
-  "    #",
-  "    #",
-  "    #",
-  "    #",
-  "    #"
-)
-
-$letters['8'] = @(
-  "#####",
-  "#   #",
-  "#   #",
-  "#####",
-  "#   #",
-  "#   #",
-  "#####" 
-)
-
-$letters['9'] = @(
-  "#####",
-  "#   #",
-  "#   #",
-  "#####",
-  "    #",
-  "    #",
-  "#####"
-)
-
-$letters[':'] = @(
-  "     ",
-  "     ",
-  "  #  ",
-  "     ",
-  "  #  ",
-  "     ",
-  "     "
-)
+#Letters was probably a stupid name, since there aren't many...
+$letters = Import-LocalizedData -BaseDirectory . -FileName letters.psd1
 
 function Write-Time {
   param (
     [string]$TimeString = "12:34",
     $Color = "DarkGreen"
   )
-  
-  
+    
   $letterHeight = 7
   #Each letter will be seven lines high. Draw them in order with spaces
   for ( $line = 0; $line -lt $letterHeight; ++$line) {
@@ -185,6 +34,7 @@ Function Write-TimerHelp {
   "Z: Zero the seconds (Same as down arrow)"
   "T: Toggle threshold colors"
   "E: Toggle end time display"
+  "M: Prompt for new timer minutes"
   "H: Toggle help display"
   "Q: Quit"
 }
@@ -194,6 +44,12 @@ Function Write-ClockHelp {
   "-------------"
   "M: Toggle military (24h) time"
   "S: Toggle seconds display"
+  "G: Set text color to green"
+  "R: Set text color to red"
+  "Y: Set text color to yellow"
+  "B: Set text color to blue"
+  "K: Set text color to black"
+  "W: Set text color to white"
   "Q: Quit"
 }
 
@@ -203,7 +59,9 @@ function Start-Timer {
     [int]$Minutes = 15,
     [int]$Seconds = 0,
     [int]$Hours = 0,
+    [Alias("E")]
     [switch]$ShowEndTime,
+    [Alias("T")]
     [switch]$UseThresholds,
     [switch]$ShowHelp
   )
@@ -243,6 +101,14 @@ function Start-Timer {
           $statusMessage = "Seconds set to zero"
         }
         'T' { $UseThresholds = (-not $UseThresholds); $statusMessage = "Thresholds set to $useThresholds" }
+        'M' { 
+          "Set Minutes to:"
+          $howmany = Read-Host
+          [int]$min = 0
+          if ( [int]::TryParse($howmany, [ref]$min) ) {
+            $endTime = (Get-Date).AddMinutes($min).AddSeconds(1)
+          }
+        }
         'H' { $showHelp = (-not $showHelp) }
         'E' { $ShowEndTime = (-not $ShowEndTime) }
       }
@@ -264,9 +130,10 @@ function Start-Timer {
 
     $timeString = $ts.Hours.ToString("00") + ":" + $ts.Minutes.tostring("00") + ":" + $ts.Seconds.ToString("00")
     $host.UI.RawUI.CursorPosition = @{ x = 0; y = 0 }
+
     Write-Time  -TimeString $timeString -Color $color
     
-    "$statusMessage`n"
+    "$statusMessage"
     if ($ShowEndTime) {
       Write-Host "Ends: $($endTime.ToLongTimeString())" -ForegroundColor Yellow
     }
@@ -282,15 +149,21 @@ function Start-Clock {
   [CmdletBinding()]
   param (
     [string]$Color = "DarkGreen",
+    [Alias("S")]
     [switch]$ShowSeconds,
+    [Alias("M")]
     [switch]$Military,
+    [Alias("D")]
+    [switch]$ShowDate,
     [switch]$ShowHelp
   )
 
   Clear-Host
   while ( $true ) {
 
-    $StatusMessage = "                                "
+    if ( $ShowDate) { $StatusMessage = (Get-Date).ToLongDateString() }
+    else { $StatusMessage = "                                " }
+    
     $host.UI.RawUI.CursorPosition = @{ x = 0; y = 0 }
 
     #If the user presses a key, handle it
@@ -300,14 +173,20 @@ function Start-Clock {
       $keyInfo = [Console]::ReadKey($true)
       switch ( $keyInfo.Key) {
         'Q' { return }
+        'G' { $color = 'DarkGreen'; $statusMessage = "Color set to green" }
+        'R' { $color = 'DarkRed'; $statusMessage = "Color set to red" }
+        'Y' { $color = 'DarkYellow'; $statusMessage = "Color set to yellow" }
+        'B' { $color = 'DarkBlue'; $statusMessage = "Color set to blue" }
+        'K' { $color = 'Black'; $statusMessage = "Color set to black" }
+        'W' { $color = 'White'; $statusMessage = "Color set to white" }
+        'D' { $ShowDate = (-not $ShowDate); $StatusMessage = "ShowDate set to $ShowDate" }
         'M' { $Military = (-not $Military); $statusMessage = "Military set to $Military" }
         'S' { $ShowSeconds = (-not $ShowSeconds); $statusMessage = "ShowSeconds set to $ShowSeconds" }
         'H' { $ShowHelp = (-not $ShowHelp) }
       }
 
     }
-    
-    $color = 'DarkGreen'
+
     if ( $Military) {
       $timeFormat = "HH:mm"
     }
@@ -322,11 +201,13 @@ function Start-Clock {
     if ( -not $Military ) {
       $timeFormat += " tt"
     }
-    Write-Time -TimeString (Get-Date -Format $timeFormat)
-    "$StatusMessage`n"
+    
+    Write-Time -TimeString (Get-Date -Format $timeFormat) -Color $Color
+    "$StatusMessage"
     if ($showHelp) {
       Write-ClockHelp
     }
+
     Start-Sleep -Seconds 1
   }
 }
