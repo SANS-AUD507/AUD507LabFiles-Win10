@@ -53,12 +53,15 @@ Function Write-ClockHelp {
   "Q: Quit"
 }
 
+# TODO: Needs a function to start a timer that ends at a certain time (start of class, return from lunch, etc.)
 function Start-Timer {
   [CmdletBinding()]
   param (
-    [int]$Minutes = 15,
+    [int]$Minutes = 0,
     [int]$Seconds = 0,
     [int]$Hours = 0,
+    [switch]$SetEndingTime,
+    [string]$EndingTime = "09:00",
     [Alias("E")]
     [switch]$ShowEndTime,
     [Alias("T")]
@@ -66,10 +69,21 @@ function Start-Timer {
     [switch]$ShowHelp
   )
 
-  $startTime = (Get-Date)
-  $endTime = ($startTime).AddHours($Hours)
-  $endTime = $endTime.AddMinutes($Minutes)
-  $endTime = $endTime.AddSeconds($Seconds + 1)
+  #Regular mode: pass hours/minutes/seconds for the timer
+  if ( -not $SetEndingTime ) {
+    $startTime = (Get-Date)
+    $endTime = ($startTime).AddHours($Hours)
+    $endTime = $endTime.AddMinutes($Minutes)
+    $endTime = $endTime.AddSeconds($Seconds + 1)
+  } 
+  #end time mode: pass the actual end time
+  else {
+    $startTime = (Get-Date)
+    $endTime = Get-Date -Date $EndingTime
+    $startTime
+    $endTime
+  }
+
   Clear-Host
 
   while ( (Get-Date) -lt $endTime ) {
