@@ -155,10 +155,11 @@ function New-Countdown {
 
   $startTime = (Get-Date)
   $endTime = Get-Date -Date $EndingTime
-  $startTime
-  $endTime
-  
-  start-timer -StartTime $startTime -EndTime $EndingTime `
+  if ( $endTime -lt $startTime) {
+    $endTime = $endTime.AddDays(1)
+  }
+
+  start-timer -StartTime $startTime -EndTime $endTime `
     -ShowEndTime $ShowEndTime -UseThresholds $UseThresholds -ShowHelp $ShowHelp
 }
 
