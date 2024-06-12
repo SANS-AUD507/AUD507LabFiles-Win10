@@ -1,5 +1,6 @@
 #Super simple alias
-Set-Alias -Name t -Value Start-Timer
+Set-Alias -Name t -Value New-Timer
+Set-Alias -Name c -Value New-Countdown
 
 #HashTable of characters for the clock
 #Letters was probably a stupid name, since there aren't many...
@@ -53,44 +54,25 @@ Function Write-ClockHelp {
   "Q: Quit"
 }
 
+
 # TODO: Needs a function to start a timer that ends at a certain time (start of class, return from lunch, etc.)
 function Start-Timer {
   [CmdletBinding()]
   param (
-    [int]$Minutes = 0,
-    [int]$Seconds = 0,
-    [int]$Hours = 0,
-    [switch]$SetEndingTime,
-    [string]$EndingTime = "09:00",
-    [Alias("E")]
-    [switch]$ShowEndTime,
-    [Alias("T")]
-    [switch]$UseThresholds,
-    [switch]$ShowHelp
+    [datetime]$StartTime,
+    [datetime]$EndTime,
+    $ShowEndTime,
+    $UseThresholds,
+    $ShowHelp
   )
-
-  #Regular mode: pass hours/minutes/seconds for the timer
-  if ( -not $SetEndingTime ) {
-    $startTime = (Get-Date)
-    $endTime = ($startTime).AddHours($Hours)
-    $endTime = $endTime.AddMinutes($Minutes)
-    $endTime = $endTime.AddSeconds($Seconds + 1)
-  } 
-  #end time mode: pass the actual end time
-  else {
-    $startTime = (Get-Date)
-    $endTime = Get-Date -Date $EndingTime
-    $startTime
-    $endTime
-  }
 
   Clear-Host
 
-  while ( (Get-Date) -lt $endTime ) {
+  while ( (Get-Date) -lt $EndTime ) {
 
     $StatusMessage = "                                   "
    
-    $ts = New-TimeSpan -Start (Get-Date) -End $endTime
+    $ts = New-TimeSpan -Start (Get-Date) -End $EndTime
 
     #If the user presses a key, handle it
     while ( [Console]::KeyAvailable) {
@@ -100,18 +82,18 @@ function Start-Timer {
       switch ( $keyInfo.Key) {
         'Q' { return }
         'UpArrow' { 
-          $endTime = (Get-Date).AddMinutes([Math]::Ceiling($ts.TotalMinutes + .1))
-          $endTime = $endTime.AddSeconds(1)
+          $EndTime = (Get-Date).AddMinutes([Math]::Ceiling($ts.TotalMinutes + .1))
+          $EndTime = $EndTime.AddSeconds(1)
           $statusMessage = "Added 1 minute"
         }
         'DownArrow' { 
-          $endTime = (Get-Date).AddMinutes([Math]::Floor($ts.TotalMinutes))
-          $endTime = $endTime.AddSeconds(1)
+          $EndTime = (Get-Date).AddMinutes([Math]::Floor($ts.TotalMinutes))
+          $EndTime = $EndTime.AddSeconds(1)
           $statusMessage = "Seconds set to zero"
         }
         'Z' {
-          $endTime = (Get-Date).AddMinutes([Math]::Floor($ts.TotalMinutes))
-          $endTime = $endTime.AddSeconds(1)
+          $EndTime = (Get-Date).AddMinutes([Math]::Floor($ts.TotalMinutes))
+          $EndTime = $EndTime.AddSeconds(1)
           $statusMessage = "Seconds set to zero"
         }
         'T' { $UseThresholds = (-not $UseThresholds); $statusMessage = "Thresholds set to $useThresholds" }
@@ -159,6 +141,48 @@ function Start-Timer {
   }
 }
 
+#Function to create a timer which ends at a certain time.
+function New-Countdown {
+  [CmdletBinding()]
+  param (
+    [string]$EndingTime = "09:00",
+    [Alias("E")]
+    [switch]$ShowEndTime,
+    [Alias("T")]
+    [switch]$UseThresholds,
+    [switch]$ShowHelp
+  )
+
+  $startTime = (Get-Date)
+  $endTime = Get-Date -Date $EndingTime
+  $startTime
+  $endTime
+  
+  start-timer -StartTime $startTime -EndTime $EndingTime `
+    -ShowEndTime $ShowEndTime -UseThresholds $UseThresholds -ShowHelp $ShowHelp
+}
+
+function New-Timer {
+  [CmdletBinding()]
+  param (
+    [int]$Minutes = 0,
+    [int]$Seconds = 0,
+    [int]$Hours = 0,
+    [Alias("E")]
+    [switch]$ShowEndTime,
+    [Alias("T")]
+    [switch]$UseThresholds,
+    [switch]$ShowHelp
+  )
+
+  $startTime = (Get-Date)
+  $endTime = ($startTime).AddHours($Hours)
+  $endTime = $endTime.AddMinutes($Minutes)
+  $endTime = $endTime.AddSeconds($Seconds + 1)
+
+  start-timer -StartTime $startTime -EndTime $endTime `
+    -ShowEndTime $ShowEndTime -UseThresholds $UseThresholds -ShowHelp $ShowHelp
+}
 function Start-Clock {
   [CmdletBinding()]
   param (
