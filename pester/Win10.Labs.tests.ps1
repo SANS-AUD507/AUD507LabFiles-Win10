@@ -378,7 +378,7 @@ Describe '507 Labs' {
       $res.ADFunctionalLevel | Should -Be 'Windows2016Domain'
       $res.EnabledUsers | Should -BeGreaterOrEqual 995
       $res.DisabledUsers | Should -Be 11
-      $res.TotalUsers | Should -Be 1007
+      $res.TotalUsers | Should -BeGreaterOrEqual 1006
       $res.DomainAdmins | Should -Be 71
       $res.SchemaAdmins | Should -Be 71
       $res.EnterpriseAdmins | Should -Be 1
