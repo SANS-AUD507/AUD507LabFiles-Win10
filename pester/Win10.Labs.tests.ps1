@@ -54,7 +54,7 @@ Describe '507 Labs' {
       Import-Module Az.Compute
       Write-Host 'Import complete'
 
-      if ((Get-AzTenant).Name -notlike '*sans*') {
+      if ((Get-AzTenant).Name -notlike '*RCI*') {
         Write-Host "Skipping Azure tests because tenant is not correct"
         $skipAzure = $true
       }
