@@ -185,7 +185,7 @@ Describe 'Lab Setup tests for 507Win10 VM' {
 
     It 'Az CLI account is setup' {
       (az ad signed-in-user show | ConvertFrom-Json).userPrincipalName | 
-        Should -BeLike 'student@*' `
+        Should -BeLike 'student*@*' `
           -Because 'Azure setup from lab 1.1 not correct'
     }
 

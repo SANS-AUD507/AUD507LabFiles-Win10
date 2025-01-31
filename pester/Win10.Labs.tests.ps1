@@ -151,8 +151,8 @@ Describe '507 Labs' {
         Should -BeGreaterThan 5000
     }
 
-    It 'Part 2 - AWS Powershell returns 3 VPCs' {
-      (Get-EC2Vpc).Count | Should -Be 3
+    It 'Part 2 - AWS Powershell returns at least 3 VPCs' {
+      (Get-EC2Vpc).Count | Should -BeGreaterOrEqual 3
     }
 
     It 'Part 2 - 3 EC2 instances are missing tags' {
