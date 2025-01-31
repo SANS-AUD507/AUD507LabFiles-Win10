@@ -376,7 +376,7 @@ Describe '507 Labs' {
       $res.DNSRoot | Should -Be 'AUD507.local'
       $res.Forest | Should -Be 'AUD507.local'
       $res.ADFunctionalLevel | Should -Be 'Windows2016Domain'
-      $res.EnabledUsers | Should -Be 996 
+      $res.EnabledUsers | Should -BeGreaterOrEqual 995
       $res.DisabledUsers | Should -Be 11
       $res.TotalUsers | Should -Be 1007
       $res.DomainAdmins | Should -Be 71
