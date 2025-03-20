@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param (
-  [string]$filePath = "C:\Users\student\AUD507-Labs\scans"
+  [string]$filePath = "C:\Users\student\aud1-labs\scans"
 )
 
 function run-sshCommand {

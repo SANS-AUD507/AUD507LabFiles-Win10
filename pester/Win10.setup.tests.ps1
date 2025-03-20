@@ -1,6 +1,6 @@
 # Invoke this test on 507Win10 with this command:
 <#
-Set-Location c:\users\student\Aud507-Labs\pester
+Set-Location c:\users\student\aud1-labs\pester
 $config=New-PesterConfiguration
 $config.Output.Verbosity='detailed'
 $config.Run.Path='.\Win10.Setup.tests.ps1'

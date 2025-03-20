@@ -1,5 +1,5 @@
 echo Updating lab file repo
-cd c:\users\student\aud507-labs
+cd c:\users\student\aud1-labs
 git pull
 
-call c:\users\student\aud507-labs\scripts\vmsetup2.bat
+call c:\users\student\aud1-labs\scripts\vmsetup2.bat
