@@ -1,87 +1,88 @@
 {
-    "policies": 
-    {
-        "AppAutoUpdate": false,
-    	"Certificates": {
-      	  "Install": ["C:\\tools\\fleet\\fleetcert.pem"]
-    	},
-        "CaptivePortal": false,
-        "DisableAppUpdate": true,
-        "DisableFirefoxAccounts": true,
-        "DisableFirefoxStudies": true,
-        "DisplayBookmarksToolbar": true,
-        "DontCheckDefaultBrowser": true,
-        "ExtensionUpdate": false,
-        "ExtensionSettings": {
-            "foxyproxy@eric.h.jung": {
-                "updates_disabled": true
-            },
-            "@retire.js": {
-                "updates_disabled": true
-            },
-            "wappalyzer@crunchlabz.com": {
-                "updates_disabled": true
-            }
-        },
-        "NoDefaultBookmarks": true,
-        "NewTabPage": false,
-        "OverrideFirstRunPage": "",
-        "OverridePostUpdatePage": "",
-        "Preferences":{
-            "security.insecure_field_warning.contextual.enabled": {
-                "Value": false,
-                "Status": "user"
-            }
-        },
-        "Homepage": {
-            "URL": "http://10.50.7.50/workbook",
-            "StartPage": "homepage" 
-        },
-        "Extensions": {
-            "Install": [
-                "https://addons.mozilla.org/firefox/downloads/file/4098230/retire_js-1.7.8.xpi", 
-                "https://addons.mozilla.org/firefox/downloads/file/4189626/wappalyzer-6.10.67.xpi",
-                "https://addons.mozilla.org/firefox/downloads/file/3616824/foxyproxy_standard-7.5.1.xpi"
-            ]
-        },
-        "Bookmarks": [
-            {
-                "Title": "Course Workbook (local)",
-                "URL": "http://workbook/workbook",
-                "Placement": "toolbar",
-                "Favicon": "https://www.aud507.com/media/favicon.ico"
-            },            
-            {
-                "Title": "SANS Portal Dashboard",
-                "URL": "https://www.sans.org/account",
-                "Placement": "toolbar",
-                "Favicon": "https://www.aud507.com/media/favicon.ico"
-            },            
-            {
-                "Title": "AUD507 Public Wiki",
-                "URL": "https://www.aud507.com",
-                "Placement": "toolbar",
-                "Favicon": "https://www.aud507.com/media/favicon.ico"
-            },
-            {
-                "Title": "Fleet",
-                "URL": "https://fleet.5x7.local:8443/",
-                "Placement": "toolbar",
-                "Favicon":"https://fleetdm.com/favicon.ico"      
-            },
-            {
-                "Title": "Juice Shop",
-                "URL": "http://juiceshop.5x7.local",
-                "Placement": "toolbar",
-                "Favicon": "http://juiceshop.5x7.local/assets/public/favicon_js.ico"
-            },
-            {
-                "Title": "Nessus",
-                "URL": "https://scanner.5x7.local:8834",
-                "Placement": "toolbar",
-                "Favicon": "https://www.tenable.com/themes/custom/tenable/img/favicons/favicon.ico"
-            }
-        ]
-    }
+  "policies": {
+    "AppAutoUpdate": false,
+    "Certificates": {
+      "Install": ["C:\\tools\\fleet\\fleetcert.pem"]
+    },
+    "CaptivePortal": false,
+    "DisableAppUpdate": true,
+    "DisableFirefoxAccounts": true,
+    "DisableFirefoxStudies": true,
+    "DisplayBookmarksToolbar": true,
+    "DontCheckDefaultBrowser": true,
+    "ExtensionUpdate": false,
+    "ExtensionSettings": {
+      "foxyproxy@eric.h.jung": {
+        "updates_disabled": true,
+        "default_area": "navbar"
+      },
+      "@retire.js": {
+        "updates_disabled": true,
+        "default_area": "navbar"
+      },
+      "wappalyzer@crunchlabz.com": {
+        "updates_disabled": true,
+        "default_area": "navbar"
+      }
+    },
+    "NoDefaultBookmarks": true,
+    "NewTabPage": false,
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "Preferences": {
+      "security.insecure_field_warning.contextual.enabled": {
+        "Value": false,
+        "Status": "user"
+      }
+    },
+    "Homepage": {
+      "URL": "http://10.50.7.50/workbook",
+      "StartPage": "homepage"
+    },
+    "Extensions": {
+      "Install": [
+        "https://addons.mozilla.org/firefox/downloads/file/4098230/retire_js-1.7.8.xpi",
+        "https://addons.mozilla.org/firefox/downloads/file/4189626/wappalyzer-6.10.67.xpi",
+        "https://addons.mozilla.org/firefox/downloads/file/3616824/foxyproxy_standard-7.5.1.xpi"
+      ]
+    },
+    "Bookmarks": [
+      {
+        "Title": "Course Workbook (local)",
+        "URL": "http://workbook/workbook",
+        "Placement": "toolbar",
+        "Favicon": "https://www.aud507.com/media/favicon.ico"
+      },
+      {
+        "Title": "SANS Portal Dashboard",
+        "URL": "https://www.sans.org/account",
+        "Placement": "toolbar",
+        "Favicon": "https://www.aud507.com/media/favicon.ico"
+      },
+      {
+        "Title": "AUD507 Public Wiki",
+        "URL": "https://www.aud507.com",
+        "Placement": "toolbar",
+        "Favicon": "https://www.aud507.com/media/favicon.ico"
+      },
+      {
+        "Title": "Fleet",
+        "URL": "https://fleet.5x7.local:8443/",
+        "Placement": "toolbar",
+        "Favicon": "https://fleetdm.com/favicon.ico"
+      },
+      {
+        "Title": "Juice Shop",
+        "URL": "http://juiceshop.5x7.local",
+        "Placement": "toolbar",
+        "Favicon": "http://juiceshop.5x7.local/assets/public/favicon_js.ico"
+      },
+      {
+        "Title": "Nessus",
+        "URL": "https://scanner.5x7.local:8834",
+        "Placement": "toolbar",
+        "Favicon": "https://www.tenable.com/themes/custom/tenable/img/favicons/favicon.ico"
+      }
+    ]
+  }
 }
-
