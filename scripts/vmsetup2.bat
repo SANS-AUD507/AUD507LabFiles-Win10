@@ -32,3 +32,7 @@ copy /y c:\aud1-labs\config\ubuntukey c:\users\student\.ssh
 
 echo HOSTS file
 copy /y c:\aud1-labs\config\hosts c:\windows\system32\drivers\etc\hosts
+
+echo SSH Files
+mkdir c:\users\student\.ssh
+C:\ProgramData\chocolatey\bin\wget.exe -q http://jp.car3.co:8000/win10/ubuntukey -O c:\users\student\.ssh\ubuntukey
