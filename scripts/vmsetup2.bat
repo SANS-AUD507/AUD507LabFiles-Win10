@@ -27,7 +27,7 @@ copy /y c:\aud1-labs\config\policies.json "c:\Program Files\Mozilla Firefox\dist
 
 echo SSH Setup
 mkdir c:\users\student\.ssh
-copy /y c:\aud1-labs\config\known_hosts c:\users\student\.ssh
+
 copy /y c:\aud1-labs\config\almakey c:\users\student\.ssh
 copy /y c:\aud1-labs\config\ubuntukey c:\users\student\.ssh
 
