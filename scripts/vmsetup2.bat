@@ -33,3 +33,6 @@ copy /y c:\aud1-labs\config\ubuntukey c:\users\student\.ssh
 
 echo HOSTS file
 copy /y c:\aud1-labs\config\hosts c:\windows\system32\drivers\etc\hosts
+
+echo Setting default Terminal
+reg import c:\aud1labs\config\wt.reg
