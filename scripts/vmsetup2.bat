@@ -36,3 +36,6 @@ copy /y c:\aud1-labs\config\hosts c:\windows\system32\drivers\etc\hosts
 
 echo Setting default Terminal
 reg import c:\aud1-labs\config\wt.reg
+
+echo Setting desktop background
+powershell set-executionpolicy bypass -file c:\aud1-labs\scripts\setwallpaper.ps1
