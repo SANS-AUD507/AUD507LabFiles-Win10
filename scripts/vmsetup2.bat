@@ -38,4 +38,6 @@ echo Setting default Terminal
 reg import c:\aud1-labs\config\wt.reg
 
 echo Setting desktop background
-powershell set-executionpolicy bypass -file c:\aud1-labs\scripts\setwallpaper.ps1
+c:\tools\LGPO.exe /g c:\tools\desktopGPO
+
+shutdown /r /t 5
