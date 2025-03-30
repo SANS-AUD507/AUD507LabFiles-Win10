@@ -12,7 +12,7 @@ $body = @{
   'password' = 'student'
 }
 
-$baseUri = 'https://scanner.5x7.local:8834'
+$baseUri = 'https://scanner.lab.local:8834'
 $uri = $baseUri + '/session'
 
 $res = Invoke-RestMethod -SkipCertificateCheck -Method Post `

@@ -12617,7 +12617,7 @@ EE:EE:EE:EE:EE:EE</tag>
 <tag name="operating-system-conf">100</tag>
 <tag name="operating-system-method">LinuxDistribution</tag>
 <tag name="host-rdns">10.50.7.21</tag>
-<tag name="host-fqdns">[{&quot;FQDN&quot;:&quot;fleet.5x7.local&quot;,&quot;sources&quot;:[&quot;hostname-A&quot;]},{&quot;FQDN&quot;:&quot;10.50.7.21&quot;,&quot;sources&quot;:[&quot;get_host_fqdn()&quot;]}]</tag>
+<tag name="host-fqdns">[{&quot;FQDN&quot;:&quot;fleet.lab.local&quot;,&quot;sources&quot;:[&quot;hostname-A&quot;]},{&quot;FQDN&quot;:&quot;10.50.7.21&quot;,&quot;sources&quot;:[&quot;get_host_fqdn()&quot;]}]</tag>
 <tag name="mac-address">42:B2:8B:48:0E:E7
 66:24:BF:68:E3:41
 02:42:69:C5:D5:81
@@ -15629,7 +15629,7 @@ SSLcert:!:i/CN:localhost-ca@1690203116s/CN:localhost@1690203117
 2816d0a1d7cbb6dc9044b4f696eb4810ba22d333
 i/CN:10.152.183.1s/CN:127.0.0.1s/O:Canonicals/OU:Canonical
 a02f2f981d6fd5d2a1ec3effc8cd170f5ffaa853
-i/CN:fleet.5x7.locali/O:SANS5x7i/OU:ITs/CN:fleet.5x7.locals/O:SANS5x7s/OU:IT
+i/CN:fleet.lab.locali/O:SANS5x7i/OU:ITs/CN:fleet.lab.locals/O:SANS5x7s/OU:IT
 6699599e30233187cff7e884ae43692be5cf497a
 
 
@@ -15852,7 +15852,7 @@ The following certificate was found at the top of the certificate
 chain sent by the remote host, but is self-signed and was not
 found in the list of known certificate authorities :
 
-|-Subject : C=US/ST=OK/L=Durant/O=SANS5x7/OU=IT/CN=fleet.5x7.local
+|-Subject : C=US/ST=OK/L=Durant/O=SANS5x7/OU=IT/CN=fleet.lab.local
 </plugin_output>
 </ReportItem>
 <ReportItem port="10259" svc_name="www" protocol="tcp" severity="2" pluginID="57582" pluginName="SSL Self-Signed Certificate" pluginFamily="General">
@@ -16048,8 +16048,8 @@ The following certificate was at the top of the certificate
 chain sent by the remote host, but it is signed by an unknown
 certificate authority :
 
-|-Subject : C=US/ST=OK/L=Durant/O=SANS5x7/OU=IT/CN=fleet.5x7.local
-|-Issuer  : C=US/ST=OK/L=Durant/O=SANS5x7/OU=IT/CN=fleet.5x7.local
+|-Subject : C=US/ST=OK/L=Durant/O=SANS5x7/OU=IT/CN=fleet.lab.local
+|-Issuer  : C=US/ST=OK/L=Durant/O=SANS5x7/OU=IT/CN=fleet.lab.local
 </plugin_output>
 </ReportItem>
 <ReportItem port="25000" svc_name="www" protocol="tcp" severity="2" pluginID="51192" pluginName="SSL Certificate Cannot Be Trusted" pluginFamily="General">
@@ -19170,7 +19170,7 @@ root         936  0.1  0.1 1348008 7856 ?        Ssl  Jul24   4:06 /usr/bin/cont
 root         957  0.0  0.0   6172  1004 tty1     Ss+  Jul24   0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
 root        1011  0.0  0.1 243272  5456 ?        Ssl  Jul24   0:00 /usr/sbin/ModemManager
 root        1023  0.0  0.1  15420  6000 ?        Ss   Jul24   0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
-root        1041  0.0  0.1 131176  4268 ?        SNsl Jul24   0:27 /opt/osquery/bin/osqueryd --extensions_autoload=/etc/osquery/extensions.load --disable_extensions=false --enroll_secret_path=/home/student/fleetsecret --tls_server_certs=/etc/fleet.cert --tls_hostname=fleet.5x7.local:8443 --host_identifier=uuid --enroll_tls_endpoint=/api/v1/osquery/enroll --config_plugin=tls --config_tls_endpoint=/api/v1/osquery/config --config_refresh=10 --disable_distributed=false --distributed_plugin=tls --distributed_interval=10 --distributed_tls_max_attempts=3 --distributed_tls_read_endpoint=/api/v1/osquery/distributed/read --distributed_tls_write_endpoint=/api/v1/osquery/distributed/write --logger_plugin=tls --logger_tls_endpoint=/api/v1/osquery/log --logger_tls_period=10
+root        1041  0.0  0.1 131176  4268 ?        SNsl Jul24   0:27 /opt/osquery/bin/osqueryd --extensions_autoload=/etc/osquery/extensions.load --disable_extensions=false --enroll_secret_path=/home/student/fleetsecret --tls_server_certs=/etc/fleet.cert --tls_hostname=fleet.lab.local:8443 --host_identifier=uuid --enroll_tls_endpoint=/api/v1/osquery/enroll --config_plugin=tls --config_tls_endpoint=/api/v1/osquery/config --config_refresh=10 --disable_distributed=false --distributed_plugin=tls --distributed_interval=10 --distributed_tls_max_attempts=3 --distributed_tls_read_endpoint=/api/v1/osquery/distributed/read --distributed_tls_write_endpoint=/api/v1/osquery/distributed/write --logger_plugin=tls --logger_tls_endpoint=/api/v1/osquery/log --logger_tls_period=10
 root        1073  0.0  0.0  56000   548 ?        Ss   Jul24   0:00 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
 www-data    1079  0.0  0.1  56960  6008 ?        S    Jul24   0:00 nginx: worker process
 www-data    1080  0.0  0.1  56960  6716 ?        S    Jul24   0:00 nginx: worker process
@@ -29939,7 +29939,7 @@ State/Province: OK
 Locality: Durant
 Organization: SANS5x7
 Organization Unit: IT
-Common Name: fleet.5x7.local
+Common Name: fleet.lab.local
 
 Issuer Name: 
 
@@ -29948,7 +29948,7 @@ State/Province: OK
 Locality: Durant
 Organization: SANS5x7
 Organization Unit: IT
-Common Name: fleet.5x7.local
+Common Name: fleet.lab.local
 
 Serial Number: 26 89 7B 20 B6 3B 24 78 4B 2B F6 66 0E 22 21 A1 03 ED EF E0 
 

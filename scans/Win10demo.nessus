@@ -19228,59 +19228,59 @@ Active User Environment Variables
     40.7.50.10.in-addr.arpa
     50.7.50.10.in-addr.arpa
     507dc
-    507dc.5x7.local
-    507dc.5x7.local
+    507dc.lab.local
+    507dc.lab.local
     alma
-    alma.5x7.local
-    alma.5x7.local
+    alma.lab.local
+    alma.lab.local
     buggybank
-    buggybank.5x7.local
-    buggybank.5x7.local
+    buggybank.lab.local
+    buggybank.lab.local
     bwapp
-    bwapp.5x7.local
-    bwapp.5x7.local
+    bwapp.lab.local
+    bwapp.lab.local
     dashboard
-    dashboard.5x7.local
-    dashboard.5x7.local
+    dashboard.lab.local
+    dashboard.lab.local
     docker
-    docker.5x7.local
-    docker.5x7.local
+    docker.lab.local
+    docker.lab.local
     dvwa
-    dvwa.5x7.local
-    dvwa.5x7.local
+    dvwa.lab.local
+    dvwa.lab.local
     esxi
-    esxi.5x7.local
-    esxi.5x7.local
+    esxi.lab.local
+    esxi.lab.local
     esxi1
-    esxi1.5x7.local
+    esxi1.lab.local
     esxi2
-    esxi2.5x7.local
+    esxi2.lab.local
     fleet
-    fleet.5x7.local
-    fleet.5x7.local
+    fleet.lab.local
+    fleet.lab.local
     juiceshop
-    juiceshop.5x7.local
-    juiceshop.5x7.local
+    juiceshop.lab.local
+    juiceshop.lab.local
     lablocal
-    lablocal.5x7.local
-    lablocal.5x7.local
+    lablocal.lab.local
+    lablocal.lab.local
     nodejsscan
-    nodejsscan.5x7.local
-    nodejsscan.5x7.local
+    nodejsscan.lab.local
+    nodejsscan.lab.local
     scanner
-    scanner.5x7.local
-    scanner.5x7.local
+    scanner.lab.local
+    scanner.lab.local
     ubuntu
-    ubuntu.5x7.local
-    ubuntu.5x7.local
+    ubuntu.lab.local
+    ubuntu.lab.local
     wackopicko
-    wackopicko.5x7.local
-    wackopicko.5x7.local
+    wackopicko.lab.local
+    wackopicko.lab.local
     windc
-    windc.5x7.local
+    windc.lab.local
     workbook
-    workbook.5x7.local
-    workbook.5x7.local
+    workbook.lab.local
+    workbook.lab.local
 
 DNS cache information attached.
 </plugin_output>

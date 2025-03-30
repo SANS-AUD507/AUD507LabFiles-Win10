@@ -1,16 +1,16 @@
-10.50.7.50 dashboard.5x7.local dashboard
-10.50.7.50 fleet.5x7.local  fleet
-10.50.7.50 ubuntu.5x7.local ubuntu
-10.50.7.31 esxi.5x7.local esxi1.5x7.local esxi2.5x7.local esxi1 esxi2 esxi
-10.50.7.40 alma.5x7.local alma   
-10.50.7.50 lablocal.5x7.local     lablocal
-10.50.7.50 workbook.5x7.local     workbook
-10.50.7.20 juiceshop.5x7.local    juiceshop
-10.50.7.21 buggybank.5x7.local    buggybank
-10.50.7.22 bwapp.5x7.local bwapp 
-10.50.7.23 wackopicko.5x7.local   wackopicko
-10.50.7.24 dvwa.5x7.local dvwa    
-10.50.7.25 nodejsscan.5x7.local   nodejsscan
-10.50.7.26 docker.5x7.local docker
-10.50.7.29 scanner.5x7.local      scanner
-10.55.7.100 507dc.5x7.local 507dc windc.5x7.local windc
+10.50.7.50 dashboard.lab.local dashboard
+10.50.7.50 fleet.lab.local  fleet
+10.50.7.50 ubuntu.lab.local ubuntu
+10.50.7.31 esxi.lab.local esxi1.lab.local esxi2.lab.local esxi1 esxi2 esxi
+10.50.7.40 alma.lab.local alma   
+10.50.7.50 lablocal.lab.local     lablocal
+10.50.7.50 workbook.lab.local     workbook
+10.50.7.20 juiceshop.lab.local    juiceshop
+10.50.7.21 buggybank.lab.local    buggybank
+10.50.7.22 bwapp.lab.local bwapp 
+10.50.7.23 wackopicko.lab.local   wackopicko
+10.50.7.24 dvwa.lab.local dvwa    
+10.50.7.25 nodejsscan.lab.local   nodejsscan
+10.50.7.26 docker.lab.local docker
+10.50.7.29 scanner.lab.local      scanner
+10.55.7.100 507dc.lab.local 507dc windc.lab.local windc

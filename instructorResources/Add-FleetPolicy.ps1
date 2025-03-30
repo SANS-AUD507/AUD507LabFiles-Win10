@@ -1,8 +1,8 @@
 #Secrets in plain text in the script here. Normally these would come from
 #a secrets vault
-$user = "student@5x7.local"
+$user = "student@lab.local"
 $pass = "student1234!"
-$server = "https://fleet.5x7.local:8443"
+$server = "https://fleet.lab.local:8443"
 
 #Get an auth token for the Fleet API
 $body="{`"email`":`"$user`",`"password`":`"$pass`"}"

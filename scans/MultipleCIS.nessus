@@ -45119,7 +45119,7 @@ B6:76:1F:8B:62:B8</tag>
 <tag name="os">linux</tag>
 <tag name="operating-system-conf">-1</tag>
 <tag name="operating-system-method">Unknown</tag>
-<tag name="host-fqdns">[{&quot;FQDN&quot;:&quot;fleet.5x7.local&quot;,&quot;sources&quot;:[&quot;hostname-A&quot;]},{&quot;FQDN&quot;:&quot;ubuntu&quot;,&quot;sources&quot;:[&quot;get_host_fqdn()&quot;]}]</tag>
+<tag name="host-fqdns">[{&quot;FQDN&quot;:&quot;fleet.lab.local&quot;,&quot;sources&quot;:[&quot;hostname-A&quot;]},{&quot;FQDN&quot;:&quot;ubuntu&quot;,&quot;sources&quot;:[&quot;get_host_fqdn()&quot;]}]</tag>
 <tag name="hostname">ubuntu</tag>
 <tag name="mac-address">EE:EE:EE:EE:EE:EE
 02:42:EC:DB:AC:50

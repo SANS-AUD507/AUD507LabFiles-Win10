@@ -61,13 +61,13 @@ Describe '507 Labs' {
     }
     
     #Check if alma is reachable
-    if ( -not (Test-NetConnection -InformationLevel Quiet -ComputerName alma.5x7.local) ) {
+    if ( -not (Test-NetConnection -InformationLevel Quiet -ComputerName alma.lab.local) ) {
       Write-Host "Skipping alma tests because host is unreachable"
       $skipAlma = $true
     }
     
     #Check if the DC is available
-    if ( -not (Test-NetConnection -InformationLevel Quiet -ComputerName 507dc.5x7.local) ) {
+    if ( -not (Test-NetConnection -InformationLevel Quiet -ComputerName 507dc.lab.local) ) {
       $skipDC = $true
     }
 
@@ -542,10 +542,10 @@ Describe '507 Labs' {
   Context 'Lab 5.1' {
     It 'Customer feedback < 1 is allowed' {
       #Get a working captcha from the API
-      $captcha = Invoke-RestMethod -Uri http://juiceshop.5x7.local/rest/captcha
+      $captcha = Invoke-RestMethod -Uri http://juiceshop.lab.local/rest/captcha
 
       $body = "{`"captchaId`":$($captcha.captchaId),`"captcha`":`"$($captcha.answer)`",`"comment`":`"Pester test`",`"rating`":0}"
-      $uri = 'http://juiceshop.5x7.local/api/Feedbacks/'
+      $uri = 'http://juiceshop.lab.local/api/Feedbacks/'
       $res = Invoke-WebRequest -Method Post -Body $body -Uri $uri -ContentType 'application/json'
       $res.StatusCode | Should -BeExactly 201
       ($res.Content | ConvertFrom-Json).data.rating | Should -BeExactly 0
@@ -554,42 +554,42 @@ Describe '507 Labs' {
 
   Context 'Lab 5.2' {
     It 'Part 1 - Juiceshop shows self-signed cert' {
-      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --certinfo juiceshop.5x7.local:443)
-      ($sslyzeRes -like '*Issuer*juiceshop.5x7.local').Count | Should -Be 1
+      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --certinfo juiceshop.lab.local:443)
+      ($sslyzeRes -like '*Issuer*juiceshop.lab.local').Count | Should -Be 1
     }
 
     It 'Part 1 - Cert expiration is 2032-11-19' {
-      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --certinfo juiceshop.5x7.local:443)
+      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --certinfo juiceshop.lab.local:443)
       ($sslyzeRes -like '*Not After*2032-11-19').Count | Should -Be 1
     }
 
     It 'Part 1 - Windows CA store test fails' {
-      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --certinfo juiceshop.5x7.local:443)
+      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --certinfo juiceshop.lab.local:443)
       ($sslyzeRes -like '*Windows CA Store*FAILED*').Count | Should -Be 1
     }
 
     It 'Part 1 - SSLv3 disabled' {
-      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --sslv3 juiceshop.5x7.local:443)
+      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --sslv3 juiceshop.lab.local:443)
       ($sslyzeRes -like '*the server rejected all cipher suites*').Count | Should -Be 1
     }
 
     It 'Part 1 - TLS1.0 disabled' {
-      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --tlsv1 juiceshop.5x7.local:443)
+      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --tlsv1 juiceshop.lab.local:443)
       ($sslyzeRes -like '*the server rejected all cipher suites*').Count | Should -Be 1
     }
 
     It 'Part 1 - TLS1.1 disabled' {
-      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --tlsv1_1 juiceshop.5x7.local:443)
+      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --tlsv1_1 juiceshop.lab.local:443)
       ($sslyzeRes -like '*the server rejected all cipher suites*').Count | Should -Be 1
     }
 
     It 'Part 1 - TLS1.2 enabled' {
-      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --tlsv1_2 juiceshop.5x7.local:443)
+      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --tlsv1_2 juiceshop.lab.local:443)
       ($sslyzeRes -like '*The server accepted the following 27*').Count | Should -Be 1
     }
 
     It 'Part 1 - TLS1.3 enabled' {
-      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --tlsv1_3 juiceshop.5x7.local:443)
+      $sslyzeRes = (C:\tools\sslyze\sslyze.exe --tlsv1_3 juiceshop.lab.local:443)
       ($sslyzeRes -like '*The server accepted the following 3*').Count | Should -Be 1
     }
 
@@ -602,7 +602,7 @@ Describe '507 Labs' {
   Context 'Lab5.3' {
     It 'Part 1 - SQL injection returns all rows' {
       # '));
-      $uri = 'http://juiceshop.5x7.local/rest/products/search?q=%27%29%29%3B'
+      $uri = 'http://juiceshop.lab.local/rest/products/search?q=%27%29%29%3B'
       $res = Invoke-WebRequest -Uri $uri
       ($res.Content | ConvertFrom-Json).data.Count |
         Should -BeExactly 44
@@ -629,7 +629,7 @@ Describe '507 Labs' {
 
         #Check that each name returns a question with a valid ID
         $username = $name + "@juice-sh.op"
-        $uri = "http://juiceshop.5x7.local/rest/user/security-question?email=$username"
+        $uri = "http://juiceshop.lab.local/rest/user/security-question?email=$username"
         $res = Invoke-RestMethod -Uri $uri
         $res.question.id | Should -BeGreaterOrEqual 0
         $res.question.question.Length | Should -BeGreaterOrEqual 1
@@ -645,7 +645,7 @@ Describe '507 Labs' {
       $passwords | Should -Contain  'ncc-1701'
 
       #Test that you can login as Jim
-      $uri = 'http://juiceshop.5x7.local/rest/user/login'
+      $uri = 'http://juiceshop.lab.local/rest/user/login'
       $body = '{"email":"jim@juice-sh.op","password":"ncc-1701"}'
       $res = Invoke-WebRequest -Method Post -Body $body -Uri $uri -ContentType 'application/json'
 
@@ -661,7 +661,7 @@ Describe '507 Labs' {
     #Skip part 1 since it uses DOM
 
     It 'Part 2 - Amy login with SQL injection works' {
-      $uri = 'http://juiceshop.5x7.local/rest/user/login'
+      $uri = 'http://juiceshop.lab.local/rest/user/login'
       $body = '{"email":"amy@juice-sh.op'';--","password":"PESTER-DOESNT-MATTER"}'
       $res = Invoke-WebRequest -Method Post -Body $body -Uri $uri -ContentType 'application/json'
 
@@ -674,7 +674,7 @@ Describe '507 Labs' {
 
     It 'Part 3 - SQL Injection returns all data' {
       # invalid')) or 1=1--
-      $uri = 'http://juiceshop.5x7.local/rest/products/search?q=invalid%27%29%29%20or%201%3D1--'
+      $uri = 'http://juiceshop.lab.local/rest/products/search?q=invalid%27%29%29%20or%201%3D1--'
       $res = Invoke-WebRequest -Uri $uri
 
       $res.StatusCode | Should -BeExactly 200

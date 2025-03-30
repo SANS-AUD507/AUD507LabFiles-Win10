@@ -7947,7 +7947,7 @@
 <tag name="operating-system-conf">-1</tag>
 <tag name="operating-system-method">Unknown</tag>
 <tag name="host-rdns">10.50.7.21</tag>
-<tag name="host-fqdns">[{&quot;FQDN&quot;:&quot;juiceshop.5x7.local&quot;,&quot;sources&quot;:[&quot;hostname-A&quot;]},{&quot;FQDN&quot;:&quot;fleet.5x7.local&quot;,&quot;sources&quot;:[&quot;hostname-A&quot;]},{&quot;FQDN&quot;:&quot;10.50.7.21&quot;,&quot;sources&quot;:[&quot;get_host_fqdn()&quot;]}]</tag>
+<tag name="host-fqdns">[{&quot;FQDN&quot;:&quot;juiceshop.lab.local&quot;,&quot;sources&quot;:[&quot;hostname-A&quot;]},{&quot;FQDN&quot;:&quot;fleet.lab.local&quot;,&quot;sources&quot;:[&quot;hostname-A&quot;]},{&quot;FQDN&quot;:&quot;10.50.7.21&quot;,&quot;sources&quot;:[&quot;get_host_fqdn()&quot;]}]</tag>
 <tag name="hostname">ubuntu</tag>
 <tag name="virtual-mac-address">66:24:BF:68:E3:41
 FE:6B:38:0A:C5:AC</tag>
