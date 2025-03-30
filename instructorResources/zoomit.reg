@@ -2,7 +2,7 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\SOFTWARE\Sysinternals\ZoomIt]
 "EulaAccepted"=dword:00000001
-"FilePath"="\"C:\\Users\\student\\aud1-labs\\instructorResources\\ZoomIt.exe\""
+"FilePath"="\"C:\\labFiles\\instructorResources\\ZoomIt.exe\""
 "ToggleKey"=dword:00000231
 "LiveZoomToggleKey"=dword:00000234
 "DrawToggleKey"=dword:00000232
@@ -38,4 +38,4 @@ Windows Registry Editor Version 5.00
 "RecordScaling"=dword:00000064
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
-"ZoomIt"="\"C:\\Users\\student\\aud1-labs\\instructorResources\\ZoomIt.exe\""
+"ZoomIt"="\"C:\\labFiles\\instructorResources\\ZoomIt.exe\""
