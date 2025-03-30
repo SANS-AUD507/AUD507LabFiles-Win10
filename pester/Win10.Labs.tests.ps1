@@ -3,7 +3,7 @@
 <#
 $config=New-PesterConfiguration
 $config.Output.Verbosity='detailed'
-$config.Run.Path='c:\aud1-labs\pester\Win10.Labs.tests.ps1'
+$config.Run.Path='c:\labFiles\pester\Win10.Labs.tests.ps1'
 Invoke-Pester -Configuration $config
 #>
 
@@ -243,7 +243,7 @@ Describe '507 Labs' {
     }
 
     It 'Part 3 - InstalledSoftware script output includes Firefox' {
-      $res = c:\aud1-labs\scripts\InstalledSoftware.ps1
+      $res = c:\labFiles\scripts\InstalledSoftware.ps1
       ($res | Where-Object Displayname -Like '*mozilla*').Count | Should -BeGreaterOrEqual 1
 
     }
@@ -289,7 +289,7 @@ Describe '507 Labs' {
     }
 
     It 'Part 2 - UserRights.psm1 returns admin for debug privilege' {
-      Import-Module c:\aud1-labs\scripts\UserRights.psm1
+      Import-Module c:\labFiles\scripts\UserRights.psm1
       $res = (Get-AccountsWithUserRight -Right SeDebugPrivilege).account
       $res | Should -Contain 'BUILTIN\Administrators'
     }
@@ -371,7 +371,7 @@ Describe '507 Labs' {
     #Inactive/Active/StalePasswordUsers user counts don't really make sense in the lab, so we don't test them
     It 'Part 5 - ADAuditGeneric script returns expected results' {
       Write-Host "Running AD audit script"
-      $res = (c:\aud1-labs\scripts\ADAuditGeneric.ps1 -Server 507dc -Credential $cred)
+      $res = (c:\labFiles\scripts\ADAuditGeneric.ps1 -Server 507dc -Credential $cred)
       $res.NetBiosName | Should -Be 'AUD507'
       $res.DNSRoot | Should -Be 'AUD507.local'
       $res.Forest | Should -Be 'AUD507.local'
@@ -390,8 +390,8 @@ Describe '507 Labs' {
 
   Context 'Lab2.4-NessusSavedScan' {
     BeforeAll {      
-      $cisScan = [system.xml.xmldocument](Get-Content c:\aud1-labs\scans\Win10CIS_L1Demo.nessus)
-      $credScan = [system.xml.xmldocument](Get-Content c:\aud1-labs\scans\Win10demo.nessus)
+      $cisScan = [system.xml.xmldocument](Get-Content c:\labFiles\scans\Win10CIS_L1Demo.nessus)
+      $credScan = [system.xml.xmldocument](Get-Content c:\labFiles\scans\Win10demo.nessus)
       
       $cisReportItems = $cisScan.NessusClientData_v2.Report.ReportHost.ReportItem
       $credReportItems = $credScan.NessusClientData_v2.Report.ReportHost.ReportItem
@@ -399,11 +399,11 @@ Describe '507 Labs' {
     }
 
     It 'Nessus CIS Compliance Scan File Exists' {
-      (Test-Path -Type Leaf -Path c:\aud1-labs\scans\Win10CIS_L1Demo.nessus) | Should -BeTrue
+      (Test-Path -Type Leaf -Path c:\labFiles\scans\Win10CIS_L1Demo.nessus) | Should -BeTrue
     }
 
     It 'Nessus Credentialed Scan File Exists' {
-      (Test-Path -Type Leaf -Path c:\aud1-labs\scans\Win10demo.nessus) | Should -BeTrue
+      (Test-Path -Type Leaf -Path c:\labFiles\scans\Win10demo.nessus) | Should -BeTrue
     }
 
     It 'Part 4 - Compliance result values are correct' {
@@ -466,7 +466,7 @@ Describe '507 Labs' {
 
   Context 'Lab3.4: Ubuntu scan results' {
     BeforeAll {
-      $scan = [system.xml.xmldocument](Get-Content c:\aud1-labs\scans\LinuxDemo.nessus)
+      $scan = [system.xml.xmldocument](Get-Content c:\labFiles\scans\LinuxDemo.nessus)
       $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -EQ '10.50.7.21').ReportItem
     }
 
@@ -478,7 +478,7 @@ Describe '507 Labs' {
 
   Context 'Lab3.4: Alma scan results' {
     BeforeAll {
-      $scan = [system.xml.xmldocument](Get-Content c:\aud1-labs\scans\LinuxDemo.nessus)
+      $scan = [system.xml.xmldocument](Get-Content c:\labFiles\scans\LinuxDemo.nessus)
       $reportItems = ($scan.NessusClientData_v2.Report.ReportHost | Where-Object name -EQ '10.50.7.40').ReportItem
     }
 
@@ -594,7 +594,7 @@ Describe '507 Labs' {
     }
 
     It 'Part 5 - JuiceShop source code ZIP file exists' {
-      Test-Path -Type Leaf -Path c:\aud1-labs\SAST\juice-shop.zip |
+      Test-Path -Type Leaf -Path c:\labFiles\SAST\juice-shop.zip |
         Should -BeTrue
     }
   }
@@ -618,10 +618,10 @@ Describe '507 Labs' {
         'morty'
       )
       #Check that the namesLower file exists
-      Test-Path -Type Leaf -Path c:\aud1-labs\injection\namesLower.txt |
+      Test-Path -Type Leaf -Path c:\labFiles\injection\namesLower.txt |
         Should -BeTrue
       #Read the names file
-      $nameFile = Get-Content c:\aud1-labs\injection\namesLower.txt
+      $nameFile = Get-Content c:\labFiles\injection\namesLower.txt
       
       foreach ( $name in $validNames) {
         #Check that each name in the in file
@@ -638,10 +638,10 @@ Describe '507 Labs' {
 
     It 'Part 3 - Password for Jim works' {
       #Ensure the password list file is present
-      Test-Path -Type Leaf -Path c:\aud1-labs\injection\passwords.txt |
+      Test-Path -Type Leaf -Path c:\labFiles\injection\passwords.txt |
         Should -BeTrue
       #Test that Jim's password is there
-      $passwords = Get-Content c:\aud1-labs\injection\passwords.txt
+      $passwords = Get-Content c:\labFiles\injection\passwords.txt
       $passwords | Should -Contain  'ncc-1701'
 
       #Test that you can login as Jim

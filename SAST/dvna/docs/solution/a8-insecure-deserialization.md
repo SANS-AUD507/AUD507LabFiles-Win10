@@ -26,8 +26,9 @@ var y = {
 
 **Vulnerable Code snippet**
 
-*core/appHandler.js*
-```         
+_core/appHandler.js_
+
+```
 ...
 module.exports.bulkProductsLegacy = function (req,res){
 	// TODO: Deprecate this soon
@@ -40,7 +41,8 @@ module.exports.bulkProductsLegacy = function (req,res){
 
 Since the required feature is to essentially parse a JSON, it can be parsed securely using `JSON.parse` instead.
 
-*core/appHandler.js*
+_core/appHandler.js_
+
 ```
 ...
 module.exports.bulkProductsLegacy = function (req,res){
@@ -54,7 +56,7 @@ module.exports.bulkProductsLegacy = function (req,res){
 
 Implemented in the following files
 
-- *core/appHandler.js*
+- _core/appHandler.js_
 
 The fix has been implemented in this [commit](https://github.com/appsecco/dvna/commit/624a4ee88b3af804271d183f2921448851ddbfff)
 
