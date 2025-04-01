@@ -38,6 +38,6 @@ echo Setting default Terminal
 reg import c:\labFiles\config\wt.reg
 
 echo Setting desktop background
-c:\tools\LGPO.exe /g c:\tools\desktopGPO
+c:\tools\LGPO.exe /g c:\labFiles\config\desktopGPO
 
 shutdown /r /t 5
