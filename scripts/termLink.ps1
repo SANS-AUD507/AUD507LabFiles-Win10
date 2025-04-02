@@ -28,7 +28,7 @@ $ShortcutFile = "c:\users\student\Desktop\BurpProxy.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetPath
-$Shortcut.IconLocation = '"C:\tools\burpsuiteCommunity\burp.ico"'
+$Shortcut.IconLocation = "C:\tools\burpsuiteCommunity\burp.ico"
 $Shortcut.Save()
 
 # Pin labFiles Folder to Quick Access
