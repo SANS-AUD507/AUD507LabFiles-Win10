@@ -37,6 +37,9 @@ copy /y c:\labFiles\config\hosts c:\windows\system32\drivers\etc\hosts
 echo Setting default Terminal
 reg import c:\labFiles\config\wt.reg
 
+echo Disabling server manager on startup
+reg import c:\labFiles\config\servermanager.reg
+
 echo Setting desktop background
 c:\tools\LGPO.exe /g c:\labFiles\config\desktopGPO
 
