@@ -5,12 +5,12 @@ $pass = "student1234!"
 $server = "https://fleet.lab.local:8443"
 
 #Get an auth token for the Fleet API
-$body="{`"email`":`"$user`",`"password`":`"$pass`"}"
+$body = "{`"email`":`"$user`",`"password`":`"$pass`"}"
 $uri = "$server/api/v1/fleet/login"
 
 $token = (Invoke-RestMethod -Body $body -Uri $uri `
-  -ContentType 'application/json' -Method Post `
-  -SkipCertificateCheck).token
+    -ContentType 'application/json' -Method Post `
+    -SkipCertificateCheck).token
 
 "Token acquired: $token"
 $ssToken = ConvertTo-SecureString -String $token -AsPlainText -Force
@@ -23,7 +23,7 @@ $polDescription = "Find Windows machines with build == (19998 OR 19999)"
 $polResolution = "Schedule host for OS upgrade with change authorization board"
 $polPlatform = "windows"
 
-$body=@"
+$body = @"
 {
   `"query`":`"$polQuery`",
   `"name`":`"$polName`",
@@ -39,12 +39,12 @@ Invoke-RestMethod -Body $body -Uri $uri `
   -SkipCertificateCheck -Authentication Bearer -Token $ssToken
 
 #Build up and run the API call to create an OSQuery version policy
-$polQuery = "SELECT version FROM osquery_info where version like '5.8.%';"
+$polQuery = "SELECT version FROM osquery_info where version like '5.16.%';"
 $polName = "Osquery version number (API created)"
-$polDescription = "Find all machines with osquery build == 5.8.*"
+$polDescription = "Find all machines with osquery build == 5.16.*"
 $polResolution = "Schedule host for osquery upgrade with system engineering team"
 
-$body="{`"query`":`"$polQuery`",`"name`":`"$polName`",`"description`":`"$polDescription`",`"resolution`":`"$polResolution`"}"
+$body = "{`"query`":`"$polQuery`",`"name`":`"$polName`",`"description`":`"$polDescription`",`"resolution`":`"$polResolution`"}"
 $uri = "$server/api/v1/fleet/global/policies"
 
 Invoke-RestMethod -Body $body -Uri $uri `
@@ -56,7 +56,7 @@ Invoke-RestMethod -Body $body -Uri $uri `
 #Windows Software
 $q = 'select name, version, install_date from programs;'
 $uri = "$server/api/v1/fleet/queries"
-$body=@"
+$body = @"
 {
   `"query`":`"$q`",
   `"name`":`"Windows software (API created)`",
@@ -71,7 +71,7 @@ Invoke-RestMethod -Body $body -Uri $uri `
 #All OS versions
 $q = 'SELECT name,version FROM os_version;'
 $uri = "$server/api/v1/fleet/queries"
-$body=@"
+$body = @"
 {
   `"query`":`"$q`",
   `"name`":`"Host OS Inventory (API created)`"

@@ -36,7 +36,7 @@
       }
     },
     "Homepage": {
-      "URL": "http://10.50.7.50/workbook",
+      "URL": "https://aud507.com",
       "StartPage": "homepage"
     },
     "Extensions": {
@@ -47,18 +47,6 @@
       ]
     },
     "Bookmarks": [
-      {
-        "Title": "Course Workbook (local)",
-        "URL": "http://workbook/workbook",
-        "Placement": "toolbar",
-        "Favicon": "https://www.aud507.com/media/favicon.ico"
-      },
-      {
-        "Title": "SANS Portal Dashboard",
-        "URL": "https://www.sans.org/account",
-        "Placement": "toolbar",
-        "Favicon": "https://www.aud507.com/media/favicon.ico"
-      },
       {
         "Title": "AUD507 Public Wiki",
         "URL": "https://www.aud507.com",
